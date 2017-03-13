@@ -141,7 +141,6 @@ if ($action == "add") {
 	$extrafields->setOptionalsFromPost($extralabels, $object);
 
 	$result = $object->create($user);
-	var_dump($object->error);
 	if ($result < 0) {
 		$action = 'create';
 		setEventMessages(null, $object->errors, 'errors');
