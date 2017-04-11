@@ -80,7 +80,7 @@ if ($resql != - 1) {
     print 'method: "POST",';
     print 'url: "dragdrop.php",';
     print 'data: { nom: data }';
-  	print '});';
+  	print '})';
   	print '.done(function(msg) {';
    	print 'alert( "Data Saved: " + msg );';
    	print '});';
