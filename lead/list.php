@@ -101,6 +101,14 @@ if (empty($user->rights->volvo->stat_all)){
 	$selected_commercial = $user->id;
 }
 
+$user_included=array();
+$sqlusers = "SELECT fk_user FROM " . MAIN_DB_PREFIX . "usergroup_user WHERE fk_usergroup = 1";
+$resqlusers  = $db->query($sqlusers);
+if($resqlusers){
+	while ($users = $db->fetch_object($resqlusers)){
+		$user_included[] = $users->fk_user;
+	}
+}
 
 $filter = array();
 if (! empty($search_ref)) {
@@ -265,7 +273,7 @@ if ($resql != - 1) {
 	$i = 0;
 	print '<table class="noborder" width="100%">';
 	print '<tr class="liste_titre">';
-	print '<td align="center"></td>';
+	print '<td align="center">Action</td>';
 	print_liste_field_titre($langs->trans("Ref"), $_SERVEUR['PHP_SELF'], "t.ref", "", $option, '', $sortfield, $sortorder);
 	print_liste_field_titre($langs->trans("LeadCommercial"), $_SERVEUR['PHP_SELF'], "usr.lastname", "", $option, '', $sortfield, $sortorder);
 	print_liste_field_titre($langs->trans("Customer"), $_SERVEUR['PHP_SELF'], "so.nom", "", $option, '', $sortfield, $sortorder);
@@ -293,7 +301,7 @@ if ($resql != - 1) {
 	print '<td><input type="text" class="flat" name="search_ref" value="' . $search_ref . '" size="5"></td>';
 
 	print '<td class="liste_titre">';
-	print  $form->select_dolusers($search_commercial,'search_commercial',1,array(),$search_commercial_disabled);
+	print  $form->select_dolusers($search_commercial,'search_commercial',1,array(),$search_commercial_disabled,$user_included);
 	print '</td>';
 
 	print '<td class="liste_titre">';
@@ -334,7 +342,7 @@ if ($resql != - 1) {
 	print '<td id="totalmarginreal" align="right"></td>';
 
 	print "</tr>\n";
-	print '</form>';
+
 
 	$var = true;
 	$totalamountguess = 0;
@@ -354,6 +362,17 @@ if ($resql != - 1) {
 			$new = '<img src="' . DOL_URL_ROOT . '/theme/eldy/img/object_company.png">';
 		}
 
+
+		$list = '<select class="flat" id="action_'.$lead->id.'" name="action_"'.$lead->id.'>';
+    	$list.= '<option value="0" selected> </option>';
+    	if($lead->status_label !='Traitée') $list.= '<option value="1">traitée</option>';
+    	if($lead->status_label !='Perdue') $list.= '<option value="2">perdue</option>';
+    	if($lead->status_label !='Sans suite') $list.= '<option value="3">sans suite</option>';
+    	if($lead->status_label !='En cours') $list.= '<option value="4">En cours</option>';
+    	if(empty($lead->array_options["options_chaude"])) $list.= '<option value="5">Chaude</option>';
+    	if(!empty($lead->array_options["options_chaude"])) $list.= '<option value="6">Non Chaude</option>';
+        $list.= '</select>';
+
 		/**
 		 * @var Lead $line
 		 */
@@ -362,7 +381,7 @@ if ($resql != - 1) {
 		$var = ! $var;
 		print '<tr ' . $bc[$var] . '>';
 
-		print '<td align="center"><a href="card.php?id=' . $line->id . '&action=edit">' . img_picto($langs->trans('Edit'), 'edit') . '</td>';
+		print '<td align="center">' . $list . '</td>';
 
 		// Ref
 		print '<td><a href="card.php?id=' . $line->id . '">' . $line->ref . '</a>';
@@ -442,6 +461,8 @@ if ($resql != - 1) {
 	}
 
 	print "</table>";
+
+	print '</form>';
 
 	print '<script type="text/javascript" language="javascript">' . "\n";
 	print '$(document).ready(function() {
