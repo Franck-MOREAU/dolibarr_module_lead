@@ -80,7 +80,7 @@ if ($resql != - 1) {
 	print '</script>';
 
 
-	print '<table class="noborder" width="100%">';
+	print '<table class="border" width="100%">';
 	print '<tr class="liste_titre">';
 	print '<td class="liste_titre" align="center" widht="25%">En Cours</td>';
 	print '<td class="liste_titre" align="center" widht="25%">Traités</td>';
@@ -94,9 +94,11 @@ if ($resql != - 1) {
 		print '<tr>';
 		print'<td id="div'. $line->id . '" draggable="true" ondragstart="drag(event)" class="cal_event cal_event_busy">' .$line->ref .'</div>';
 		$i[]=$line->id;
-		print '<td>';
+		print '<td id="recp1' . $line->id . '" ondrop="drop(event)" ondragover="allowDrop(event)">';
 		print '</td>';
-		print '<td>';
+		print '<td id="recp2' . $line->id . '" ondrop="drop(event)" ondragover="allowDrop(event)">';;
+		print '</td>';
+		print '<td id="recp2' . $line->id . '" ondrop="drop(event)" ondragover="allowDrop(event)">';;
 		print '</td>';
 		print '</tr>';
 	}
