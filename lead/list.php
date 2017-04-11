@@ -423,9 +423,10 @@ if ($resql != - 1) {
     	if($lead->status_label !='Sans suite' && $lead->getnbchassisreal() ==0)	$list.= '<option value="4">sans suite</option>';
     	if($lead->status_label !='En cours' && $lead->getnbchassisreal() == 0) $list.= '<option value="5">En cours</option>';
     	if(empty($lead->array_options["options_chaude"]) && $lead->status_label =='En cours') $list.= '<option value="6">Chaude</option>';
-    	if(!empty($lead->array_options["options_chaude"]) && $lead->status_label =='En cours') 	$list.= '<option value="7">Non Chaude</option>';        $list.= '</select>';
+    	if(!empty($lead->array_options["options_chaude"]) && $lead->status_label =='En cours') 	$list.= '<option value="7">Non Chaude</option>';
     	if(empty($lead->array_options["options_new"])) $list.= '<option value="8">Nouveau client</option>';
-    	if(!empty($lead->array_options["options_new"])) 	$list.= '<option value="9">Déja client</option>';        $list.= '</select>';
+    	if(!empty($lead->array_options["options_new"])) 	$list.= '<option value="9">Déja client</option>';
+    	$list.= '</select>';
         $list.= '<input type="image" class="liste_titre" name="do_action" src="' . DOL_URL_ROOT . '/theme/' . $conf->theme . '/img/tick.png" value="' . $line->id . '" title=" ">';
 
 
