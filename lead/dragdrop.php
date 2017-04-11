@@ -1,4 +1,4 @@
 <?php
-$msg = GETPOST('nom');
+$msg = $_POST['nom'];
 echo 'ca marche:' . $msg;
 ?>
