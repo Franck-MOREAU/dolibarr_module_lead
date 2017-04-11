@@ -69,7 +69,7 @@ if ($resql != - 1) {
 	print '}';
 
 	print 'function drag(ev) {';
-    print 'ev.dataTransfer.setData("text", ev.target.id);';
+    print 'ev.dataTransfer.setData("text", ev.caller.id);';
 	print '}';
 
 	print 'function drop(ev, source) {';
