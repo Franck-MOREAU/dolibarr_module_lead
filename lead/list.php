@@ -390,7 +390,7 @@ if ($resql != - 1) {
     		$nb++;
     	}
         $list.= '</select>';
-        if($nb==0) $list ='';
+        if($nb==0) $list ='Acune action possible';
 
 		/**
 		 * @var Lead $line
