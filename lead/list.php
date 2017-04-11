@@ -129,12 +129,12 @@ if($do_action > 0){
 			$lead = new Leadext($db);
 			$lead->fetch($do_action);
 			$lead->array_options["options_chaude"] = 1;
-			$lead->insertExtraFields();
+			$lead->update($user);
 		}elseif($act_type == 6){
 			$lead = new Leadext($db);
 			$lead->fetch($do_action);
 			$lead->array_options["options_chaude"] = 0;
-			$lead->insertExtraFields();
+			$lead->update($user);
 		}
 	}
 }
