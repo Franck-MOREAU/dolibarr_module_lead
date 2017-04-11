@@ -295,11 +295,9 @@ $resql = $object->fetch_all($sortorder, $sortfield, $conf->liste_limit, $offset,
 if ($resql != - 1) {
 	$num = $resql;
 
-	print $search_commercial;
-
 	print_barre_liste($title, $page, $_SERVER['PHP_SELF'], $option, $sortfield, $sortorder, '', $num, $nbtotalofrecords);
 
-	//var_dump($reprise->carrosserie_dict);
+
 
 	print '<form method="post" action="' . $_SERVER['PHP_SELF'] . '" name="search_form">' . "\n";
 
@@ -373,7 +371,6 @@ if ($resql != - 1) {
 	print $formlead->select_lead_type($search_type, 'search_type', 1);
 	print '</td>';
 
-	//var_dump($reprise);
 
 	print '<td class="liste_titre">';
 	print $form->selectarray('search_eftype',$reprise->gamme,$search_eftype,1);
