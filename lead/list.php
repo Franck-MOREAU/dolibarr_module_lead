@@ -103,7 +103,7 @@ if($do_action > 0){
 	$act_type = GETPOST('action_'.$do_action,'int');
 	if(isset($act_type)){
 		if($act_type==1){
-			header('Location: ' . DOL_URL_ROOT . '/custom/lead/lead/card.php?id=' . $do_action);
+			header('Location: ' . DOL_URL_ROOT . '/custom/lead/lead/card.php?id=' . $do_action . '&action=edit');
 			exit;
 		}elseif($act_type == 2){
 			$lead = new Leadext($db);
