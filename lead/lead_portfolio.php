@@ -76,9 +76,9 @@ if ($resql != - 1) {
     print 'ev.preventDefault();';
     print 'var data = ev.dataTransfer.getData("text");';
     print 'ev.target.appendChild(document.getElementById(data));';
-    print ' $(ev.target).ajax({';
+    print ' $.ajax({';
     print 'method: "POST",';
-    print 'url: "' . DOL_URL_ROOT . '/custom/lead/lead/dragdrop.php",';
+    print 'url: "/dragdrop.php",';
     print 'data: { nom: data }';
   	print '});';
 	print '}';
