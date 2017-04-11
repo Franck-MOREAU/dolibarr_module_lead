@@ -362,36 +362,17 @@ if ($resql != - 1) {
 			$new = '<img src="' . DOL_URL_ROOT . '/theme/eldy/img/object_company.png">';
 		}
 
-		$nb=0;
 		$list = '<select class="flat" id="action_' . $line->id . '" name="action_' . $line->id . '">';
     	$list.= '<option value="0" selected> </option>';
-    	if($lead->status_label !='Traitée') {
-    		$list.= '<option value="1">traitée</option>';
-    		$nb++;
-    	}
-    	if($lead->status_label !='Perdue' && $lead->getnbchassisreal() ==0){
-    		$list.= '<option value="2">perdue</option>';
-    		$nb++;
-    	}
-    	if($lead->status_label !='Sans suite' && $lead->getnbchassisreal() ==0){
-    		$list.= '<option value="3">sans suite</option>';
-    		$nb++;
-    	}
-    	if($lead->status_label !='En cours' && $lead->getnbchassisreal() == 0){
-    		$list.= '<option value="4">En cours</option>';
-    		$nb++;
-    	}
-    	if(empty($lead->array_options["options_chaude"]) && $lead->status_label =='En cours'){
-    		$list.= '<option value="5">Chaude</option>';
-    		$nb++;
-    	}
-    	if(!empty($lead->array_options["options_chaude"]) && $lead->status_label =='En cours'){
-    		$list.= '<option value="6">Non Chaude</option>';
-    		$nb++;
-    	}
-        $list.= '</select>';
+    	$list.= '<option value="0" selected>Editer</option>';
+    	if($lead->status_label !='Traitée') $list.= '<option value="2">traitée</option>'
+    	if($lead->status_label !='Perdue' && $lead->getnbchassisreal() ==0) $list.= '<option value="3">perdue</option>';
+    	if($lead->status_label !='Sans suite' && $lead->getnbchassisreal() ==0)	$list.= '<option value="4">sans suite</option>';
+    	if($lead->status_label !='En cours' && $lead->getnbchassisreal() == 0) $list.= '<option value="5">En cours</option>';
+    	if(empty($lead->array_options["options_chaude"]) && $lead->status_label =='En cours') $list.= '<option value="6">Chaude</option>';
+    	if(!empty($lead->array_options["options_chaude"]) && $lead->status_label =='En cours') 	$list.= '<option value="7">Non Chaude</option>';        $list.= '</select>';
         $list.= '<input type="image" class="liste_titre" name="do_action" src="' . DOL_URL_ROOT . '/theme/' . $conf->theme . '/img/tick.png" value="' . $line->id . '" title=" ">';
-        if($nb==0) $list ='Acune action possible';
+
 
 		/**
 		 * @var Lead $line
