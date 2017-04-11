@@ -390,6 +390,7 @@ if ($resql != - 1) {
     		$nb++;
     	}
         $list.= '</select>';
+        $list.= '<input type="image" class="liste_titre" name="button_removefilter" src="' . DOL_URL_ROOT . '/theme/' . $conf->theme . '/img/tick.png" value="do_action" title=" ">';
         if($nb==0) $list ='Acune action possible';
 
 		/**
