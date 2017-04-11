@@ -81,6 +81,9 @@ if ($resql != - 1) {
     print 'url: "dragdrop.php",';
     print 'data: { nom: data }';
   	print '});';
+  	print '.done(function(msg) {';
+   	print 'alert( "Data Saved: " + msg );';
+   	print '});';
 	print '}';
 	print '</script>';
 
