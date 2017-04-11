@@ -366,11 +366,11 @@ if ($resql != - 1) {
 		$list = '<select class="flat" id="action_'.$lead->id.'" name="action_"'.$lead->id.'>';
     	$list.= '<option value="0" selected> </option>';
     	if($lead->status_label !='Traitée') $list.= '<option value="1">traitée</option>';
-    	if($lead->status_label !='Perdue') $list.= '<option value="2">perdue</option>';
-    	if($lead->status_label !='Sans suite') $list.= '<option value="3">sans suite</option>';
-    	if($lead->status_label !='En cours') $list.= '<option value="4">En cours</option>';
-    	if(empty($lead->array_options["options_chaude"])) $list.= '<option value="5">Chaude</option>';
-    	if(!empty($lead->array_options["options_chaude"])) $list.= '<option value="6">Non Chaude</option>';
+    	if($lead->status_label !='Perdue' && $lead->getnbchassisreal() ==0) $list.= '<option value="2">perdue</option>';
+    	if($lead->status_label !='Sans suite' && $lead->getnbchassisreal() ==0) $list.= '<option value="3">sans suite</option>';
+    	if($lead->status_label !='En cours' && $lead->getnbchassisreal() == 0) $list.= '<option value="4">En cours</option>';
+    	if(empty($lead->array_options["options_chaude"]) && $lead->status_label =='En cours') $list.= '<option value="5">Chaude</option>';
+    	if(!empty($lead->array_options["options_chaude"]) && $lead->status_label =='En cours') $list.= '<option value="6">Non Chaude</option>';
         $list.= '</select>';
 
 		/**
