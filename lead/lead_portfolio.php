@@ -68,18 +68,20 @@ if ($resql != - 1) {
     print 'ev.preventDefault();';
 	print '}';
 
-	print 'function drag(ev) {';
-    print 'ev.dataTransfer.setData("text", ev.target.id);';
+	print 'function drag(ev,ui) {';
+    print 'ev.dataTransfer.setData("target", ev.target.id);';
+    print 'ev.dataTransfer.setData("source", ui.ui.draggable.attr("id"));';
 	print '}';
 
 	print 'function drop(ev, source) {';
     print 'ev.preventDefault();';
-    print 'var data = ev.dataTransfer.getData("text");';
-    print 'ev.target.appendChild(document.getElementById(data));';
+    print 'var target = ev.dataTransfer.getData("target");';
+    print 'var source = ev.dataTransfer.getData("source");';
+    print 'ev.target.appendChild(document.getElementById(target));';
     print ' $.ajax({';
     print 'method: "POST",';
     print 'url: "dragdrop.php",';
-    print 'data: { nom: ev.target.id, org: arguments.callee.caller.toString() }';
+    print 'data: { nom: target, org: source }';
   	print '})';
   	print '.done(function(msg) {';
    	print 'alert( "Data Saved: " + msg );';
@@ -102,7 +104,7 @@ if ($resql != - 1) {
 	print '<td id="encours' . $line->id . '" ondrop="drop(event)" ondragover="allowDrop(event)">';
 	foreach ($object->lines as $line){
 
-		print'<div class="cal_event" style="background: #be7878; background: -webkit-gradient(linear, left top, left bottom, from(#be7878), to(#ae6868)); -moz-border-radius:4px;" id="Affaire'. $line->id . '" draggable="true" ondragstart="drag(event)" class="cal_event cal_event_busy">' .$line->ref .'</div>';
+		print'<div class="cal_event" style="background: #be7878; background: -webkit-gradient(linear, left top, left bottom, from(#be7878), to(#ae6868)); -moz-border-radius:4px;" id="Affaire'. $line->id . '" draggable="true" ondragstart="drag(event,this)" class="cal_event cal_event_busy">' .$line->ref .'</div>';
 
 	}
 	print '</td>';
