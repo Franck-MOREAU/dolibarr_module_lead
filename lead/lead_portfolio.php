@@ -90,19 +90,21 @@ if ($resql != - 1) {
 
 
 	$i=array();
+	print '<tr>';
+	print '<td id="recp1' . $line->id . '" ondrop="drop(event)" ondragover="allowDrop(event)">';
 	foreach ($object->lines as $line){
-		print '<tr>';
-		print '<td id="recp1' . $line->id . '" ondrop="drop(event)" ondragover="allowDrop(event)">';
+
 		print'<div id="div'. $line->id . '" draggable="true" ondragstart="drag(event)" class="cal_event cal_event_busy">' .$line->ref .'</div>';
-		print '</td>';
-		print '<td id="recp2' . $line->id . '" ondrop="drop(event)" ondragover="allowDrop(event)">';;
-		print '</td>';
-		print '<td id="recp3' . $line->id . '" ondrop="drop(event)" ondragover="allowDrop(event)">';;
-		print '</td>';
-		print '<td id="recp4' . $line->id . '" ondrop="drop(event)" ondragover="allowDrop(event)">';
-		print '</td>';
-		print '</tr>';
+
 	}
+	print '</td>';
+	print '<td id="recp2' . $line->id . '" ondrop="drop(event)" ondragover="allowDrop(event)">';;
+	print '</td>';
+	print '<td id="recp3' . $line->id . '" ondrop="drop(event)" ondragover="allowDrop(event)">';;
+	print '</td>';
+	print '<td id="recp4' . $line->id . '" ondrop="drop(event)" ondragover="allowDrop(event)">';
+	print '</td>';
+	print '</tr>';
 	print "</table>";
 
 	print '</form>';
