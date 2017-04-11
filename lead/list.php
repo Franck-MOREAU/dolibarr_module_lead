@@ -363,7 +363,7 @@ if ($resql != - 1) {
 		}
 
 		$nb=0;
-		$list = '<select class="flat" id="action_'.$lead->id.'" name="action_"'.$lead->id.'>';
+		$list = '<select class="flat" id="action_'.$line->id.'" name="action_"'.$line->id.'>';
     	$list.= '<option value="0" selected> </option>';
     	if($lead->status_label !='Traitée') {
     		$list.= '<option value="1">traitée</option>';
@@ -390,7 +390,7 @@ if ($resql != - 1) {
     		$nb++;
     	}
         $list.= '</select>';
-        $list.= '<input type="image" class="liste_titre" name="button_removefilter" src="' . DOL_URL_ROOT . '/theme/' . $conf->theme . '/img/tick.png" value="do_action" title=" ">';
+        $list.= '<input type="image" class="liste_titre" name="do_action" src="' . DOL_URL_ROOT . '/theme/' . $conf->theme . '/img/tick.png" value="' . $line->id . '" title=" ">';
         if($nb==0) $list ='Acune action possible';
 
 		/**
