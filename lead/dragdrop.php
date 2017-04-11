@@ -1,4 +1,5 @@
 <?php
 $msg = $_POST['nom'];
-echo 'ca marche:' . $msg;
+$org = $_POST['org'];
+echo 'ca marche:' . $msg . ' vers ' . $org;
 ?>

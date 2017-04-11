@@ -72,14 +72,14 @@ if ($resql != - 1) {
     print 'ev.dataTransfer.setData("text", ev.target.id);';
 	print '}';
 
-	print 'function drop(ev) {';
+	print 'function drop(ev, target) {';
     print 'ev.preventDefault();';
     print 'var data = ev.dataTransfer.getData("text");';
     print 'ev.target.appendChild(document.getElementById(data));';
     print ' $.ajax({';
     print 'method: "POST",';
     print 'url: "dragdrop.php",';
-    print 'data: { nom: ev.target.id }';
+    print 'data: { nom: ev.target.id, org: target.id }';
   	print '})';
   	print '.done(function(msg) {';
    	print 'alert( "Data Saved: " + msg );';
@@ -106,11 +106,11 @@ if ($resql != - 1) {
 
 	}
 	print '</td>';
-	print '<td id="recp2' . $line->id . '" ondrop="drop(event)" ondragover="allowDrop(event)">';;
+	print '<td id="recp2' . $line->id . '" ondrop="drop(event, this)" ondragover="allowDrop(event)">';;
 	print '</td>';
-	print '<td id="recp3' . $line->id . '" ondrop="drop(event)" ondragover="allowDrop(event)">';;
+	print '<td id="recp3' . $line->id . '" ondrop="drop(event, this)" ondragover="allowDrop(event)">';;
 	print '</td>';
-	print '<td id="recp4' . $line->id . '" ondrop="drop(event)" ondragover="allowDrop(event)">';
+	print '<td id="recp4' . $line->id . '" ondrop="drop(event, this)" ondragover="allowDrop(event)">';
 	print '</td>';
 	print '</tr>';
 	print "</table>";
