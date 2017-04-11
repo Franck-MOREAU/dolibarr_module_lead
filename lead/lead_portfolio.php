@@ -79,7 +79,7 @@ if ($resql != - 1) {
     print ' $.ajax({';
     print 'method: "POST",';
     print 'url: "dragdrop.php",';
-    print 'data: { nom: ev.target.id, org: ev.target.id }';
+    print 'data: { nom: ev.target.id, org: arguments.callee.caller.toString() }';
   	print '})';
   	print '.done(function(msg) {';
    	print 'alert( "Data Saved: " + msg );';
