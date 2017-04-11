@@ -88,19 +88,18 @@ if ($resql != - 1) {
 	print '<td class="liste_titre" align="center" widht="25%">Sans Suite</td>';
 	print "</tr>\n";
 
-	print '<tr>';
-	print '<tr>';
+
 	$i=array();
 	foreach ($object->lines as $line){
+		print '<tr>';
 		print'<td id="div'. $line->id . '" draggable="true" ondragstart="drag(event)" class="cal_event cal_event_busy">' .$line->ref .'</div>';
 		$i[]=$line->id;
+		print '<td>';
+		print '</td>';
+		print '<td>';
+		print '</td>';
+		print '</tr>';
 	}
-	print '<td>';
-	print '</td>';
-	print '<td>';
-	print '</td>';
-	print '</tr>';
-
 	print "</table>";
 
 	print '</form>';
