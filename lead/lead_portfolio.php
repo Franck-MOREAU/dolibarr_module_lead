@@ -92,7 +92,7 @@ if ($resql != - 1) {
 	print '<td>';
 	$i=array();
 	foreach ($object->lines as $line){
-		print'<div id="div'. $line->id . ' draggable="true" ondragstart="drag(event)" class="cal_event cal_event_busy">' .$line->ref .'</div>';
+		print'<div id="div'. $line->id . '" draggable="true" ondragstart="drag(event)" class="cal_event cal_event_busy">' .$line->ref .'</div>';
 		$i[]=$line->id;
 	}
 	print '</td>';
