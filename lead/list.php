@@ -438,7 +438,7 @@ if ($resql != - 1) {
 		$var = ! $var;
 		print '<tr ' . $bc[$var] . '>';
 
-		print '<td align="center" style="display: inline">' . $list . '</td>';
+		print '<td align="center" style="white-space:nowrap">' . $list . '</td>';
 
 		// Ref
 		print '<td><a href="card.php?id=' . $line->id . '">' . $line->ref . '</a>';
