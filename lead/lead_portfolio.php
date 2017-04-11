@@ -69,7 +69,7 @@ if ($resql != - 1) {
 	print '}';
 
 	print 'function drag(ev) {';
-    print 'ev.dataTransfer.setData("text", ev.caller.id);';
+    print 'ev.dataTransfer.setData("text", ev.target.id);';
 	print '}';
 
 	print 'function drop(ev, source) {';
@@ -99,18 +99,18 @@ if ($resql != - 1) {
 
 	$i=array();
 	print '<tr>';
-	print '<td id="recp1' . $line->id . '" ondrop="drop(event)" ondragover="allowDrop(event)">';
+	print '<td id="encours' . $line->id . '" ondrop="drop(event)" ondragover="allowDrop(event)">';
 	foreach ($object->lines as $line){
 
-		print'<div class="cal_event" style="background: #be7878; background: -webkit-gradient(linear, left top, left bottom, from(#be7878), to(#ae6868)); -moz-border-radius:4px;" id="div'. $line->id . '" draggable="true" ondragstart="drag(event)" class="cal_event cal_event_busy">' .$line->ref .'</div>';
+		print'<div class="cal_event" style="background: #be7878; background: -webkit-gradient(linear, left top, left bottom, from(#be7878), to(#ae6868)); -moz-border-radius:4px;" id="Affaire'. $line->id . '" draggable="true" ondragstart="drag(event)" class="cal_event cal_event_busy">' .$line->ref .'</div>';
 
 	}
 	print '</td>';
-	print '<td id="recp2' . $line->id . '" ondrop="drop(event, this)" ondragover="allowDrop(event)">';;
+	print '<td id="traite" ondrop="drop(event, this)" ondragover="allowDrop(event)">';;
 	print '</td>';
-	print '<td id="recp3' . $line->id . '" ondrop="drop(event, this)" ondragover="allowDrop(event)">';;
+	print '<td id="perdu" ondrop="drop(event, this)" ondragover="allowDrop(event)">';;
 	print '</td>';
-	print '<td id="recp4' . $line->id . '" ondrop="drop(event, this)" ondragover="allowDrop(event)">';
+	print '<td id="sans_suite" ondrop="drop(event, this)" ondragover="allowDrop(event)">';
 	print '</td>';
 	print '</tr>';
 	print "</table>";
