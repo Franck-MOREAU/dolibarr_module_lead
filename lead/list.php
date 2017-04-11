@@ -130,7 +130,7 @@ if($do_action > 0){
 			$lead->fetch($do_action);
 			$lead->array_options["options_chaude"] = 1;
 			$lead->update($user);
-		}elseif($act_type == 6){
+		}elseif($act_type == 7){
 			$lead = new Leadext($db);
 			$lead->fetch($do_action);
 			$lead->array_options["options_chaude"] = 0;
