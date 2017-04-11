@@ -365,7 +365,7 @@ if ($resql != - 1) {
 		$list = '<select class="flat" id="action_' . $line->id . '" name="action_' . $line->id . '">';
     	$list.= '<option value="0" selected> </option>';
     	$list.= '<option value="0" selected>Editer</option>';
-    	if($lead->status_label !='Traitée') $list.= '<option value="2">traitée</option>'
+    	if($lead->status_label !='Traitée') $list.= '<option value="2">traitée</option>';
     	if($lead->status_label !='Perdue' && $lead->getnbchassisreal() ==0) $list.= '<option value="3">perdue</option>';
     	if($lead->status_label !='Sans suite' && $lead->getnbchassisreal() ==0)	$list.= '<option value="4">sans suite</option>';
     	if($lead->status_label !='En cours' && $lead->getnbchassisreal() == 0) $list.= '<option value="5">En cours</option>';
