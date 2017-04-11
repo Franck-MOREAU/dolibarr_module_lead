@@ -143,7 +143,7 @@ if($do_action > 0){
 		}elseif($act_type == 9){
 			$lead = new Leadext($db);
 			$lead->fetch($do_action);
-			$lead->array_options["options_new"] = 0;
+			$lead->array_options["options_new"] = 1;
 			$lead->update($user);
 		}
 	}
