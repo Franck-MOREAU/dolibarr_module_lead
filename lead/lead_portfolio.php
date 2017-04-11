@@ -76,6 +76,11 @@ if ($resql != - 1) {
     print 'ev.preventDefault();';
     print 'var data = ev.dataTransfer.getData("text");';
     print 'ev.target.appendChild(document.getElementById(data));';
+    print ' $(ev.target).ajax({';
+    print 'method: "POST",';
+    print 'url: "dragdrop.php",';
+    print 'data: { nom: data }';
+  	print '});';
 	print '}';
 	print '</script>';
 
