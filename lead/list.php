@@ -38,6 +38,8 @@ require_once DOL_DOCUMENT_ROOT . '/compta/facture/class/facture.class.php';
 require_once DOL_DOCUMENT_ROOT . '/volvo/class/reprise.class.php';
 require_once DOL_DOCUMENT_ROOT . '/volvo/class/lead.extend.class.php';
 
+global $user;
+
 $reprise = new Reprise($db);
 
 // Security check
@@ -47,6 +49,8 @@ if (! $user->rights->lead->read)
 $sortorder = GETPOST('sortorder', 'alpha');
 $sortfield = GETPOST('sortfield', 'alpha');
 $page = GETPOST('page', 'int');
+$do_action = GETPOST('do_action','int');
+
 
 //Socid is fill when come from thirdparty tabs
 $socid=GETPOST('socid','int');
@@ -93,6 +97,46 @@ if (GETPOST("button_removefilter_x")) {
 	$search_carrosserie = '';
 	$search_month = '';
 	$search_year = '';
+}
+
+if($do_action > 0){
+	$act_type = GETPOST('action_'.$do_action,'int');
+	if(isset($act_type)){
+		if($act_type==1){
+			header('Location: ' . DOL_URL_ROOT . '/custom/lead/lead/card.php?id=' . $do_action);
+			exit;
+		}elseif($act_type == 2){
+			$lead = new Leadext($db);
+			$lead->fetch($do_action);
+			$lead->status = 6;
+			$lead->update($user);
+		}elseif($act_type == 3){
+			$lead = new Leadext($db);
+			$lead->fetch($do_action);
+			$lead->status = 7;
+			$lead->update($user);
+		}elseif($act_type == 4){
+			$lead = new Leadext($db);
+			$lead->fetch($do_action);
+			$lead->status = 11;
+			$lead->update($user);
+		}elseif($act_type == 5){
+			$lead = new Leadext($db);
+			$lead->fetch($do_action);
+			$lead->status = 5;
+			$lead->update($user);
+		}elseif($act_type == 6){
+			$lead = new Leadext($db);
+			$lead->fetch($do_action);
+			$lead->lead->array_options["options_chaude"] = 1;
+			$lead->insertExtraFields();
+		}elseif($act_type == 6){
+			$lead = new Leadext($db);
+			$lead->fetch($do_action);
+			$lead->lead->array_options["options_chaude"] = 0;
+			$lead->insertExtraFields();
+		}
+	}
 }
 
 $search_commercial_disabled = 0;
@@ -474,20 +518,6 @@ if ($resql != - 1) {
 	print "\n" . '</script>' . "\n";
 } else {
 	setEventMessages(null, $object->errors, 'errors');
-}
-
-if (!empty($socid)) {
-	//print '</div>';
-	print '<div class="tabsAction">';
-	if ($user->rights->lead->write)
-	{
-		print '<div class="inline-block divButAction"><a class="butAction" href="'.dol_buildpath('/lead/lead/card.php',1).'?action=create&socid='.$socid.'">'.$langs->trans('LeadCreate').'</a></div>';
-	}
-	else
-	{
-		print '<div class="inline-block divButAction"><a class="butActionRefused" href="#" title="'.dol_escape_htmltag($langs->trans("NotAllowed")).'">'.$langs->trans('LeadCreate').'</a></div>';
-	}
-	print '</div>';
 }
 
 dol_fiche_end();
