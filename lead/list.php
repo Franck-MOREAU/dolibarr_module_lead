@@ -427,7 +427,7 @@ if ($resql != - 1) {
     	if(empty($lead->array_options["options_new"])) $list.= '<option value="8">Nouveau C</option>';
     	if(!empty($lead->array_options["options_new"])) 	$list.= '<option value="9">Déja C</option>';
     	$list.= '</select>';
-        $list.= '<input type="image" class="liste_titre" name="do_action" src="' . DOL_URL_ROOT . '/theme/' . $conf->theme . '/img/tick.png" value="' . $line->id . '" title=" ">';
+        $list.= '<button type="submit" name="do_action" value="' . $line->id . '"><img src="' . DOL_URL_ROOT . '/theme/' . $conf->theme . '/img/tick.png">';
 
 
 		/**
