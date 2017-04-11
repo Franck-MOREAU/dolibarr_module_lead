@@ -94,7 +94,7 @@ if ($resql != - 1) {
 	print '<td id="recp1' . $line->id . '" ondrop="drop(event)" ondragover="allowDrop(event)">';
 	foreach ($object->lines as $line){
 
-		print'<div id="div'. $line->id . '" draggable="true" ondragstart="drag(event)" class="cal_event cal_event_busy">' .$line->ref .'</div>';
+		print'<div class="cal_event" style="background: #be7878; background: -webkit-gradient(linear, left top, left bottom, from(#be7878), to(#ae6868)); -moz-border-radius:4px;" id="div'. $line->id . '" draggable="true" ondragstart="drag(event)" class="cal_event cal_event_busy">' .$line->ref .'</div>';
 
 	}
 	print '</td>';
