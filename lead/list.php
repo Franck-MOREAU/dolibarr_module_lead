@@ -363,7 +363,7 @@ if ($resql != - 1) {
 		}
 
 		$nb=0;
-		$list = '<select class="flat" id="action_'.$line->id.'" name="action_"'.$line->id.'>';
+		$list = '<select class="flat" id="action_' . $line->id . '" name="action_"' . $line->id . '>';
     	$list.= '<option value="0" selected> </option>';
     	if($lead->status_label !='Traitée') {
     		$list.= '<option value="1">traitée</option>';
