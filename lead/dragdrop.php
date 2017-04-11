@@ -1,3 +1,4 @@
 <?php
-echo 'ca marche';
+$msg = GETPOST('nom');
+echo 'ca marche:' . $msg;
 ?>
