@@ -72,14 +72,14 @@ if ($resql != - 1) {
     print 'ev.dataTransfer.setData("text", ev.target.id);';
 	print '}';
 
-	print 'function drop(ev, target) {';
+	print 'function drop(ev, source) {';
     print 'ev.preventDefault();';
     print 'var data = ev.dataTransfer.getData("text");';
     print 'ev.target.appendChild(document.getElementById(data));';
     print ' $.ajax({';
     print 'method: "POST",';
     print 'url: "dragdrop.php",';
-    print 'data: { nom: ev.target.id, org: this.id }';
+    print 'data: { nom: ev.target.id, org: source.id }';
   	print '})';
   	print '.done(function(msg) {';
    	print 'alert( "Data Saved: " + msg );';
