@@ -69,19 +69,17 @@ if ($resql != - 1) {
 	print '}';
 
 	print 'function drag(ev,ui) {';
-    print 'ev.dataTransfer.setData("target", ev.target.id);';
-    print 'ev.dataTransfer.setData("source", ui.ui.draggable.attr("id"));';
-	print '}';
+    print 'ev.dataTransfer.setData("element", ev.target.id);';
+    print '}';
 
 	print 'function drop(ev, source) {';
     print 'ev.preventDefault();';
-    print 'var target = ev.dataTransfer.getData("target");';
-    print 'var source = ev.dataTransfer.getData("source");';
-    print 'ev.target.appendChild(document.getElementById(target));';
+    print 'var element = ev.dataTransfer.getData("element");';
+    print 'ev.target.appendChild(document.getElementById(element));';
     print ' $.ajax({';
     print 'method: "POST",';
     print 'url: "dragdrop.php",';
-    print 'data: { nom: target, org: source }';
+    print 'data: { nom: target, org: ev.target.id }';
   	print '})';
   	print '.done(function(msg) {';
    	print 'alert( "Data Saved: " + msg );';
