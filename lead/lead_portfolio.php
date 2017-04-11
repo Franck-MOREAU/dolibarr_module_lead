@@ -57,7 +57,7 @@ $title = 'Portefeuille d\'affaire';
 
 llxHeader('', $title);
 
-$filter['t.fk_user_resp'] = $user->id;
+$filter['t.fk_user_resp'] =4;
 $filter['t.fk_c_status !IN'] = '6,7,11';
 
 $resql = $object->fetch_all($sortorder, $sortfield, $conf->liste_limit, $offset, $filter);
