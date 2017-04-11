@@ -416,7 +416,7 @@ if ($resql != - 1) {
 			$new = '<img src="' . DOL_URL_ROOT . '/theme/eldy/img/object_company.png">';
 		}
 
-		$list = '<select class="flat" id="action_' . $line->id . '" name="action_' . $line->id . '">';
+		$list = '<select class="flat" id="action_' . $line->id . '" name="action_' . $line->id . '" style="width: 50px;">';
     	$list.= '<option value="1" selected>Editer</option>';
     	if($lead->status_label !='Traitée') $list.= '<option value="2">traitée</option>';
     	if($lead->status_label !='Perdu' && $lead->getnbchassisreal() ==0) $list.= '<option value="3">perdue</option>';
