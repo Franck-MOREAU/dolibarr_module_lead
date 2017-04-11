@@ -98,7 +98,7 @@ if ($resql != - 1) {
 		print '</td>';
 		print '<td id="recp2' . $line->id . '" ondrop="drop(event)" ondragover="allowDrop(event)">';;
 		print '</td>';
-		print '<td id="recp2' . $line->id . '" ondrop="drop(event)" ondragover="allowDrop(event)">';;
+		print '<td id="recp3' . $line->id . '" ondrop="drop(event)" ondragover="allowDrop(event)">';;
 		print '</td>';
 		print '</tr>';
 	}
