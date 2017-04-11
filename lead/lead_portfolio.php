@@ -89,30 +89,17 @@ if ($resql != - 1) {
 	print "</tr>\n";
 
 	print '<tr>';
-	print '<td>';
+	print '<tr>';
 	$i=array();
 	foreach ($object->lines as $line){
-		print'<div id="div'. $line->id . '" draggable="true" ondragstart="drag(event)" class="cal_event cal_event_busy">' .$line->ref .'</div>';
+		print'<td id="div'. $line->id . '" draggable="true" ondragstart="drag(event)" class="cal_event cal_event_busy">' .$line->ref .'</div>';
 		$i[]=$line->id;
 	}
+	print '<td>';
 	print '</td>';
 	print '<td>';
-	foreach ($i as $id){
-		print '<div id="div' . $id . '" ondrop="drop(event)" ondragover="allowDrop(event)"></div>';
-	}
 	print '</td>';
-	print '<td>';
-	foreach ($i as $id){
-		print '<div id="div' . $id . '" ondrop="drop(event)" ondragover="allowDrop(event)"></div>';
-	}
-	print '</td>';
-	print '<td>';
-	foreach ($i as $id){
-		print '<div id="div' . $id . '" ondrop="drop(event)" ondragover="allowDrop(event)"></div>';
-	}
-	print '</td>';
-
-	print "</tr>\n";
+	print '</tr>';
 
 	print "</table>";
 
