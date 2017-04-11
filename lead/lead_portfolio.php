@@ -78,7 +78,7 @@ if ($resql != - 1) {
     print 'ev.target.appendChild(document.getElementById(data));';
     print ' $.ajax({';
     print 'method: "POST",';
-    print 'url: "/dragdrop.php",';
+    print 'url: "dragdrop.php",';
     print 'data: { nom: data }';
   	print '});';
 	print '}';
