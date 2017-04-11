@@ -108,22 +108,22 @@ if($do_action > 0){
 		}elseif($act_type == 2){
 			$lead = new Leadext($db);
 			$lead->fetch($do_action);
-			$lead->status = 6;
+			$lead->fk_c_status = 6;
 			$lead->update($user);
 		}elseif($act_type == 3){
 			$lead = new Leadext($db);
 			$lead->fetch($do_action);
-			$lead->status = 7;
+			$lead->fk_c_status = 7;
 			$lead->update($user);
 		}elseif($act_type == 4){
 			$lead = new Leadext($db);
 			$lead->fetch($do_action);
-			$lead->status = 11;
+			$lead->fk_c_status = 11;
 			$lead->update($user);
 		}elseif($act_type == 5){
 			$lead = new Leadext($db);
 			$lead->fetch($do_action);
-			$lead->status = 5;
+			$lead->fk_c_status = 5;
 			$lead->update($user);
 		}elseif($act_type == 6){
 			$lead = new Leadext($db);
