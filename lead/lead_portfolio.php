@@ -61,6 +61,7 @@ $filter['t.fk_user_resp'] =4;
 $filter['t.fk_c_status !IN'] = '6,7,11';
 
 $resql = $object->fetch_all($sortorder, $sortfield, $conf->liste_limit, $offset, $filter);
+$mid = $resql/2;
 
 if ($resql != - 1) {
 	print '<script>';
@@ -94,7 +95,7 @@ if ($resql != - 1) {
 
 	print '<table class="border" width="100%">';
 	print '<tr class="liste_titre">';
-	print '<td class="liste_titre" align="center">En Cours</td>';
+	print '<td class="liste_titre" align="center" colspan="2">En Cours</td>';
 	print '<td class="liste_titre" align="center">Traités</td>';
 	print '<td class="liste_titre" align="center">Perdues</td>';
 	print '<td class="liste_titre" align="center">Sans Suite</td>';
@@ -103,7 +104,7 @@ if ($resql != - 1) {
 
 	$i=array();
 	print '<tr>';
-	print '<td style="width:500px"><div id="encours" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:490px">';
+	print '<td><div id="encours" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:205px">';
 	$i=0;
 	foreach ($object->lines as $line){
 		$line->fetch_thirdparty();
@@ -131,8 +132,6 @@ if ($resql != - 1) {
 			$color = '#cccccc';
 			$color2= '#b2b2b2';
 		}
-		// ondrop="dropnot(event,this)"
-		if($i==0) print '<div style="display: flex; width:480px;">';
 		print '<span draggable="true" ondragstart="drag(event,this)" ondragover="false" id="'. $line->id . '" style="display: inline; width:225px;">';
 		print'<div class="cal_event cal_event_busy" style="background: -webkit-gradient(linear, left top, left bottom, from('.$color.'), to('.$color2.'));';
 		print ' -moz-border-radius:4px; width:200px;">';
@@ -142,12 +141,13 @@ if ($resql != - 1) {
 		print '</div>';
 		print '</br>';
 		print '</span>';
-		$i++;
-		if($i==2){
-			print '</div>';
-			$i=0;
-		}
 
+		$i++;
+		if ($i>= mid){
+			print '</div></td>';
+			print '<td><div id="encours" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:205px">';
+			$i =0;
+		}
 	}
 	print '</div></td>';
 	print '<td style="width:500px"><div id="traite" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:490px">';
