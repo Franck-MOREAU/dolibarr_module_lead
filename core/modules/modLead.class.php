@@ -419,7 +419,7 @@ class modLead extends DolibarrModules
 				'type' => 'left',
 				'titre' => 'Mes affaires',
 				'leftmenu' => 'my',
-				'url' => '/lead/lead_portfolio.php',
+				'url' => '/lead/lead/lead_portfolio.php',
 				'langs' => 'lead@lead',
 				'position' => 100+$r,
 				'enabled' => '$user->rights->lead->read',
