@@ -266,7 +266,7 @@ foreach ($lines2 as $line){
 	if ($i>= $mid4){
 		print '</div></td>';
 		print '<td class="colone" style="height:140px;"><div align="center" id="traite_2" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:140px; width:219px; overflow: auto;">';
-		$i++;
+		$i =-1*$i;
 	}
 }
 if($mid4==0){
