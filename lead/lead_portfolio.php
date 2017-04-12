@@ -95,7 +95,7 @@ if ($resql != - 1) {
 
 	print '<table class="border" width="100%">';
 	print '<tr class="liste_titre">';
-	print '<td class="liste_titre" align="center" colspan="2">En Cours</td>';
+	print '<td class="liste_titre" align="center" colspan="1">En Cours</td>';
 	print '<td class="liste_titre" align="center">Traités</td>';
 	print '<td class="liste_titre" align="center">Perdues</td>';
 	print '<td class="liste_titre" align="center">Sans Suite</td>';
@@ -142,12 +142,12 @@ if ($resql != - 1) {
 		print '</br>';
 		print '</span>';
 
-		$i++;
-		if ($i>= $mid){
-			print '</div></td>';
-			print '<td><div id="encours2" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:205px">';
-			$i =0;
-		}
+// 		$i++;
+// 		if ($i>= $mid){
+// 			print '</div></td>';
+// 			print '<td><div id="encours2" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:205px">';
+// 			$i =0;
+// 		}
 	}
 	print '</div></td>';
 	print '<td style="width:500px"><div id="traite" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:490px">';
