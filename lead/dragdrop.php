@@ -16,6 +16,7 @@ $lead = new Leadext($db);
 $res = $lead->fetch($lead_id);
 if($res>0){
 	$statut = explode('_', $new_statut);
+	echo $statut[0] . "\n" ;
 	switch($statut[0]){
 		case 'encours':
 			$c_status= 5;
