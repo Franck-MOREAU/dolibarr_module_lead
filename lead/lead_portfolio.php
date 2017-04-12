@@ -80,8 +80,7 @@ $formother = new FormOther($db);
 $title = 'Portefeuille d\'affaire';
 
 llxHeader('', $title);
-
-$filter['t.fk_user_resp'] =$search_commercial;
+if(!empty($search_commercial)) $filter['t.fk_user_resp'] =$search_commercial;
 $filter['t.fk_c_status !IN'] = '6,7,11';
 
 $resql = $object->fetch_all($sortorder, $sortfield, $conf->liste_limit, $offset, $filter);
