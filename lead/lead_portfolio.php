@@ -83,7 +83,8 @@ if(!empty($search_commercial)) $filter['t.fk_user_resp'] =$search_commercial;
 if(!empty($year)) $filter['t.ref'] ='/' . substr($year, 2);
 $filter['t.fk_c_status !IN'] = '6,7,11';
 
-$resql = $object->fetch_all($sortorder, $sortfield,'' , 0, $filter);
+$resql = $object->fetch_all('DESC', 't.ref','' , 0, $filter);
+
 $mid = $resql/2;
 
 if ($resql != - 1) {
