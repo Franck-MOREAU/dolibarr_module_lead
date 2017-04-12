@@ -89,7 +89,7 @@ if ($resql != - 1) {
     print 'dest = ev.target.id;';
     print 'ev.target.appendChild(document.getElementById(element));';
     print '}';
-    print ' $.ajax({';
+    print '$.ajax({';
     print 'method: "POST",';
     print 'url: "dragdrop.php",';
     print 'data: { nom: element, org: dest }';
@@ -122,8 +122,8 @@ if ($resql != - 1) {
 			$img = img_picto('porteur', 'tracteur.png@volvo');
 		}
 		if($line->array_options['options_gamme'] == 1){
-			$color = '#00ff00';
-			$color2= '#00bf00';
+			$color = '#56ff56';
+			$color2= '#00ff00';
 		}elseif($line->array_options['options_gamme'] == 2){
 			$color = '#ff5656';
 			$color2= '#ff0000';
