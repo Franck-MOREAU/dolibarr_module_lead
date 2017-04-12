@@ -353,7 +353,7 @@ print '</tr>';
 print '<tr style="height:380px;">';
 
 //changement de ligne --> affaires traitées non modifiables--> data
-print '<td class="colone" rowspan="3" style="height:540px;"><div align="center" id="traite_fige_1" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:540px; width:219px; overflow: auto;">';
+print '<td class="colone" rowspan="3" style="height:540px;"><div align="center" id="traite_fige_1"  style="height:540px; width:219px; overflow: auto;">';
 $i=0;
 foreach ($lines1 as $line){
 	$line->fetch_thirdparty();
