@@ -91,7 +91,7 @@ if(!empty($year)){
 $filter1['t.fk_c_status !IN'] = '6,7,11';
 $filter2['t.fk_c_status !IN'] = '6,7,11';
 $filter1['leadextra.chaude'] =1;
-$filter2['leadextra.chaude'] =1;
+$filter2['leadextra.chaude'] =0;
 $resql1 = $object1->fetch_all('DESC', 't.ref','' , 0, $filter1);
 $resql2 = $object2->fetch_all('DESC', 't.ref','' , 0, $filter2);
 
