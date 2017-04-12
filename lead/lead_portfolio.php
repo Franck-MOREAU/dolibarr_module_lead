@@ -120,8 +120,8 @@ if ($resql != - 1) {
 		}else{
 			$color= '#7f7f7f';
 		}
-		//background: -webkit-gradient(linear, left top, left bottom, from(#be7878), to(#ae6868)); class="cal_event cal_event_busy"
-		print'<div class="cal_event cal_event_busy" style="background: ' . $color . '; -moz-border-radius:4px;" id="'. $line->id . '" draggable="true" ondragstart="drag(event,this)">';
+		// class="cal_event cal_event_busy"
+		print'<div class="cal_event cal_event_busy" style="background: ' . $color . ';background: -webkit-gradient(linear, left top, left bottom, from(#be7878), to(#ae6868)); -moz-border-radius:4px;" id="'. $line->id . '" draggable="true" ondragstart="drag(event,this)">';
 		print $img . ' ';
 		print $line->ref . '</br>';
 		print $line->thirdparty->name;
