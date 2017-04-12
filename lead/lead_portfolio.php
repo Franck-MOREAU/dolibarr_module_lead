@@ -79,7 +79,7 @@ if ($resql != - 1) {
     print 'ev.target.appendChild(document.getElementById(element));';
     print 'if (ev.target.classname..indexOf("div1") == 1{';
     print 'ev.target = ev.target.parentNode;';
-    print '}';
+    print '};';
 //     print "while (ev.target.className.indexOf('dropper') == -1) {";
 //     print 'ev.target = ev.target.parentNode;';
 //     print '}';
