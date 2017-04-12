@@ -125,8 +125,8 @@ if ($resql != - 1) {
 			$color = '#ffaa56';
 			$color2= '#ff7f00';
 		}elseif($line->array_options['options_gamme'] == 3){
-			$color = '#0000ff';
-			$color2= '#0000bf';
+			$color = '#aad4ff';
+			$color2= '#56aaff';
 		}elseif($line->array_options['options_gamme'] == 4){
 			$color = '#aa56ff';
 			$color2= '#7f00ff';
