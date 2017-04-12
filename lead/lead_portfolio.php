@@ -200,6 +200,10 @@ foreach ($object1->lines as $line){
 		$i =-1*$i;
 	}
 }
+if($resql1==0){
+	print '</div></td>';
+	print '<td class="colone"><div id="encours_chaude_2" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:540px; width:219px; overflow: auto;">';
+}
 print '</div></td>';
 print '<td class="colone" rowspan="3"><div id="traite_1" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:219px; overflow: auto;">';
 $i=0;
@@ -236,11 +240,15 @@ foreach ($object3->lines as $line){
 	print $line->thirdparty->name;
 	print '</div>';
 	$i++;
-	if ($i>= $mid3|| $mid3==0){
+	if ($i>= $mid3){
 		print '</div></td>';
 		print '<td class="colone" rowspan="3"><div id="traite_2" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:219px; overflow: auto;">';
 		$i =-1*$i;
 	}
+}
+if($resql3 == 0){
+	print '</div></td>';
+	print '<td class="colone" rowspan="3"><div id="traite_2" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:219px; overflow: auto;">';
 }
 print '</div></td>';
 print '<td class="colone" rowspan="3"><div id="perdu" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:219px; overflow: auto;">';
@@ -353,11 +361,15 @@ foreach ($object2->lines as $line){
 	print $line->thirdparty->name;
 	print '</div>';
 	$i++;
-	if ($i>= $mid2 || $mid2==0){
+	if ($i>= $mid2){
 		print '</div></td>';
 		print '<td class="colone"><div id="encours_froide_2" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:140px; width:219px; overflow: auto;">';
 		$i =-1*$i;
 	}
+}
+if($resql2==0){
+	print '</div></td>';
+	print '<td class="colone"><div id="encours_froide_2" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:140px; width:219px; overflow: auto;">';
 }
 print '</div></td>';
 print '</tr>';
