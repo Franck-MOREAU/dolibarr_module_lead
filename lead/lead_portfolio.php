@@ -224,7 +224,7 @@ if($resql1==0){
 print '</div></td>';
 
 //affaire traitée modifiables
-print '<td class="colone" style="height:140px;"><div id="traite_1" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:140px; width:219px; overflow: auto;">';
+print '<td class="colone" style="height:140px;"><div align="center" id="traite_1" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:140px; width:219px; overflow: auto;">';
 $i=0;
 foreach ($lines2 as $line){
 	$line->fetch_thirdparty();
@@ -253,7 +253,7 @@ foreach ($lines2 as $line){
 		$color2= '#b2b2b2';
 	}
 
-	print'<div align="center" class="cal_event cal_event_busy"  draggable="true" ondragstart="drag(event,this)" id="'. $line->id . '" style="background: -webkit-gradient(linear, left top, left bottom, from('.$color.'), to('.$color2.'));';
+	print'<div class="cal_event cal_event_busy"  draggable="true" ondragstart="drag(event,this)" id="'. $line->id . '" style="background: -webkit-gradient(linear, left top, left bottom, from('.$color.'), to('.$color2.'));';
 	print 'border-radius:6px; margin-bottom: 3px; width:200px;">';
 	print $img . ' ';
 	print $line->ref . '</br>';
