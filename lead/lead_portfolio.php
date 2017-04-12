@@ -103,6 +103,8 @@ $resql5 = $object5->fetch_all('DESC', 't.ref','' , 0, $filter5);
 $mid1 = $resql1/2;
 $mid2 = $resql2/2;
 $mid3 = $resql3/2;
+$lines1 = array();
+$lines2 = array();
 foreach ($object3->lines as $line){
 	$lead= new Leadext($db);
 	$lead->fetch($line->id);
