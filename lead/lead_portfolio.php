@@ -72,9 +72,9 @@ if ($resql != - 1) {
     print 'ev.dataTransfer.setData("element", ev.target.id);';
     print '}';
 
-    print 'function dropnot(ev,source) {';
-    print 'cancel event;';
-    print '}';
+//     print 'function dropnot(ev,source) {';
+//     print 'cancel event;';
+//     print '}';
 
 	print 'function drop(ev, source) {';
     print 'ev.preventDefault();';
