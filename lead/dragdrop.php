@@ -30,7 +30,7 @@ if($res>0){
 			}
 			break;
 		case 'traite':
-			$_c_status = 6;
+			$c_status = 6;
 			$chaude=0;
 			break;
 
