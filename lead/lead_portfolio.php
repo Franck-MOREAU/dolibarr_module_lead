@@ -161,49 +161,49 @@ print "</tr>\n";
 print '<tr>';
 
 //affaires en cours chaude
-print '<td class="colone" rowspan="3"><div id="encours_chaude_1" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:540px; width:219px; overflow: auto;">';
+print '<td class="colone" rowspan="3" style="height:540px;"><div id="encours_chaude_1" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:540px; width:219px; overflow: auto;">';
 print '</div></td>';
-print '<td class="colone" rowspan="3"><div id="encours_chaude_2" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:540px; width:219px; overflow: auto;">';
+print '<td class="colone" rowspan="3" style="height:540px;"><div id="encours_chaude_2" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:540px; width:219px; overflow: auto;">';
 print '</div></td>';
 
 //affaire traitée modifiables
 print '</div></td>';
-print '<td class="colone"><div id="traite_1" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:140px; width:219px; overflow: auto;">';
+print '<td class="colone" style="height:140px;"><div id="traite_1" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:140px; width:219px; overflow: auto;">';
 print '</div></td>';
-print '<td class="colone"><div id="traite_2" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:140px; width:219px; overflow: auto;">';
+print '<td class="colone" style="height:140px;"><div id="traite_2" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:140px; width:219px; overflow: auto;">';
 print '</div></td>';
 
 //affaire perdues
-print '<td class="colone" rowspan="5"><div id="perdu" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:219px; overflow: auto;">';
+print '<td class="colone" rowspan="5" style="height:700px;"><div id="perdu" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:219px; overflow: auto;">';
 print '</div></td>';
 
 //affaires sans suite
-print '<td class="colone"rowspan="5"><div id="sanssuite" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:219px; overflow: auto;">';
+print '<td class="colone"rowspan="5" style="height:700px;"><div id="sanssuite" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:219px; overflow: auto;">';
 print '</div></td>';
 
 //changement de ligne --> affaires traitées non modifiables--> titre
 print '</tr>';
 print '<tr class="liste_titre">';
-print '<td class="liste_titre" align="center" colspan="2"><div style="height:20px;">Traitées Non Modifiable</div></td>';
+print '<td class="liste_titre" align="center" colspan="2" style="height:20px;"><div style="height:20px;">Traitées Non Modifiable</div></td>';
 print '</tr>';
 print '<tr>';
 
 //changement de ligne --> affaires traitées non modifiables--> data
-print '<td class="colone" rowspan="3"><div id="traite_fige_1" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:540px; width:219px; overflow: auto;">';
+print '<td class="colone" rowspan="3" style="height:540px;"><div id="traite_fige_1" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:540px; width:219px; overflow: auto;">';
 print '</div></td>';
-print '<td class="colone" rowspan="3"><div id="traite_fige_1" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:540px; width:219px; overflow: auto;">';
+print '<td class="colone" rowspan="3" style="height:540px;"><div id="traite_fige_1" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:540px; width:219px; overflow: auto;">';
 print '</div></td>';
 
 //changement de ligne --> affaires en cours froides--> titre
 print '</tr>';
 print '<tr class="liste_titre">';
-print '<td class="liste_titre" align="center" colspan="2" tyle="height:20px;"><div style="height:20px;">En Cours Froides</div></td>';
+print '<td class="liste_titre" align="center" colspan="2" style="height:20px;"><div style="height:20px;">En Cours Froides</div></td>';
 print '</tr>';
 print '<tr>';
 //changement de ligne --> affaires en cours froides--> titre
-print '<td class="colone"><div id="encours_froide_1" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:140px; width:219px; overflow: auto;">';
+print '<td class="colone" style="height:140px;"><div id="encours_froide_1" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:140px; width:219px; overflow: auto;">';
 print '</div></td>';
-print '<td class="colone"><div id="encours_froide_2" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:140px; width:219px; overflow: auto;">';
+print '<td class="colone" style="height:140px;"><div id="encours_froide_2" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:140px; width:219px; overflow: auto;">';
 print '</div></td>';
 
 //fin de tableau
