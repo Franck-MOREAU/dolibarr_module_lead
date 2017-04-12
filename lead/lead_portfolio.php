@@ -77,12 +77,9 @@ if ($resql != - 1) {
     print 'ev.preventDefault();';
     print 'var element = ev.dataTransfer.getData("element");';
     print 'ev.target.appendChild(document.getElementById(element));';
-    print 'if (ev.target.classname === "div1"){';
+    print 'if (ev.target.classname == "div1"){';
     print 'ev.target = ev.target.parentNode;';
     print '}';
-//     print "while (ev.target.className.indexOf('dropper') == -1) {";
-//     print 'ev.target = ev.target.parentNode;';
-//     print '}';
     print ' $.ajax({';
     print 'method: "POST",';
     print 'url: "dragdrop.php",';
