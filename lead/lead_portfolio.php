@@ -109,19 +109,26 @@ if ($resql != - 1) {
 		}
 		if($line->array_options['options_gamme'] == 1){
 			$color = '#00ff00';
+			$color2= '#00bf00';
 		}elseif($line->array_options['options_gamme'] == 2){
-			$color = '#ff0000';
+			$color = '#ff5656';
+			$color2= '#ff0000';
 		}elseif($line->array_options['options_gamme'] == 18){
 			$color = '#ffaa56';
+			$color2= '#ff7f00';
 		}elseif($line->array_options['options_gamme'] == 3){
 			$color = '#0000ff';
+			$color2= '#0000bf';
 		}elseif($line->array_options['options_gamme'] == 4){
 			$color = '#aa56ff';
+			$color2= '#7f00ff';
 		}else{
-			$color= '#7f7f7f';
+			$color = '#cccccc';
+			$color2= '#b2b2b2';
 		}
 		// class="cal_event cal_event_busy"
-		print'<div class="cal_event cal_event_busy" style="background: ' . $color . ';background: -webkit-gradient(linear, left top, left bottom, from(#be7878), to(#ae6868)); -moz-border-radius:4px;" id="'. $line->id . '" draggable="true" ondragstart="drag(event,this)">';
+		print'<div class="cal_event cal_event_busy" style="background: -webkit-gradient(linear, left top, left bottom, from('.$color.'), to('.$color2.'));';
+		print ' -moz-border-radius:4px;" id="'. $line->id . '" draggable="true" ondragstart="drag(event,this)" ondragover="return false">';
 		print $img . ' ';
 		print $line->ref . '</br>';
 		print $line->thirdparty->name;
