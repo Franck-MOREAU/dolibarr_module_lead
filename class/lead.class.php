@@ -509,7 +509,7 @@ class Lead extends CommonObject
 		if (is_array($filter)) {
 			foreach ( $filter as $key => $value ) {
 				if (($key == 't.fk_c_status') || ($key == 't.rowid') || ($key == 'so.rowid') || ($key == 't.fk_c_type') || ($key == 't.fk_user_resp')
-						|| ($key == 'leadextra.gamme') || ($key == 'leadextra.carroserie')) {
+						|| ($key == 'leadextra.gamme') || ($key == 'leadextra.carroserie')|| ($key == 'leadextra.chaude')) {
 					$sql .= ' AND ' . $key . ' = ' . $value;
 				} elseif ($key == 't.date_closure<') {
 					// To allow $filter['YEAR(s.dated)']=>$year
