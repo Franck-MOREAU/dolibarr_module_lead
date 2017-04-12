@@ -253,7 +253,7 @@ foreach ($lines2 as $line){
 		$color2= '#b2b2b2';
 	}
 
-	print'<div class="cal_event cal_event_busy"  draggable="false" ondragstart="drag(event,this)" id="'. $line->id . '" style="background: -webkit-gradient(linear, left top, left bottom, from('.$color.'), to('.$color2.'));';
+	print'<div class="cal_event cal_event_busy"  draggable="true" ondragstart="drag(event,this)" id="'. $line->id . '" style="background: -webkit-gradient(linear, left top, left bottom, from('.$color.'), to('.$color2.'));';
 	print 'border-radius:6px; margin-bottom: 3px; width:200px;">';
 	print $img . ' ';
 	print $line->ref . '</br>';
