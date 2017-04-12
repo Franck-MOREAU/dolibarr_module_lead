@@ -77,7 +77,8 @@ if ($resql != - 1) {
     print 'ev.preventDefault();';
     print 'var element = ev.dataTransfer.getData("element");';
     print 'ev.target.appendChild(document.getElementById(element));';
-    print 'if (ev.target.classname == "div1"){';
+    print 'var dest = ev.target.className;';
+    print 'if (ev.target.className == "div1"){';
     print 'ev.target = ev.target.parentNode;';
     print '}';
     print ' $.ajax({';
