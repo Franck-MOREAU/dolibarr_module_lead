@@ -463,15 +463,6 @@ print '</div></td>';
 print '</tr>';
 print "</table>";
 
-print '<script type="text/javascript" language="javascript">' . "\n";
-print '$(document).ready(function() {
-				$("#totalamountguess").append("' . price($totalamountguess) . $langs->getCurrencySymbol($conf->currency) . '");
-				$("#totalamountreal").append("' . price($totalamountreal) . $langs->getCurrencySymbol($conf->currency) . '");
-				$("#totalmargin").append("' . price($totalmargin) . $langs->getCurrencySymbol($conf->currency) . '");
-				$("#totalmarginreal").append("' . price($totalmarginreal) . $langs->getCurrencySymbol($conf->currency) . '");
-		});';
-print "\n" . '</script>' . "\n";
-
 dol_fiche_end();
 llxFooter();
 $db->close();
