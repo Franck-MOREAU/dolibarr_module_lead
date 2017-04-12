@@ -103,6 +103,19 @@ $resql5 = $object5->fetch_all('DESC', 't.ref','' , 0, $filter5);
 $mid1 = $resql1/2;
 $mid2 = $resql2/2;
 $mid3 = $resql3/2;
+foreach ($object3->lines as $line){
+	$lead= new Leadext($db);
+	$lead->fetch($line->id);
+	$nb=$lead->getnbchassisreal();
+	if($nb>0){
+		$lines1[] = $line;
+	}else{
+		$lines2[] = $line;
+	}
+}
+$mid3 = count($lines1)/2;
+$mid4 = count($lines2)/2;
+
 
 print '<script>';
 print 'function allowDrop(ev) {';
@@ -209,10 +222,51 @@ if($resql1==0){
 print '</div></td>';
 
 //affaire traitée modifiables
-print '</div></td>';
 print '<td class="colone" style="height:140px;"><div id="traite_1" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:140px; width:219px; overflow: auto;">';
-print '</div></td>';
-print '<td class="colone" style="height:140px;"><div id="traite_2" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:140px; width:219px; overflow: auto;">';
+$i=0;
+foreach ($lines2 as $line){
+	$line->fetch_thirdparty();
+	if($line->array_options['options_type']==1){
+		$img = img_picto('porteur', 'reception.png@volvo');
+	}elseif($line->array_options['options_type']==2){
+		$img = img_picto('porteur', 'tracteur.png@volvo');
+	}
+	if($line->array_options['options_gamme'] == 1){
+		$color = '#56ff56';
+		$color2= '#00ff00';
+	}elseif($line->array_options['options_gamme'] == 2){
+		$color = '#ff5656';
+		$color2= '#ff0000';
+	}elseif($line->array_options['options_gamme'] == 18){
+		$color = '#ffaa56';
+		$color2= '#ff7f00';
+	}elseif($line->array_options['options_gamme'] == 3){
+		$color = '#aad4ff';
+		$color2= '#56aaff';
+	}elseif($line->array_options['options_gamme'] == 4){
+		$color = '#aa56ff';
+		$color2= '#7f00ff';
+	}else{
+		$color = '#cccccc';
+		$color2= '#b2b2b2';
+	}
+
+	print'<div class="cal_event cal_event_busy"  draggable="false" ondragstart="drag(event,this)" id="'. $line->id . '" style="background: -webkit-gradient(linear, left top, left bottom, from('.$color.'), to('.$color2.'));';
+	print 'border-radius:6px; margin-bottom: 3px; width:200px;">';
+	print $img . ' ';
+	print $line->ref . '</br>';
+	print $line->thirdparty->name;
+	print '</div>';
+	$i++;
+	if ($i>= $mid4){
+		print '</div></td>';
+		print '<td class="colone" style="height:140px;"><div id="traite_2" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:140px; width:219px; overflow: auto;">';
+	}
+}
+if($mid4==0){
+	print '</div></td>';
+	print '<td class="colone" style="height:140px;"><div id="traite_2" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:140px; width:219px; overflow: auto;">';
+}
 print '</div></td>';
 
 //affaire perdues
@@ -299,7 +353,7 @@ print '<tr style="height:380px;">';
 //changement de ligne --> affaires traitées non modifiables--> data
 print '<td class="colone" rowspan="3" style="height:540px;"><div id="traite_fige_1" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:540px; width:219px; overflow: auto;">';
 $i=0;
-foreach ($object3->lines as $line){
+foreach ($lines1 as $line){
 	$line->fetch_thirdparty();
 	if($line->array_options['options_type']==1){
 		$img = img_picto('porteur', 'reception.png@volvo');
