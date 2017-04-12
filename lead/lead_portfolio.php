@@ -159,7 +159,7 @@ print '<td class="liste_titre" align="center">Sans Suite</td>';
 print "</tr>\n";
 
 print '<tr>';
-print '<td class="colone"><div id="encours_chaude_1" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:340px; width:219px; overflow: auto;">';
+print '<td class="colone"><div id="encours_chaude_1" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:540px; width:219px; overflow: auto;">';
 $i=0;
 foreach ($object1->lines as $line){
 	$line->fetch_thirdparty();
@@ -196,7 +196,7 @@ foreach ($object1->lines as $line){
 	$i++;
 	if ($i>= $mid1){
 		print '</div></td>';
-		print '<td class="colone"><div id="encours_chaude_2" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:340px; width:219px; overflow: auto;">';
+		print '<td class="colone"><div id="encours_chaude_2" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:140px; width:219px; overflow: auto;">';
 		$i =-1*$i;
 	}
 }
@@ -318,7 +318,7 @@ print '<tr class="liste_titre">';
 print '<td class="liste_titre" align="center" colspan="2">En Cours Froides</td>';
 print '</tr>';
 print '<tr>';
-print '<td class="colone"><div id="encours_froide_1" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:340px; width:219px; overflow: auto;">';
+print '<td class="colone"><div id="encours_froide_1" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:140px; width:219px; overflow: auto;">';
 $i=0;
 foreach ($object2->lines as $line){
 	$line->fetch_thirdparty();
@@ -355,7 +355,7 @@ foreach ($object2->lines as $line){
 	$i++;
 	if ($i>= $mid1){
 		print '</div></td>';
-		print '<td class="colone"><div id="encours_froide_2" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:340px; width:219px; overflow: auto;">';
+		print '<td class="colone"><div id="encours_froide_2" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:140px; width:219px; overflow: auto;">';
 		$i =-1*$i;
 	}
 }
