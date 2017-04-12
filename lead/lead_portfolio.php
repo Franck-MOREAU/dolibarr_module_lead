@@ -101,8 +101,29 @@ if ($resql != - 1) {
 	print '<tr>';
 	print '<td id="encours' . $line->id . '" ondrop="drop(event)" ondragover="allowDrop(event)">';
 	foreach ($object->lines as $line){
-
-		print'<div class="cal_event" style="background: #be7878; background: -webkit-gradient(linear, left top, left bottom, from(#be7878), to(#ae6868)); -moz-border-radius:4px;" id="Affaire'. $line->id . '" draggable="true" ondragstart="drag(event,this)" class="cal_event cal_event_busy">' .$line->ref .'</div>';
+		$line->fetch_thirdparty();
+		if($line->array_options['options_type']==1){
+			$img = img_picto('porteur', 'reception.png@volvo');
+		}elseif($line->array_options['options_type']==2){
+			$img = img_picto('porteur', 'tracteur.png@volvo');
+		}
+		if($line->array_options['options_gamme'] == 1){
+			$color = '00ff00';
+		}elseif($line->array_options['options_gamme'] == 2){
+			$color = 'ff0000';
+		}elseif($line->array_options['options_gamme'] == 18){
+			$color = 'ffaa56';
+		}elseif($line->array_options['options_gamme'] == 3){
+			$color = '0000ff';
+		}elseif($line->array_options['options_gamme'] == 4){
+			$color = 'aa56ff';
+		}
+		//background: -webkit-gradient(linear, left top, left bottom, from(#be7878), to(#ae6868)); class="cal_event cal_event_busy"
+		print'<div class="cal_event" style="background: ' . $color . '; -moz-border-radius:4px;" id="'. $line->id . '" draggable="true" ondragstart="drag(event,this)">';
+		print $img . ' ';
+		print $line->ref . '</br>';
+		print $line->thirdparty->name;
+		print '</div>';
 
 	}
 	print '</td>';
