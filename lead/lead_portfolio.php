@@ -94,10 +94,10 @@ if ($resql != - 1) {
 
 	print '<table class="border" width="100%">';
 	print '<tr class="liste_titre">';
-	print '<td class="liste_titre" align="center" widht="25%">En Cours</td>';
-	print '<td class="liste_titre" align="center" widht="25%">Traités</td>';
-	print '<td class="liste_titre" align="center" widht="25%">Perdues</td>';
-	print '<td class="liste_titre" align="center" widht="25%">Sans Suite</td>';
+	print '<td class="liste_titre" align="center">En Cours</td>';
+	print '<td class="liste_titre" align="center">Traités</td>';
+	print '<td class="liste_titre" align="center">Perdues</td>';
+	print '<td class="liste_titre" align="center">Sans Suite</td>';
 	print "</tr>\n";
 
 
