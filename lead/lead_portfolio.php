@@ -92,12 +92,14 @@ $filter1['t.fk_c_status !IN'] = '6,7,11';
 $filter2['t.fk_c_status !IN'] = '6,7,11';
 $filter3['t.fk_c_status !IN'] = '5,7,11';
 $filter4['t.fk_c_status !IN'] = '6,5,11';
+$filter5['t.fk_c_status !IN'] = '6,5,7';
 $filter1['leadextra.chaude'] =1;
 $filter2['leadextra.chaude IS NULL'] =1;
 $resql1 = $object1->fetch_all('DESC', 't.ref','' , 0, $filter1);
 $resql2 = $object2->fetch_all('DESC', 't.ref','' , 0, $filter2);
 $resql3 = $object3->fetch_all('DESC', 't.ref','' , 0, $filter3);
 $resql4 = $object4->fetch_all('DESC', 't.ref','' , 0, $filter4);
+$resql5 = $object5->fetch_all('DESC', 't.ref','' , 0, $filter5);
 $mid1 = $resql1/2;
 $mid2 = $resql2/2;
 
