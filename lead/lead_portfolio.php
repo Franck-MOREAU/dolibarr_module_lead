@@ -145,7 +145,7 @@ if ($resql != - 1) {
 		if ($i>= $mid){
 			print '</div></td>';
 			print '<td class="colone"><div id="encours2" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:250px; overflow: auto;">';
-			$i =0;
+			$i =-1*$i;
 		}
 	}
 	print '</div></td>';
