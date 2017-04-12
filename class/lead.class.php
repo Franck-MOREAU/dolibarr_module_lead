@@ -521,7 +521,9 @@ class Lead extends CommonObject
 					$sql .= ' AND t.fk_c_status NOT IN (' . $value . ')';
 				} elseif ($key == 't.rowid !IN') {
 					$sql .= ' AND t.rowid NOT IN (' . $value . ')';
-				} else {
+				} elseif ($key == 'leadextra.chaude IS NULL') {
+					$sql .= ' AND ' . $key ;
+				}else {
 					$sql .= ' AND ' . $key . ' LIKE \'%' . $this->db->escape($value) . '%\'';
 				}
 			}
