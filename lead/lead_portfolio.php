@@ -96,6 +96,21 @@ if ($resql != - 1) {
 	print '}';
 	print '</script>';
 
+	print '<form method="post" action="' . $_SERVER['PHP_SELF'] . '" name="search_form">' . "\n";
+	print '<table class="noborder" width="100%">';
+	print '<tr class="liste_titre">';
+	print '<th class="liste_titre" align="center">Année: ';
+	$formother->select_year($year,'year',0, 5, 0);
+	print '</th>';
+	print '<th class="liste_titre" align="center">Commercial: '. $form->select_dolusers($search_commercial,'search_commercial',1,array(),$search_commercial_disabled,$user_included) . '</th>';
+	print '<th class="liste_titre" align="center">';
+	print '<div align="left"><input class="liste_titre" type="image" src="' . DOL_URL_ROOT . '/theme/' . $conf->theme . '/img/search.png" value="' . dol_escape_htmltag($langs->trans("Search")) . '" title="' . dol_escape_htmltag($langs->trans("Search")) . '">';
+	print '&nbsp;<input type="image" class="liste_titre" name="button_removefilter" src="' . DOL_URL_ROOT . '/theme/' . $conf->theme . '/img/searchclear.png" value="' . dol_escape_htmltag($langs->trans("RemoveFilter")) . '" title="' . dol_escape_htmltag($langs->trans("RemoveFilter")) . '"></div>';
+	print '</th>';
+	print "</tr>";
+	print '</table>';
+
+
 
 	print '<table class="border" width="100%">';
 	print '<tr class="liste_titre">';
