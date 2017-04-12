@@ -149,7 +149,7 @@ if ($resql != - 1) {
 		}
 	}
 	print '</div></td>';
-	print '<tdclass="colone"><div id="traite" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:250px; overflow: auto;">';
+	print '<td class="colone"><div id="traite" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:250px; overflow: auto;">';
 	print '</div></td>';
 	print '<td class="colone"><div id="perdu" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:250px; overflow: auto;">';
 	print '</div></td>';
