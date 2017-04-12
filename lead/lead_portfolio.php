@@ -263,13 +263,13 @@ foreach ($lines2 as $line){
 	print $line->thirdparty->name;
 	print '</div>';
 	$i++;
-	if ($i>= $mid4){
+	if ($i>= $mid5){
 		print '</div></td>';
 		print '<td class="colone" style="height:140px;"><div align="center" id="traite_2" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:140px; width:219px; overflow: auto;">';
 		$i =-1*$i;
 	}
 }
-if($mid4==0){
+if($mid5==0){
 	print '</div></td>';
 	print '<td class="colone" style="height:140px;"><div align="center" id="traite_2" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:140px; width:219px; overflow: auto;">';
 }
@@ -393,13 +393,13 @@ foreach ($lines1 as $line){
 	print $line->thirdparty->name;
 	print '</div>';
 	$i++;
-	if ($i>= $mid3){
+	if ($i>= $mid4){
 		print '</div></td>';
 		print '<td class="colone" rowspan="3" style="height:540px;"><div align="center" style="height:540px; width:219px; overflow: auto;">';
 		$i =-1*$i;
 	}
 }
-if($resql3 == 0){
+if($mid4 == 0){
 	print '</div></td>';
 	print '<td class="colone" rowspan="3" style="height:540px;"><div align="center" style="height:540px; width:219px; overflow: auto;">';
 }
