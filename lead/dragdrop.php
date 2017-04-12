@@ -16,7 +16,6 @@ $lead = new Leadext($db);
 $res = $lead->fetch($lead_id);
 if($res>0){
 	$statut = explode('_', $new_statut);
-	echo $statut[0];
 	switch($statut[0]){
 		case 'encours':
 			$c_status= 5;
@@ -44,10 +43,11 @@ if($res>0){
 			$chaude = 0;
 			break;
 	}
-	echo 'statut: ' . $c_status . ' chaude: ' .$chaude;
+
 	$lead->fk_c_status = $c_statut;
 	$lead->array_options['options_chaude'] = $chaude;
-	$lead->update($user);
+	$res = $lead->update($user);
+	echo $res;
 }else{
 	echo $lead->error;
 }
