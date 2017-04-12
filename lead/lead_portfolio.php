@@ -72,6 +72,10 @@ if ($resql != - 1) {
     print 'ev.dataTransfer.setData("element", ev.target.id);';
     print '}';
 
+    print 'function dropnot(ev,source) {';
+    print 'cancel event;';
+    print '}';
+
 	print 'function drop(ev, source) {';
     print 'ev.preventDefault();';
     print 'var element = ev.dataTransfer.getData("element");';
@@ -128,7 +132,7 @@ if ($resql != - 1) {
 		}
 		// class="cal_event cal_event_busy"
 		print'<div class="cal_event cal_event_busy" style="background: -webkit-gradient(linear, left top, left bottom, from('.$color.'), to('.$color2.'));';
-		print ' -moz-border-radius:4px;" id="'. $line->id . '" draggable="true" ondragstart="drag(event,this)" ondrop="return false">';
+		print ' -moz-border-radius:4px;" id="'. $line->id . '" draggable="true" ondragstart="drag(event,this)" ondrop="dropnot(event,this)">';
 		print $img . ' ';
 		print $line->ref . '</br>';
 		print $line->thirdparty->name;
