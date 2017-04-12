@@ -134,12 +134,12 @@ if ($resql != - 1) {
 		// ondrop="dropnot(event,this)"
 		if($i=0) print '<div style="display: inline; width:450px;">';
 		print '<span draggable="true" ondragstart="drag(event,this)" ondragover="false" id="'. $line->id . '" style="display: inline">';
-		print'<span class="cal_event cal_event_busy" style="background: -webkit-gradient(linear, left top, left bottom, from('.$color.'), to('.$color2.'));';
+		print'<div class="cal_event cal_event_busy" style="background: -webkit-gradient(linear, left top, left bottom, from('.$color.'), to('.$color2.'));';
 		print ' -moz-border-radius:4px; width:200px;">';
 		print $img . ' ';
 		print $line->ref . '</br>';
 		print $line->thirdparty->name;
-		print '</span>';
+		print '</div>';
 		print '</br>';
 		print '</span>';
 		$i++;
