@@ -41,6 +41,7 @@ if (! $user->rights->lead->read)
 
 $search_commercial = GETPOST("search_commercial", 'int');
 $year = GETPOST('year');
+$debug = GETPOST('debug');
 
 if (GETPOST("button_removefilter_x")) {
 	$search_commercial = '';
@@ -145,9 +146,11 @@ print 'method: "POST",';
 print 'url: "dragdrop.php",';
 print 'data: { id_lead: element, new_statut: dest }';
 print '})';
-print '.done(function(msg) {';
-print 'alert( "Data Saved: " + msg );';
-print '});';
+if($debug=1){
+	print '.done(function(msg) {';
+	print 'alert( "Data Saved: " + msg );';
+	print '});';
+}
 print '}';
 print '</script>';
 
