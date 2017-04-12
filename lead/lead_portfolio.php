@@ -278,7 +278,15 @@ foreach ($object4->lines as $line){
 		$color = '#cccccc';
 		$color2= '#b2b2b2';
 	}
-	print'<div class="cal_event cal_event_busy"  draggable="true" ondragstart="drag(event,this)" id="'. $line->id . '" style="background: -webkit-gradient(linear, left top, left bottom, from('.$color.'), to('.$color2.'));';
+	$lead = new Leadext($db);
+	$lead->fetch($line->id);
+	$cmd = $lead->getnbchassisreal();
+	if($cmd>0){
+		$drag = "false";
+	}else{
+		$drag = "true";
+	}
+	print'<div class="cal_event cal_event_busy"  draggable="'. $drag . '" ondragstart="drag(event,this)" id="'. $line->id . '" style="background: -webkit-gradient(linear, left top, left bottom, from('.$color.'), to('.$color2.'));';
 	print 'border-radius:6px; margin-bottom: 3px; width:200px;">';
 	print $img . ' ';
 	print $line->ref . '</br>';
