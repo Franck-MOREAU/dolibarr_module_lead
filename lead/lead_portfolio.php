@@ -138,7 +138,7 @@ if ($resql != - 1) {
 
 	print '<table class="border" width="100%">';
 	print '<tr class="liste_titre">';
-	print '<td class="liste_titre" align="center" colspan="2">En Cours</td>';
+	print '<td class="liste_titre" align="center" colspan="2">En Cours Chaudes</td>';
 	print '<td class="liste_titre" align="center">Traités</td>';
 	print '<td class="liste_titre" align="center">Perdues</td>';
 	print '<td class="liste_titre" align="center">Sans Suite</td>';
@@ -147,7 +147,7 @@ if ($resql != - 1) {
 
 	$i=array();
 	print '<tr>';
-	print '<td class="colone"><div id="encours" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:219px; overflow: auto;">';
+	print '<td class="colone"><div id="encours_chaude_1" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:340px; width:219px; overflow: auto;">';
 	$i=0;
 	foreach ($object->lines as $line){
 		$line->fetch_thirdparty();
@@ -181,22 +181,27 @@ if ($resql != - 1) {
 		print $line->ref . '</br>';
 		print $line->thirdparty->name;
 		print '</div>';
-
-
 		$i++;
 		if ($i>= $mid){
 			print '</div></td>';
-			print '<td class="colone"><div id="encours2" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:219px; overflow: auto;">';
+			print '<td class="colone"><div id="encours_chaude_2" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:219px; overflow: auto;">';
 			$i =-1*$i;
 		}
 	}
 	print '</div></td>';
-	print '<td class="colone"><div id="traite" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:219px; overflow: auto;">';
+	print '<td class="colone" rowspan="3"><div id="traite" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:219px; overflow: auto;">';
 	print '</div></td>';
-	print '<td class="colone"><div id="perdu" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:219px; overflow: auto;">';
+	print '<td class="colone" rowspan="3"><div id="perdu" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:219px; overflow: auto;">';
 	print '</div></td>';
-	print '<td class="colone"><div id="sanssuite" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:219px; overflow: auto;">';
+	print '<td class="colone"rowspan="3"><div id="sanssuite" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:219px; overflow: auto;">';
 	print '</div></td>';
+	print '</tr>';
+	print '<tr class="liste_titre">';
+	print '<td class="liste_titre" align="center" colspan="2">En Cours Froides</td>';
+	print '</tr>';
+	print '<tr>';
+	print '<td class="colone"><div id="encours_froide_1" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:340px; width:219px; overflow: auto;">';
+	print '<td class="colone"><div id="encours_froide_2" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:340px; width:219px; overflow: auto;">';
 	print '</tr>';
 	print "</table>";
 
