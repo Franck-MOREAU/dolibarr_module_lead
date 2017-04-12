@@ -79,12 +79,12 @@ if ($resql != - 1) {
     print 'ev.target.appendChild(document.getElementById(element));';
     print 'var dest = ev.target.className;';
     print "if (ev.target.className.indexOf('div1')!=-1){";
-    print 'ev.target = ev.target.parentNode;';
+    print 'dest = ev.target.parentNode.className;';
     print '}';
     print ' $.ajax({';
     print 'method: "POST",';
     print 'url: "dragdrop.php",';
-    print 'data: { nom: element, org: ev.target.className }';
+    print 'data: { nom: element, org: dest }';
   	print '})';
   	print '.done(function(msg) {';
    	print 'alert( "Data Saved: " + msg );';
