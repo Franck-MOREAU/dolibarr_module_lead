@@ -78,15 +78,15 @@ if ($resql != - 1) {
     print 'var element = ev.dataTransfer.getData("element");';
     print 'var dest = ev.target.className;';
     print "if (ev.target.className.indexOf('div1')!=-1){";
-    print 'dest = ev.target.parentNode.className;';
+    print 'dest = ev.target.parentNode.id;';
 	print 'ev.target.parentNode.appendChild(document.getElementById(element));';
     print '}';
     print "if (ev.target.className.indexOf('cal_event cal_event_busy')!=-1){";
-    print 'dest = ev.target.parentNode.parentNode.className;';
+    print 'dest = ev.target.parentNode.parentNode.id;';
     print 'ev.target.parentNode.parentNode.appendChild(document.getElementById(element));';
     print '}';
     print "if (ev.target.className.indexOf('dropper')!=-1){";
-    print 'dest = ev.target.parentNode.parentNode.className;';
+    print 'dest = ev.target.parentNode.parentNode.id;';
     print 'ev.target.appendChild(document.getElementById(element));';
     print '}';
     print ' $.ajax({';
