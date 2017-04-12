@@ -43,7 +43,7 @@ if($res>0){
 			$chaude = 0;
 			break;
 	}
-
+	echo 'statut: ' . $c_status . ' chaude: ' .$chaude;
 	$lead->fk_c_status = $c_statut;
 	$lead->array_options['options_chaude'] = $chaude;
 	$lead->update($user);
