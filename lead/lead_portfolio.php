@@ -194,7 +194,7 @@ foreach ($object1->lines as $line){
 	print $line->thirdparty->name;
 	print '</div>';
 	$i++;
-	if ($i>= $mid1){
+	if ($i>= $mid1|| $mid1 == 0){
 		print '</div></td>';
 		print '<td class="colone"><div id="encours_chaude_2" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:540px; width:219px; overflow: auto;">';
 		$i =-1*$i;
@@ -236,7 +236,7 @@ foreach ($object3->lines as $line){
 	print $line->thirdparty->name;
 	print '</div>';
 	$i++;
-	if ($i>= $mid3){
+	if ($i>= $mid3|| $mid3==0){
 		print '</div></td>';
 		print '<td class="colone" rowspan="3"><div id="traite_2" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:219px; overflow: auto;">';
 		$i =-1*$i;
@@ -353,7 +353,7 @@ foreach ($object2->lines as $line){
 	print $line->thirdparty->name;
 	print '</div>';
 	$i++;
-	if ($i>= $mid2){
+	if ($i>= $mid2 || $mid2==0){
 		print '</div></td>';
 		print '<td class="colone"><div id="encours_froide_2" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:140px; width:219px; overflow: auto;">';
 		$i =-1*$i;
