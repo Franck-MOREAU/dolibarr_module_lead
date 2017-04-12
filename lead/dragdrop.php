@@ -47,7 +47,7 @@ if($res>0){
 	$lead->fk_c_status = $c_statut;
 	$lead->array_options['options_chaude'] = $chaude;
 	$res = $lead->update($user);
-	echo $res;
+	echo $lead->error;
 }else{
 	echo $lead->error;
 }
