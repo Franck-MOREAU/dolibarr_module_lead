@@ -147,16 +147,16 @@ if ($resql != - 1) {
 		$i++;
 		if ($i>= $mid){
 			print '</div></td>';
-			print '<td class="colone"><div id="encours2" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:250px; overflow: auto;">';
+			print '<td class="colone"><div id="encours2" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:219px; overflow: auto;">';
 			$i =-1*$i;
 		}
 	}
 	print '</div></td>';
-	print '<td class="colone"><div id="traite" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:250px; overflow: auto;">';
+	print '<td class="colone"><div id="traite" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:219px; overflow: auto;">';
 	print '</div></td>';
-	print '<td class="colone"><div id="perdu" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:250px; overflow: auto;">';
+	print '<td class="colone"><div id="perdu" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:219px; overflow: auto;">';
 	print '</div></td>';
-	print '<td class="colone"><div id="sanssuite" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:250px; overflow: auto;">';
+	print '<td class="colone"><div id="sanssuite" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:219px; overflow: auto;">';
 	print '</div></td>';
 	print '</tr>';
 	print "</table>";
