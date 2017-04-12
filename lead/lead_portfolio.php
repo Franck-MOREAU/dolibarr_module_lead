@@ -103,7 +103,7 @@ $resql5 = $object5->fetch_all('DESC', 't.ref','' , 0, $filter5);
 $mid1 = $resql1/2;
 $mid2 = $resql2/2;
 $mid3 = $resql3/2;
-
+print $resql2;
 print '<script>';
 print 'function allowDrop(ev) {';
 print 'ev.preventDefault();';
