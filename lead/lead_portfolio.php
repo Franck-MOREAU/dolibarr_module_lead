@@ -130,9 +130,9 @@ if ($resql != - 1) {
 			$color = '#cccccc';
 			$color2= '#b2b2b2';
 		}
-		// class="cal_event cal_event_busy"
+		// ondrop="dropnot(event,this)"
 		print'<div class="cal_event cal_event_busy" style="background: -webkit-gradient(linear, left top, left bottom, from('.$color.'), to('.$color2.'));';
-		print ' -moz-border-radius:4px;" id="'. $line->id . '" draggable="true" ondragstart="drag(event,this)" ondrop="dropnot(event,this)">';
+		print ' -moz-border-radius:4px;" id="'. $line->id . '" draggable="true" ondragstart="drag(event,this)">';
 		print $img . ' ';
 		print $line->ref . '</br>';
 		print $line->thirdparty->name;
