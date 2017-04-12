@@ -86,7 +86,7 @@ if ($resql != - 1) {
     print 'ev.target.parentNode.parentNode.appendChild(document.getElementById(element));';
     print '}';
     print "if (ev.target.className.indexOf('dropper')!=-1){";
-    print 'dest = ev.target.parentNode.parentNode.id;';
+    print 'dest = ev.target.id;';
     print 'ev.target.appendChild(document.getElementById(element));';
     print '}';
     print ' $.ajax({';
