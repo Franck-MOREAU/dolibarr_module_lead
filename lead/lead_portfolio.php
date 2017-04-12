@@ -116,8 +116,8 @@ foreach ($object3->lines as $line){
 		$lines2[] = $line;
 	}
 }
-$mid3 = count($lines1)/2;
-$mid4 = count($lines2)/2;
+$mid4 = count($lines1)/2;
+$mid5 = count($lines2)/2;
 
 
 print '<script>';
