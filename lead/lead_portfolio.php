@@ -137,6 +137,7 @@ if ($resql != - 1) {
 		print $line->ref . '</br>';
 		print $line->thirdparty->name;
 		print '</div>';
+		print '</br>';
 
 	}
 	print '</div></td>';
