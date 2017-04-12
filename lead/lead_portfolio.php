@@ -73,21 +73,17 @@ if ($resql != - 1) {
     print 'ev.dataTransfer.setData("element", ev.target.id);';
     print '}';
 
-//     print 'function dropnot(ev,source) {';
-//     print 'cancel event;';
-//     print '}';
-
 	print 'function drop(ev, source) {';
     print 'ev.preventDefault();';
     print 'var element = ev.dataTransfer.getData("element");';
     print 'ev.target.appendChild(document.getElementById(element));';
-    print "while (ev.target.className.indexOf('dropper') == -1) {";
-    print 'ev.target = ev.target.parentNode;';
-    print '}';
+    //print "while (ev.target.className.indexOf('dropper') == -1) {";
+    //print 'ev.target = ev.target.parentNode;';
+    //print '}';
     print ' $.ajax({';
     print 'method: "POST",';
     print 'url: "dragdrop.php",';
-    print 'data: { nom: element, org: ev.target.id }';
+    print 'data: { nom: element, org: ev.target.parentNode.className }';
   	print '})';
   	print '.done(function(msg) {';
    	print 'alert( "Data Saved: " + msg );';
