@@ -108,15 +108,17 @@ if ($resql != - 1) {
 			$img = img_picto('porteur', 'tracteur.png@volvo');
 		}
 		if($line->array_options['options_gamme'] == 1){
-			$color = '00ff00';
+			$color = '#00ff00';
 		}elseif($line->array_options['options_gamme'] == 2){
-			$color = 'ff0000';
+			$color = '#ff0000';
 		}elseif($line->array_options['options_gamme'] == 18){
-			$color = 'ffaa56';
+			$color = '#ffaa56';
 		}elseif($line->array_options['options_gamme'] == 3){
-			$color = '0000ff';
+			$color = '#0000ff';
 		}elseif($line->array_options['options_gamme'] == 4){
-			$color = 'aa56ff';
+			$color = '#aa56ff';
+		}else{
+			$color= '#7f7f7f';
 		}
 		//background: -webkit-gradient(linear, left top, left bottom, from(#be7878), to(#ae6868)); class="cal_event cal_event_busy"
 		print'<div class="cal_event cal_event_busy" style="background: ' . $color . '; -moz-border-radius:4px;" id="'. $line->id . '" draggable="true" ondragstart="drag(event,this)">';
