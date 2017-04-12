@@ -102,6 +102,7 @@ $resql4 = $object4->fetch_all('DESC', 't.ref','' , 0, $filter4);
 $resql5 = $object5->fetch_all('DESC', 't.ref','' , 0, $filter5);
 $mid1 = $resql1/2;
 $mid2 = $resql2/2;
+$mid3 = $resql3/2;
 
 print '<script>';
 print 'function allowDrop(ev) {';
@@ -152,7 +153,7 @@ print '</table>';
 print '<table class="border" width="100%">';
 print '<tr class="liste_titre">';
 print '<td class="liste_titre" align="center" colspan="2">En Cours Chaudes</td>';
-print '<td class="liste_titre" align="center">Traités</td>';
+print '<td class="liste_titre" align="center" colspan="2">Traités</td>';
 print '<td class="liste_titre" align="center">Perdues</td>';
 print '<td class="liste_titre" align="center">Sans Suite</td>';
 print "</tr>\n";
@@ -200,7 +201,8 @@ foreach ($object1->lines as $line){
 	}
 }
 print '</div></td>';
-print '<td class="colone" rowspan="3"><div id="traite" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:219px; overflow: auto;">';
+print '<td class="colone" rowspan="3"><div id="traite_1" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:219px; overflow: auto;">';
+$i=0;
 foreach ($object3->lines as $line){
 	$line->fetch_thirdparty();
 	if($line->array_options['options_type']==1){
@@ -233,6 +235,12 @@ foreach ($object3->lines as $line){
 	print $line->ref . '</br>';
 	print $line->thirdparty->name;
 	print '</div>';
+	$i++;
+	if ($i>= $mid3){
+		print '</div></td>';
+		print '<td class="colone" rowspan="3"><div id="traite_2" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:340px; width:219px; overflow: auto;">';
+		$i =-1*$i;
+	}
 }
 print '</div></td>';
 print '<td class="colone" rowspan="3"><div id="perdu" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:219px; overflow: auto;">';
