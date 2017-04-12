@@ -143,11 +143,11 @@ if ($resql != - 1) {
 
 	}
 	print '</div></td>';
-	print '<td><div id="traite" ondrop="drop(event, this)" ondragover="allowDrop(event)" style="height:700px width:200px">';;
+	print '<td><div id="traite" ondrop="drop(event, this)" ondragover="allowDrop(event)" style="height:700px; width:200px">';;
 	print '</div></td>';
-	print '<td><div id="perdu" ondrop="drop(event, this)" ondragover="allowDrop(event)" style="height:700px width:200px">';;
+	print '<td><div id="perdu" ondrop="drop(event, this)" ondragover="allowDrop(event)" style="height:700px; width:200px">';;
 	print '</div></td>';
-	print '<td><div id="sans_suite" ondrop="drop(event, this)" ondragover="allowDrop(event)" style="height:700px width:200px">';
+	print '<td><div id="sans_suite" ondrop="drop(event, this)" ondragover="allowDrop(event)" style="height:700px; width:200px">';
 	print '</div></td>';
 	print '</tr>';
 	print "</table>";
