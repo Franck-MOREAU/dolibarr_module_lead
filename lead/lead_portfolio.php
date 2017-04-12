@@ -98,7 +98,7 @@ if ($resql != - 1) {
 
 
 	$i=array();
-	print '<tr>';
+	print '<tr height="300">';
 	print '<td id="encours' . $line->id . '" ondrop="drop(event)" ondragover="allowDrop(event)" height="300">';
 	foreach ($object->lines as $line){
 		$line->fetch_thirdparty();
