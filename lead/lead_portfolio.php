@@ -78,7 +78,7 @@ if ($resql != - 1) {
     print 'var element = ev.dataTransfer.getData("element");';
     print 'ev.target.appendChild(document.getElementById(element));';
     print 'var dest = ev.target.className;';
-    print "if (ev.target.className.indexOf('div1')){";
+    print "if (ev.target.className.indexOf('div1')!=-1){";
     print 'ev.target = ev.target.parentNode;';
     print '}';
     print ' $.ajax({';
