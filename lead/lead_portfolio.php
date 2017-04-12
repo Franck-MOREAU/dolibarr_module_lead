@@ -103,7 +103,7 @@ if ($resql != - 1) {
 
 	$i=array();
 	print '<tr>';
-	print '<td style="width:400px"><div id="encours" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:500px">';
+	print '<td style="width:500px"><div id="encours" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:490px">';
 	$i=0;
 	foreach ($object->lines as $line){
 		$line->fetch_thirdparty();
@@ -132,7 +132,7 @@ if ($resql != - 1) {
 			$color2= '#b2b2b2';
 		}
 		// ondrop="dropnot(event,this)"
-		if($i==0) print '<div style="display: inline; width:450px;">';
+		if($i==0) print '<div style="display: inline; width:4800px;">';
 		print '<span draggable="true" ondragstart="drag(event,this)" ondragover="false" id="'. $line->id . '" style="display: inline; width:225px;">';
 		print'<div class="cal_event cal_event_busy" style="background: -webkit-gradient(linear, left top, left bottom, from('.$color.'), to('.$color2.'));';
 		print ' -moz-border-radius:4px; width:200px;">';
@@ -150,11 +150,11 @@ if ($resql != - 1) {
 
 	}
 	print '</div></td>';
-	print '<td><div id="traite" ondrop="drop(event, this)" ondragover="allowDrop(event)" style="height:700px; width:200px">';;
+	print '<td style="width:500px"><div id="traite" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:490px">';
 	print '</div></td>';
-	print '<td><div id="perdu" ondrop="drop(event, this)" ondragover="allowDrop(event)" style="height:700px; width:200px">';;
+	print '<td style="width:500px"><div id="perdu" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:490px">';
 	print '</div></td>';
-	print '<td><div id="sans_suite" ondrop="drop(event, this)" ondragover="allowDrop(event)" style="height:700px; width:200px">';
+	print '<td style="width:500px"><div id="sanssuite" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:490px">';
 	print '</div></td>';
 	print '</tr>';
 	print "</table>";
