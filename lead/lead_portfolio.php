@@ -259,7 +259,7 @@ if($resql3 == 0){
 	print '<td class="colone" rowspan="5"><div id="traite_2" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:219px; overflow: auto;">';
 }
 print '</div></td>';
-print '<td class="colone" rowspan="3"><div id="perdu" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:219px; overflow: auto;">';
+print '<td class="colone" rowspan="5"><div id="perdu" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:219px; overflow: auto;">';
 foreach ($object4->lines as $line){
 	$line->fetch_thirdparty();
 	if($line->array_options['options_type']==1){
