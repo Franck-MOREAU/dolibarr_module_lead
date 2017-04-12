@@ -353,7 +353,7 @@ foreach ($object2->lines as $line){
 	print $line->thirdparty->name;
 	print '</div>';
 	$i++;
-	if ($i>= $mid1){
+	if ($i>= $mid2){
 		print '</div></td>';
 		print '<td class="colone"><div id="encours_froide_2" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:140px; width:219px; overflow: auto;">';
 		$i =-1*$i;
