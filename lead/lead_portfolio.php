@@ -77,7 +77,7 @@ if ($resql != - 1) {
     print 'ev.preventDefault();';
     print 'var element = ev.dataTransfer.getData("element");';
     print 'ev.target.appendChild(document.getElementById(element));';
-    print 'if (ev.target.classname == "div1"){';
+    print 'if (ev.target.classname === "div1"){';
     print 'ev.target = ev.target.parentNode;';
     print '}';
 //     print "while (ev.target.className.indexOf('dropper') == -1) {";
@@ -86,7 +86,7 @@ if ($resql != - 1) {
     print ' $.ajax({';
     print 'method: "POST",';
     print 'url: "dragdrop.php",';
-    print 'data: { nom: element, org: ev.target.parentNode.className }';
+    print 'data: { nom: element, org: ev.target.className }';
   	print '})';
   	print '.done(function(msg) {';
    	print 'alert( "Data Saved: " + msg );';
