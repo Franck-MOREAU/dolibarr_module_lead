@@ -143,7 +143,7 @@ if ($resql != - 1) {
 		print '</span>';
 
 		$i++;
-		if ($i>= mid){
+		if ($i>= $mid){
 			print '</div></td>';
 			print '<td><div id="encours" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:205px">';
 			$i =0;
