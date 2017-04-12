@@ -46,7 +46,31 @@ $reprise = new Reprise($db);
 if (! $user->rights->lead->read)
 	accessforbidden();
 
-$do_action = GETPOST('do_action','int');
+$search_commercial = GETPOST("search_commercial", 'int');
+$year = GETPOST('year');
+
+if (GETPOST("button_removefilter_x")) {
+	$search_commercial = '';
+	$year = dol_print_date(dol_now(),'Y');
+}
+
+$search_commercial_disabled = 0;
+if (empty($user->rights->volvo->stat_all)){
+	$search_commercial = $user->id;
+	$search_commercial_disabled = 1;
+}
+
+$user_included=array();
+$sqlusers = "SELECT fk_user FROM " . MAIN_DB_PREFIX . "usergroup_user WHERE fk_usergroup = 1";
+$resqlusers  = $db->query($sqlusers);
+if($resqlusers){
+	while ($users = $db->fetch_object($resqlusers)){
+		$user_included[] = $users->fk_user;
+	}
+}
+
+if(empty($year)) $year = dol_print_date(dol_now(),'%Y');
+
 
 $form = new Form($db);
 $formlead = new FormLead($db);
@@ -57,7 +81,7 @@ $title = 'Portefeuille d\'affaire';
 
 llxHeader('', $title);
 
-$filter['t.fk_user_resp'] =4;
+$filter['t.fk_user_resp'] =$search_commercial;
 $filter['t.fk_c_status !IN'] = '6,7,11';
 
 $resql = $object->fetch_all($sortorder, $sortfield, $conf->liste_limit, $offset, $filter);
