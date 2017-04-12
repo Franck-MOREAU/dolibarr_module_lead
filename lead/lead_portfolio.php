@@ -103,7 +103,7 @@ if ($resql != - 1) {
 
 	$i=array();
 	print '<tr>';
-	print '<td class="colone"><div id="encours" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:250px; overflow: scroll;">';
+	print '<td class="colone"><div id="encours" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:250px; overflow: auto;">';
 	$i=0;
 	foreach ($object->lines as $line){
 		$line->fetch_thirdparty();
@@ -144,7 +144,7 @@ if ($resql != - 1) {
 		$i++;
 		if ($i>= $mid){
 			print '</div></td>';
-			print '<td class="colone"><div id="encours2" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:250px; overflow: scroll;">';
+			print '<td class="colone"><div id="encours2" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:250px; overflow: auto;">';
 			$i =-1*$i;
 		}
 	}
