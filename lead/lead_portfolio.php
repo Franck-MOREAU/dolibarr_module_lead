@@ -35,8 +35,6 @@ require_once DOL_DOCUMENT_ROOT . '/core/class/html.formother.class.php';
 require_once DOL_DOCUMENT_ROOT . '/core/class/extrafields.class.php';
 require_once DOL_DOCUMENT_ROOT . '/volvo/class/lead.extend.class.php';
 
-$reprise = new Reprise($db);
-
 // Security check
 if (! $user->rights->lead->read)
 	accessforbidden();
