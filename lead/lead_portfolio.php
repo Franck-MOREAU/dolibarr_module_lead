@@ -98,8 +98,8 @@ if ($resql != - 1) {
 
 
 	$i=array();
-	print '<tr height="300">';
-	print '<td><div id="encours' . $line->id . '" ondrop="drop(event)" ondragover="allowDrop(event)" height="300">';
+	print '<tr>';
+	print '<td><div id="encours' . $line->id . '" ondrop="drop(event)" ondragover="allowDrop(event)" height="1000">';
 	foreach ($object->lines as $line){
 		$line->fetch_thirdparty();
 		if($line->array_options['options_type']==1){
@@ -127,11 +127,11 @@ if ($resql != - 1) {
 
 	}
 	print '</div></td>';
-	print '<td><div id="traite" ondrop="drop(event, this)" ondragover="allowDrop(event)" height="300">';;
+	print '<td><div id="traite" ondrop="drop(event, this)" ondragover="allowDrop(event)" height="1000">';;
 	print '</div></td>';
-	print '<td><div id="perdu" ondrop="drop(event, this)" ondragover="allowDrop(event)" height="300">';;
+	print '<td><div id="perdu" ondrop="drop(event, this)" ondragover="allowDrop(event)" height="1000">';;
 	print '</div></td>';
-	print '<td><div id="sans_suite" ondrop="drop(event, this)" ondragover="allowDrop(event)" height="300">';
+	print '<td><div id="sans_suite" ondrop="drop(event, this)" ondragover="allowDrop(event)" height="1000">';
 	print '</div></td>';
 	print '</tr>';
 	print "</table>";
