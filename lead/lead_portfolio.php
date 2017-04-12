@@ -143,7 +143,7 @@ print '}';
 print '$.ajax({';
 print 'method: "POST",';
 print 'url: "dragdrop.php",';
-print 'data: { nom: element, org: dest }';
+print 'data: { id_lead: element, new_statut: dest }';
 print '})';
 print '.done(function(msg) {';
 print 'alert( "Data Saved: " + msg );';
