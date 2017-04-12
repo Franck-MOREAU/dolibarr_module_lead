@@ -104,7 +104,7 @@ if ($resql != - 1) {
 
 	$i=array();
 	print '<tr>';
-	print '<td><div id="encours" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:400px; width:205px">';
+	print '<td><div id="encours" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:250px overflow: scroll;">';
 	$i=0;
 	foreach ($object->lines as $line){
 		$line->fetch_thirdparty();
@@ -145,14 +145,14 @@ if ($resql != - 1) {
 		$i++;
 		if ($i>= $mid){
 			print '</div></td>';
-			print '<td><div id="encours2" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:205px">';
+			print '<td><div id="encours2" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:250px overflow: scroll;">';
 			$i =0;
 		}
 	}
 	print '</div></td>';
-	print '<td style="width:500px"><div id="traite" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:490px">';
+	print '<td style="width:500px"><div id="traite" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:250px overflow: scroll;">';
 	print '</div></td>';
-	print '<td style="width:500px"><div id="perdu" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:490px">';
+	print '<td style="width:500px"><div id="perdu" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:250px overflow: scroll;">';
 	print '</div></td>';
 	print '<td style="width:500px"><div id="sanssuite" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:490px">';
 	print '</div></td>';
