@@ -131,13 +131,15 @@ if ($resql != - 1) {
 			$color2= '#b2b2b2';
 		}
 		// ondrop="dropnot(event,this)"
+		print '<div draggable="true" ondragstart="drag(event,this)" ondragover="false" id="'. $line->id . '">';
 		print'<div class="cal_event cal_event_busy" style="background: -webkit-gradient(linear, left top, left bottom, from('.$color.'), to('.$color2.'));';
-		print ' -moz-border-radius:4px; width:50%;" id="'. $line->id . '" draggable="true" ondragstart="drag(event,this)" ondragover="false">';
+		print ' -moz-border-radius:4px; width:50%;">';
 		print $img . ' ';
 		print $line->ref . '</br>';
 		print $line->thirdparty->name;
 		print '</div>';
 		print '</br>';
+		print '</div>';
 
 	}
 	print '</div></td>';
