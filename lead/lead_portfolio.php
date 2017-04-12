@@ -80,8 +80,9 @@ llxHeader('', $title);
 if($search_commercial == -1) $search_commercial='';
 if($year == -1) $year='';
 if(!empty($search_commercial)) $filter['t.fk_user_resp'] =$search_commercial;
-if(!empty($year)) $filter['t.ref'] ='/' . substr($year, 2);
+//if(!empty($year)) $filter['t.ref'] ='/' . substr($year, 2);
 $filter['t.fk_c_status !IN'] = '6,7,11';
+$filter['leadextra'] =1;
 
 $resql = $object->fetch_all('DESC', 't.ref','' , 0, $filter);
 
