@@ -81,6 +81,9 @@ if ($resql != - 1) {
     print 'ev.preventDefault();';
     print 'var element = ev.dataTransfer.getData("element");';
     print 'ev.target.appendChild(document.getElementById(element));';
+    print "while (ev.target.className.indexOf('dropper') == -1) {";
+    print 'ev.target = ev.target.parentNode;';
+    print '}';
     print ' $.ajax({';
     print 'method: "POST",';
     print 'url: "dragdrop.php",';
@@ -104,7 +107,7 @@ if ($resql != - 1) {
 
 	$i=array();
 	print '<tr>';
-	print '<td><div id="encours" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:250px; overflow: auto;">';
+	print '<td><div id="encours" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:250px; overflow: auto;">';
 	$i=0;
 	foreach ($object->lines as $line){
 		$line->fetch_thirdparty();
@@ -145,16 +148,16 @@ if ($resql != - 1) {
 		$i++;
 		if ($i>= $mid){
 			print '</div></td>';
-			print '<td><div id="encours2" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:250px; overflow: scroll;">';
+			print '<td><div id="encours2" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:250px; overflow: auto;">';
 			$i =0;
 		}
 	}
 	print '</div></td>';
-	print '<td style="width:500px"><div id="traite" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:250px; overflow: scroll;">';
+	print '<td style="width:500px"><div id="traite" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:250px; overflow: auto;">';
 	print '</div></td>';
-	print '<td style="width:500px"><div id="perdu" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:250px; overflow: scroll;">';
+	print '<td style="width:500px"><div id="perdu" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:250px; overflow: auto;">';
 	print '</div></td>';
-	print '<td style="width:500px"><div id="sanssuite" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:250px; overflow: scroll;">';
+	print '<td style="width:500px"><div id="sanssuite" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:250px; overflow: auto;">';
 	print '</div></td>';
 	print '</tr>';
 	print "</table>";
