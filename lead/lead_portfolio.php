@@ -132,7 +132,7 @@ if ($resql != - 1) {
 		}
 		// ondrop="dropnot(event,this)"
 		print'<div class="cal_event cal_event_busy" style="background: -webkit-gradient(linear, left top, left bottom, from('.$color.'), to('.$color2.'));';
-		print ' -moz-border-radius:4px;" id="'. $line->id . '" draggable="true" ondragstart="drag(event,this)">';
+		print ' -moz-border-radius:4px;" id="'. $line->id . '" draggable="true" ondragstart="drag(event,this)" ondragover="return false">';
 		print $img . ' ';
 		print $line->ref . '</br>';
 		print $line->thirdparty->name;
