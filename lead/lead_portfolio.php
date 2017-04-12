@@ -99,7 +99,7 @@ if ($resql != - 1) {
 
 	$i=array();
 	print '<tr>';
-	print '<td><div id="encours' . $line->id . '" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:900px">';
+	print '<td><div id="encours" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:900px">';
 	foreach ($object->lines as $line){
 		$line->fetch_thirdparty();
 		if($line->array_options['options_type']==1){
@@ -128,7 +128,7 @@ if ($resql != - 1) {
 		}
 		// class="cal_event cal_event_busy"
 		print'<div class="cal_event cal_event_busy" style="background: -webkit-gradient(linear, left top, left bottom, from('.$color.'), to('.$color2.'));';
-		print ' -moz-border-radius:4px;" id="'. $line->id . '" draggable="true" ondragstart="drag(event,this)" ondragover="return false">';
+		print ' -moz-border-radius:4px;" id="'. $line->id . '" draggable="true" ondragstart="drag(event,this)" ondrop="return false">';
 		print $img . ' ';
 		print $line->ref . '</br>';
 		print $line->thirdparty->name;
