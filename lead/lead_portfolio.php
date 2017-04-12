@@ -196,7 +196,7 @@ foreach ($object1->lines as $line){
 	$i++;
 	if ($i>= $mid1){
 		print '</div></td>';
-		print '<td class="colone"><div id="encours_chaude_2" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:140px; width:219px; overflow: auto;">';
+		print '<td class="colone"><div id="encours_chaude_2" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:540px; width:219px; overflow: auto;">';
 		$i =-1*$i;
 	}
 }
