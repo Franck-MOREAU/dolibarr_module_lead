@@ -132,7 +132,7 @@ if ($resql != - 1) {
 			$color = '#cccccc';
 			$color2= '#b2b2b2';
 		}
-		print '<div draggable="true" ondragstart="drag(event,this)" ondragover="false" id="'. $line->id . '" style="display: inline; width:225px;">';
+		print '<div draggable="true" ondragstart="drag(event,this)" id="'. $line->id . '" style="width:225px;">';
 		print'<div class="cal_event cal_event_busy" style="background: -webkit-gradient(linear, left top, left bottom, from('.$color.'), to('.$color2.'));';
 		print ' -moz-border-radius:4px; width:200px;">';
 		print $img . ' ';
