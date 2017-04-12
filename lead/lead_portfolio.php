@@ -77,13 +77,9 @@ if ($resql != - 1) {
     print 'ev.preventDefault();';
     print 'var element = ev.dataTransfer.getData("element");';
     print 'var dest = ev.target.className;';
-    print "if (ev.target.className.indexOf('div1')!=-1){";
-    print 'dest = ev.target.parentNode.id;';
-	print 'ev.target.parentNode.appendChild(document.getElementById(element));';
-    print '}';
     print "if (ev.target.className.indexOf('cal_event cal_event_busy')!=-1){";
-    print 'dest = ev.target.parentNode.parentNode.id;';
-    print 'ev.target.parentNode.parentNode.appendChild(document.getElementById(element));';
+    print 'dest = ev.target.parentNode.id;';
+    print 'ev.target.parentNode.appendChild(document.getElementById(element));';
     print '}';
     print "if (ev.target.className.indexOf('dropper')!=-1){";
     print 'dest = ev.target.id;';
@@ -140,15 +136,13 @@ if ($resql != - 1) {
 			$color = '#cccccc';
 			$color2= '#b2b2b2';
 		}
-		print '<div class="div1" draggable="true" ondragstart="drag(event,this)" id="'. $line->id . '" style="width:225px;">';
-		print'<div class="cal_event cal_event_busy" style="background: -webkit-gradient(linear, left top, left bottom, from('.$color.'), to('.$color2.'));';
+		print'<div class="cal_event cal_event_busy"  draggable="true" ondragstart="drag(event,this)" id="'. $line->id . '" style="background: -webkit-gradient(linear, left top, left bottom, from('.$color.'), to('.$color2.'));';
 		print 'border-radius:6px; margin-bottom: 3px; width:200px;">';
 		print $img . ' ';
 		print $line->ref . '</br>';
 		print $line->thirdparty->name;
 		print '</div>';
-		//print '</br>';
-		print '</div>';
+
 
 		$i++;
 		if ($i>= $mid){
