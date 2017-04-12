@@ -197,7 +197,7 @@ print '</div></td>';
 //changement de ligne --> affaires en cours froides--> titre
 print '</tr>';
 print '<tr class="liste_titre">';
-print '<td class="liste_titre" align="center" colspan="2">En Cours Froides</td>';
+print '<td class="liste_titre" align="center" colspan="2"><div style="height:20px;">En Cours Froides</div></td>';
 print '</tr>';
 print '<tr>';
 //changement de ligne --> affaires en cours froides--> titre
