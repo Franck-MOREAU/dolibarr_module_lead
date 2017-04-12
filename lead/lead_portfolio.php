@@ -104,7 +104,7 @@ if ($resql != - 1) {
 
 	$i=array();
 	print '<tr>';
-	print '<td><div id="encours" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:205px">';
+	print '<td><div id="encours" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:400px; width:205px">';
 	$i=0;
 	foreach ($object->lines as $line){
 		$line->fetch_thirdparty();
