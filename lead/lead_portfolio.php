@@ -332,7 +332,7 @@ print '</div></td>';
 print '</tr>';
 
 print '<tr class="liste_titre">';
-print '<td class="liste_titre" align="center" colspan="2">Traitées Non Modifiable</td>';
+print '<td class="liste_titre" align="center" colspan="2"><div style="height:20px;">Traitées Non Modifiable</div></td>';
 print '</tr>';
 print '<tr>';
 print '<td class="colone" rowspan="3"><div id="traite_fige_1" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:540px; width:219px; overflow: auto;">';
