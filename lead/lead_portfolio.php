@@ -75,21 +75,24 @@ if ($resql != - 1) {
 
 	print 'function drop(ev, source) {';
     print 'ev.preventDefault();';
+    print 'var element = ev.dataTransfer.getData("element");';
     print 'var dest = ev.target.className;';
     print "if (ev.target.className.indexOf('div1')!=-1){";
     print 'dest = ev.target.parentNode.className;';
-    print 'ev.target = ev.target.parentNode;';
+	print 'ev.target.arentNode.appendChild(document.getElementById(element));';
     print '}';
     print "if (ev.target.className.indexOf('cal_event cal_event_busy')!=-1){";
     print 'dest = ev.target.parentNode.parentNode.className;';
-    print 'ev.target = ev.target.parentNode.parentNode;';
+    print 'ev.target.arentNode.parentNode.appendChild(document.getElementById(element));';
     print '}';
-    print 'var element = ev.dataTransfer.getData("element");';
+    print "if (ev.target.className.indexOf('dropper')!=-1){";
+    print 'dest = ev.target.parentNode.parentNode.className;';
     print 'ev.target.appendChild(document.getElementById(element));';
+    print '}';
     print ' $.ajax({';
     print 'method: "POST",';
     print 'url: "dragdrop.php",';
-    print 'data: { nom: element, org: ev.target.className }';
+    print 'data: { nom: element, org: dest }';
   	print '})';
   	print '.done(function(msg) {';
    	print 'alert( "Data Saved: " + msg );';
