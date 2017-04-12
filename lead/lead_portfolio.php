@@ -299,7 +299,7 @@ print '<tr style="height:380px;">';
 //changement de ligne --> affaires traitées non modifiables--> data
 print '<td class="colone" rowspan="3" style="height:540px;"><div id="traite_fige_1" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:540px; width:219px; overflow: auto;">';
 $i=0;
-foreach ($object5->lines as $line){
+foreach ($object3->lines as $line){
 	$line->fetch_thirdparty();
 	if($line->array_options['options_type']==1){
 		$img = img_picto('porteur', 'reception.png@volvo');
