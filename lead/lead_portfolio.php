@@ -80,6 +80,7 @@ $formother = new FormOther($db);
 $title = 'Portefeuille d\'affaire';
 
 llxHeader('', $title);
+if($search_commercial == -1) $search_commercial='';
 if(!empty($search_commercial)) $filter['t.fk_user_resp'] =$search_commercial;
 $filter['t.fk_c_status !IN'] = '6,7,11';
 
@@ -123,7 +124,7 @@ if ($resql != - 1) {
 	print '<table class="noborder" width="100%">';
 	print '<tr class="liste_titre">';
 	print '<th class="liste_titre" align="center">Année: ';
-	$formother->select_year($year,'year',0, 5, 0);
+	$formother->select_year($year,'year',1, 5, 0);
 	print '</th>';
 	print '<th class="liste_titre" align="center">Commercial: '. $form->select_dolusers($search_commercial,'search_commercial',1,array(),$search_commercial_disabled,$user_included) . '</th>';
 	print '<th class="liste_titre" align="center">';
