@@ -142,7 +142,7 @@ if ($resql != - 1) {
 		}
 		print '<div class="div1" draggable="true" ondragstart="drag(event,this)" id="'. $line->id . '" style="width:225px;">';
 		print'<div class="cal_event cal_event_busy" style="background: -webkit-gradient(linear, left top, left bottom, from('.$color.'), to('.$color2.'));';
-		print ' -moz-border-radius:4px; width:200px;">';
+		print 'border-radius:6px; width:200px;">';
 		print $img . ' ';
 		print $line->ref . '</br>';
 		print $line->thirdparty->name;
