@@ -179,7 +179,7 @@ print "</tr>\n";
 print '<tr style="height:140px;">';
 
 //affaires en cours chaude
-print '<td class="colone" rowspan="3" style="height:540px;"><div align="center" id="encours_chaude_1" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:540px; width:219px; overflow: auto;">';
+print '<td class="colone" rowspan="3" style="height:540px;"><div align="center" id="encours_chaude_1" class="dropper" ondrop="drop(event);" ondragover="allowDrop(event);" style="height:540px; width:219px; overflow: auto;">';
 $i=0;
 foreach ($object1->lines as $line){
 	$line->fetch_thirdparty();
@@ -207,7 +207,7 @@ foreach ($object1->lines as $line){
 		$color = '#cccccc';
 		$color2= '#b2b2b2';
 	}
-	print'<div class="cal_event cal_event_busy"  draggable="true" ondragstart="drag(event)" id="'. $line->id . '" style="background:' . $color .'; background: -webkit-gradient(linear, left top, left bottom, from('.$color.'), to('.$color2.'));';
+	print'<div class="cal_event cal_event_busy"  draggable="true" ondragstart="drag(event);" id="'. $line->id . '" style="background:' . $color .'; background: -webkit-gradient(linear, left top, left bottom, from('.$color.'), to('.$color2.'));';
 	print 'border-radius:6px; margin-bottom: 3px; width:200px;">';
 	print $img . ' ';
 	print $line->ref . '</br>';
@@ -216,18 +216,18 @@ foreach ($object1->lines as $line){
 	$i++;
 	if ($i>= $mid1|| $mid1 == 0){
 		print '</div></td>';
-		print '<td class="colone" rowspan="3" style="height:540px;"><div align="center" id="encours_chaude_2" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:540px; width:219px; overflow: auto;">';
+		print '<td class="colone" rowspan="3" style="height:540px;"><div align="center" id="encours_chaude_2" class="dropper" ondrop="drop(event);" ondragover="allowDrop(event);" style="height:540px; width:219px; overflow: auto;">';
 		$i =-1*$i;
 	}
 }
 if($resql1==0){
 	print '</div></td>';
-	print '<td class="colone" rowspan="3" style="height:540px;"><div align="center" id="encours_chaude_2" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:540px; width:219px; overflow: auto;">';
+	print '<td class="colone" rowspan="3" style="height:540px;"><div align="center" id="encours_chaude_2" class="dropper" ondrop="drop(event);" ondragover="allowDrop(event);" style="height:540px; width:219px; overflow: auto;">';
 }
 print '</div></td>';
 
 //affaire traitée modifiables
-print '<td class="colone" style="height:140px;"><div align="center" id="traite_1" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:140px; width:219px; overflow: auto;">';
+print '<td class="colone" style="height:140px;"><div align="center" id="traite_1" class="dropper" ondrop="drop(event);" ondragover="allowDrop(event);" style="height:140px; width:219px; overflow: auto;">';
 $i=0;
 foreach ($lines2 as $line){
 	$line->fetch_thirdparty();
@@ -256,7 +256,7 @@ foreach ($lines2 as $line){
 		$color2= '#b2b2b2';
 	}
 
-	print'<div class="cal_event cal_event_busy"  draggable="true" ondragstart="drag(event)" id="'. $line->id . '" style="background:' . $color .'; background: -webkit-gradient(linear, left top, left bottom, from('.$color.'), to('.$color2.'));';
+	print'<div class="cal_event cal_event_busy"  draggable="true" ondragstart="drag(event);" id="'. $line->id . '" style="background:' . $color .'; background: -webkit-gradient(linear, left top, left bottom, from('.$color.'), to('.$color2.'));';
 	print 'border-radius:6px; margin-bottom: 3px; width:200px;">';
 	print $img . ' ';
 	print $line->ref . '</br>';
@@ -265,18 +265,18 @@ foreach ($lines2 as $line){
 	$i++;
 	if ($i>= $mid5){
 		print '</div></td>';
-		print '<td class="colone" style="height:140px;"><div align="center" id="traite_2" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:140px; width:219px; overflow: auto;">';
+		print '<td class="colone" style="height:140px;"><div align="center" id="traite_2" class="dropper" ondrop="drop(event);" ondragover="allowDrop(event);" style="height:140px; width:219px; overflow: auto;">';
 		$i =-1*$i;
 	}
 }
 if($mid5==0){
 	print '</div></td>';
-	print '<td class="colone" style="height:140px;"><div align="center" id="traite_2" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:140px; width:219px; overflow: auto;">';
+	print '<td class="colone" style="height:140px;"><div align="center" id="traite_2" class="dropper" ondrop="drop(event);" ondragover="allowDrop(event);" style="height:140px; width:219px; overflow: auto;">';
 }
 print '</div></td>';
 
 //affaire perdues
-print '<td class="colone" rowspan="5" style="height:700px;"><div align="center" id="perdu" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:219px; overflow: auto;">';
+print '<td class="colone" rowspan="5" style="height:700px;"><div align="center" id="perdu" class="dropper" ondrop="drop(event);" ondragover="allowDrop(event);" style="height:700px; width:219px; overflow: auto;">';
 foreach ($object4->lines as $line){
 	$line->fetch_thirdparty();
 	if($line->array_options['options_type']==1){
@@ -303,7 +303,7 @@ foreach ($object4->lines as $line){
 		$color = '#cccccc';
 		$color2= '#b2b2b2';
 	}
-	print'<div class="cal_event cal_event_busy"  draggable="true" ondragstart="drag(event)" id="'. $line->id . '" style="background:' . $color .'; background: -webkit-gradient(linear, left top, left bottom, from('.$color.'), to('.$color2.'));';
+	print'<div class="cal_event cal_event_busy"  draggable="true" ondragstart="drag(event);" id="'. $line->id . '" style="background:' . $color .'; background: -webkit-gradient(linear, left top, left bottom, from('.$color.'), to('.$color2.'));';
 	print 'border-radius:6px; margin-bottom: 3px; width:200px;">';
 	print $img . ' ';
 	print $line->ref . '</br>';
@@ -313,7 +313,7 @@ foreach ($object4->lines as $line){
 print '</div></td>';
 
 //affaires sans suite
-print '<td class="colone"rowspan="5" style="height:700px;"><div align="center" id="sanssuite" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:700px; width:219px; overflow: auto;">';
+print '<td class="colone"rowspan="5" style="height:700px;"><div align="center" id="sanssuite" class="dropper" ondrop="drop(event);" ondragover="allowDrop(event);" style="height:700px; width:219px; overflow: auto;">';
 foreach ($object5->lines as $line){
 	$line->fetch_thirdparty();
 	if($line->array_options['options_type']==1){
@@ -340,7 +340,7 @@ foreach ($object5->lines as $line){
 		$color = '#cccccc';
 		$color2= '#b2b2b2';
 	}
-	print'<div class="cal_event cal_event_busy"  draggable="true" ondragstart="drag(event)" id="'. $line->id . '" style="background:' . $color .'; background: -webkit-gradient(linear, left top, left bottom, from('.$color.'), to('.$color2.'));';
+	print'<div class="cal_event cal_event_busy"  draggable="true" ondragstart="drag(event);" id="'. $line->id . '" style="background:' . $color .'; background: -webkit-gradient(linear, left top, left bottom, from('.$color.'), to('.$color2.'));';
 	print 'border-radius:6px; margin-bottom: 3px; width:200px;">';
 	print $img . ' ';
 	print $line->ref . '</br>';
@@ -412,7 +412,7 @@ print '<td class="liste_titre" align="center" colspan="2" style="height:20px;"><
 print '</tr>';
 print '<tr style="height:140px;">';
 //changement de ligne --> affaires en cours froides--> titre
-print '<td class="colone" style="height:140px;"><div align="center" id="encours_froide_1" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:140px; width:219px; overflow: auto;">';
+print '<td class="colone" style="height:140px;"><div align="center" id="encours_froide_1" class="dropper" ondrop="drop(event);" ondragover="allowDrop(event);" style="height:140px; width:219px; overflow: auto;">';
 $i=0;
 foreach ($object2->lines as $line){
 	$line->fetch_thirdparty();
@@ -440,7 +440,7 @@ foreach ($object2->lines as $line){
 		$color = '#cccccc';
 		$color2= '#b2b2b2';
 	}
-	print'<div class="cal_event cal_event_busy"  draggable="true" ondragstart="drag(event)" id="'. $line->id . '" style="background:' . $color .'; background: -webkit-gradient(linear, left top, left bottom, from('.$color.'), to('.$color2.'));';
+	print'<div class="cal_event cal_event_busy"  draggable="true" ondragstart="drag(event);" id="'. $line->id . '" style="background:' . $color .'; background: -webkit-gradient(linear, left top, left bottom, from('.$color.'), to('.$color2.'));';
 	print 'border-radius:6px; margin-bottom: 3px; width:200px;">';
 	print $img . ' ';
 	print $line->ref . '</br>';
@@ -449,13 +449,13 @@ foreach ($object2->lines as $line){
 	$i++;
 	if ($i>= $mid2){
 		print '</div></td>';
-		print '<td class="colone" style="height:140px;"><div align="center" id="encours_froide_2" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:140px; width:219px; overflow: auto;">';
+		print '<td class="colone" style="height:140px;"><div align="center" id="encours_froide_2" class="dropper" ondrop="drop(event);" ondragover="allowDrop(event);" style="height:140px; width:219px; overflow: auto;">';
 		$i =-1*$i;
 	}
 }
 if($resql2==0){
 	print '</div></td>';
-	print '<td class="colone" style="height:140px;"><div align="center" id="encours_froide_2" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:140px; width:219px; overflow: auto;">';
+	print '<td class="colone" style="height:140px;"><div align="center" id="encours_froide_2" class="dropper" ondrop="drop(event);" ondragover="allowDrop(event);" style="height:140px; width:219px; overflow: auto;">';
 }
 print '</div></td>';
 
