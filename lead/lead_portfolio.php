@@ -468,7 +468,7 @@ if($user->admin){
 	print '  		$div.dialog({' . "\n";
 	print '  			modal:true' . "\n";
 	print '  			,width:"90%"' . "\n";
-	print '  			,height:$(window).height() - 50' . "\n";
+	print '  			,height:$(window).height() - 25' . "\n";
 	print '  			,close:function() {document.location.reload(true);}' . "\n";
 	print '  		});' . "\n";
 	print '' . "\n";
