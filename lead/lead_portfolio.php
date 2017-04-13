@@ -121,6 +121,9 @@ $mid5 = count($lines2)/2;
 
 
 print '<script>';
+print "document.getElementById('272').addEventListener('dragstart', drag(ev),false);";
+
+
 print 'function allowDrop(ev) {';
 print 'ev.preventDefault();';
 print '}';
