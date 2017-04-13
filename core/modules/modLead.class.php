@@ -417,7 +417,7 @@ class modLead extends DolibarrModules
 		$this->menu[$r] = array(
 				'fk_menu' => 'fk_mainmenu=lead',
 				'type' => 'left',
-				'titre' => 'Mes affaires',
+				'titre' => 'Portefeuille',
 				'leftmenu' => 'my',
 				'url' => '/lead/lead/lead_portfolio.php',
 				'langs' => 'lead@lead',
