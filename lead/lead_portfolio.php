@@ -124,7 +124,7 @@ print '<tr>';
 print '<td>Légende:</td>';
 print '<td>' . img_picto('porteur', 'reception.png@volvo') . ' = Porteur </td>';
 print '<td>' . img_picto('porteur', 'tracteur.png@volvo') . ' = tracteur </td>';
-print '<td>Vert = FH </td>';
+print '<td><span style="display: block; width:15px; height:15px; background-color:#56ff56;"></span>Vert = FH </td>';
 print '<td>Rouge = FM </td>';
 print '<td>Orange = FMX </td>';
 print '<td>Bleu = FL </td>';
