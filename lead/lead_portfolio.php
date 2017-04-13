@@ -438,12 +438,12 @@ print 'ev.preventDefault();';
 print '}';
 
 print 'function drag(ev) {';
-print 'ev.dataTransfer.setData("text/plain", ev.target.id);';
+print 'ev.dataTransfer.setData("text", ev.target.id);';
 print '}';
 
 print 'function drop(ev) {';
 print 'ev.preventDefault();';
-print 'var element = ev.dataTransfer.getData("text/plain");';
+print 'var element = ev.dataTransfer.getData("text");';
 print 'var dest = ev.target.className;';
 print "if (ev.target.className.indexOf('cal_event cal_event_busy')!=-1){";
 print 'dest = ev.target.parentNode.id;';
