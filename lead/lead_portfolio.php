@@ -463,7 +463,7 @@ if($user->admin){
 	print '  		$(\'div.fiche div.divButAction\').first().append($a);' . "\n";
 	print '  	});' . "\n";
 	print '  	function popUpateCost() {' . "\n";
-	print '  		$div = $(\'<div id="popUpateCost"><iframe width="100%" height="100%" frameborder="0" src="' . dol_buildpath('/volvo/lead/leadexpress.php?action=create&commercial=' . empty($search_commercial)?$user->id:$search_commercial, 1) . '"></iframe></div>\');' . "\n";
+	print '  		$div = $(\'<div id="popUpateCost"><iframe width="100%" height="100%" frameborder="0" src="' . dol_buildpath('/volvo/lead/leadexpress.php', 1) . '?action=create&commercial=' . empty($search_commercial)?$user->id:$search_commercial . '"></iframe></div>\');' . "\n";
 	print '' . "\n";
 	print '  		$div.dialog({' . "\n";
 	print '  			modal:true' . "\n";
