@@ -120,47 +120,7 @@ $mid4 = count($lines1)/2;
 $mid5 = count($lines2)/2;
 
 
-print '<script>';
-print "document.getElementById('272').addEventListener('dragstart', drag(ev),false);";
 
-
-print 'function allowDrop(ev) {';
-print 'ev.preventDefault();';
-print '}';
-
-
-print 'function drag(ev) {';
-//print 'ev.dataTransfer.setData("text/plain", ev.target.id);';
-print 'ev.DataTransfer.items.add(ev.target.id,"text/plain");';
-//print 'var datalist = ev.DataTransferItemList;';
-//print 'datalist.add(ev.target.id,"text/plain"); ';
-print '}';
-
-print 'function drop(ev) {';
-print 'ev.preventDefault();';
-print 'var element = ev.dataTransfer.getData("text/plain");';
-//print 'var element = ev.datatTransfer.items;';
-print 'var dest = ev.target.className;';
-print "if (ev.target.className.indexOf('cal_event cal_event_busy')!=-1){";
-print 'dest = ev.target.parentNode.id;';
-print 'ev.target.parentNode.appendChild(document.getElementById(element));';
-print '}';
-print "if (ev.target.className.indexOf('dropper')!=-1){";
-print 'dest = ev.target.id;';
-print 'ev.target.appendChild(document.getElementById(element));';
-print '}';
-print '$.ajax({';
-print 'method: "POST",';
-print 'url: "dragdrop.php",';
-print 'data: { id_lead: element, new_statut: dest }';
-print '})';
-// if($debug=1){
-// 	print '.done(function(msg) {';
-// 	print 'alert( "Data Saved: " + msg );';
-// 	print '});';
-// }
-print '}';
-print '</script>';
 
 print '<form method="post" action="' . $_SERVER['PHP_SELF'] . '" name="search_form">' . "\n";
 print '<table class="noborder" width="100%">';
@@ -471,6 +431,48 @@ print '</div></td>';
 print '</tr>';
 print "</table>";
 
+
+print '<script>';
+print "document.getElementById('272').addEventListener('dragstart', drag(ev),false);";
+
+
+print 'function allowDrop(ev) {';
+print 'ev.preventDefault();';
+print '}';
+
+
+print 'function drag(ev) {';
+//print 'ev.dataTransfer.setData("text/plain", ev.target.id);';
+print 'ev.DataTransfer.items.add(ev.target.id,"text/plain");';
+//print 'var datalist = ev.DataTransferItemList;';
+//print 'datalist.add(ev.target.id,"text/plain"); ';
+print '}';
+
+print 'function drop(ev) {';
+print 'ev.preventDefault();';
+print 'var element = ev.dataTransfer.getData("text/plain");';
+//print 'var element = ev.datatTransfer.items;';
+print 'var dest = ev.target.className;';
+print "if (ev.target.className.indexOf('cal_event cal_event_busy')!=-1){";
+print 'dest = ev.target.parentNode.id;';
+print 'ev.target.parentNode.appendChild(document.getElementById(element));';
+print '}';
+print "if (ev.target.className.indexOf('dropper')!=-1){";
+print 'dest = ev.target.id;';
+print 'ev.target.appendChild(document.getElementById(element));';
+print '}';
+print '$.ajax({';
+print 'method: "POST",';
+print 'url: "dragdrop.php",';
+print 'data: { id_lead: element, new_statut: dest }';
+print '})';
+// if($debug=1){
+// 	print '.done(function(msg) {';
+// 	print 'alert( "Data Saved: " + msg );';
+// 	print '});';
+// }
+print '}';
+print '</script>';
 
 dol_fiche_end();
 llxFooter();
