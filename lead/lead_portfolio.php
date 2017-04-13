@@ -144,7 +144,7 @@ print '<table class="noborder" width="100%">';
 print '<tr class="liste_titre" style="height:27px;">';
 print '<th class="liste_titre" align="center" width = "160px">';
 if($user->admin){
-	print '<div class="inline-block divButAction" style="height:13px;"><a class="butAction" href="' . $_SERVER['PHP_SELF'] . '?id=' . $object->id . '&action=edit">' . $langs->trans("Nouvelle Affaire") . "</a></div>\n";
+	print '<div class="inline-block divButAction" style="height:13px;">'."</div>\n";
 }
 print '</th>';
 print '<th class="liste_titre" align="center" width = "160px">Année: ';
@@ -456,6 +456,26 @@ print "</table>";
 
 
 print '<script type="text/javascript" language="javascript">';
+
+if($user->admin){
+	print '  	$(document).ready(function() {' . "\n";
+	print '		$a = $(\'<a href="javascript:popUpateCost()" class="butAction">Nouvelle Affaire .</a>\');' . "\n";
+	print '  		$(\'div.fiche div.tabsAction\').first().append($a);' . "\n";
+	print '  	});' . "\n";
+	print '  	function popUpateCost() {' . "\n";
+	print '  		$div = $(\'<div id="popUpateCost"><iframe width="100%" height="100%" frameborder="0" src="' . dol_buildpath('/volvo/updatecost/updatecost.php?orderid=' . $object->id, 1) . '"></iframe></div>\');' . "\n";
+	print '' . "\n";
+	print '  		$div.dialog({' . "\n";
+	print '  			modal:true' . "\n";
+	print '  			,width:"90%"' . "\n";
+	print '  			,height:$(window).height() - 150' . "\n";
+	print '  			,close:function() {document.location.reload(true);}' . "\n";
+	print '  		});' . "\n";
+	print '' . "\n";
+	print '  	}' . "\n";
+}
+
+
 print 'function allowDrop(ev) {';
 print 'ev.preventDefault();';
 print '}';
