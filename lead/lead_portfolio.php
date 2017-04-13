@@ -432,7 +432,7 @@ print '</tr>';
 print "</table>";
 
 
-print '<script>';
+print '<script type="text/javascript" language="javascript">';
 print 'function allowDrop(ev) {';
 print 'ev.preventDefault();';
 print '}';
