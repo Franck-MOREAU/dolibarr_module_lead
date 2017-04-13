@@ -127,7 +127,8 @@ print '}';
 
 
 print 'function drag(ev) {';
-print 'ev.dataTransfer.setData("text/plain", ev.target.id);';
+//print 'ev.dataTransfer.setData("text/plain", ev.target.id);';
+print 'ev.dataTransfer.add(ev.target.id,"text/plain");';
 // print 'var datalist = ev.DataTransferItemList;';
 // print 'datalist.add(ev.target.id,"text/plain"); ';
 print '}';
