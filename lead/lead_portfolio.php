@@ -125,13 +125,15 @@ print 'function allowDrop(ev) {';
 print 'ev.preventDefault();';
 print '}';
 
+//ev.setData("text/plain", ev.target.id);
 print 'function drag(ev) {';
-print 'ev.dataTransfer.setData("text/plain", ev.target.id);';
+print 'ev.dataTransferItemList[1].add(ev.target.id,"text/plain"); ';
 print '}';
 
 print 'function drop(ev) {';
 print 'ev.preventDefault();';
-print 'var element = ev.dataTransfer.getData("text/plain");';
+//print 'var element = ev.dataTransfer.getData("text/plain");';
+print 'var element = dataTransferItemList[1];';
 print 'var dest = ev.target.className;';
 print "if (ev.target.className.indexOf('cal_event cal_event_busy')!=-1){";
 print 'dest = ev.target.parentNode.id;';
