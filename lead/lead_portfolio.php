@@ -127,7 +127,7 @@ print '}';
 
 //ev.setData("text/plain", ev.target.id);
 print 'function drag(ev) {';
-print 'var datalist = ev.dataTransfer.items;';
+print 'var datalist = ev.DataTransferItemList;';
 print 'datalist.add(ev.target.id,"text/plain"); ';
 print '}';
 
