@@ -141,10 +141,10 @@ print '</table>';
 
 print '<form method="post" action="' . $_SERVER['PHP_SELF'] . '" name="search_form">' . "\n";
 print '<table class="noborder" width="100%">';
-print '<tr class="liste_titre" height="27px">';
+print '<tr class="liste_titre" style="height:27px;">';
 print '<th class="liste_titre" align="center" width = "160px">';
 if($user->admin){
-	print '<div class="inline-block divButAction" heigth="13px"><a class="butAction" href="' . $_SERVER['PHP_SELF'] . '?id=' . $object->id . '&action=edit">' . $langs->trans("Nouvelle Affaire") . "</a></div>\n";
+	print '<div class="inline-block divButAction" style="heigth:13px;"><a class="butAction" href="' . $_SERVER['PHP_SELF'] . '?id=' . $object->id . '&action=edit">' . $langs->trans("Nouvelle Affaire") . "</a></div>\n";
 }
 print '</th>';
 print '<th class="liste_titre" align="center" width = "160px">Année: ';
