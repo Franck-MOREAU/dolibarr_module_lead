@@ -121,9 +121,9 @@ $mid5 = count($lines2)/2;
 
 print '<table class="noborder" width="100%">';
 print '<tr>';
-print '<td>Légende:</td>';
-print '<td>' . img_picto('porteur', 'reception.png@volvo') . ' = Porteur </td>';
-print '<td>' . img_picto('porteur', 'tracteur.png@volvo') . ' = tracteur </td>';
+print '<td width = "70px">Légende:</td>';
+print '<td width = "90px">' . img_picto('porteur', 'reception.png@volvo') . ' = Porteur </td>';
+print '<td width = "90px">' . img_picto('porteur', 'tracteur.png@volvo') . ' = tracteur </td>';
 print '<td width = "70px"><span style="display: inline-block; width:15px; height:15px; background-color:#56ff56;"></span> = FH</td>';
 print '<td width = "70px"><span style="display: inline-block; width:15px; height:15px; background-color:#ff5656;"></span> = FM</td>';
 print '<td width = "70px"><span style="display: inline-block; width:15px; height:15px; background-color:#ffaa56;"></span> = FMX</td>';
