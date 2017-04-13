@@ -64,7 +64,7 @@ if($resqlusers){
 }
 
 if(!isset($_POST['year'])) $year = dol_print_date(dol_now(),'%Y');
-
+if(!isset($_POST['search_commercial'])) $search_commercial = $user->id;
 if($search_commercial == -1) $search_commercial='';
 if($year == -1) $year='';
 
