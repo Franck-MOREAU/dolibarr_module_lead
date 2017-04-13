@@ -150,7 +150,7 @@ print '</th>';
 print '<th class="liste_titre" align="center" width = "150px">Année: ';
 $formother->select_year($year,'year',1, 5, 0);
 print '</th>';
-print '<th class="liste_titre" align="center" width = "200px">Commercial: '. $form->select_dolusers($search_commercial,'search_commercial',1,array(),$search_commercial_disabled,$user_included) . '</th>';
+print '<th class="liste_titre" align="center" width = "300px">Commercial: '. $form->select_dolusers($search_commercial,'search_commercial',1,array(),$search_commercial_disabled,$user_included) . '</th>';
 print '<th class="liste_titre" align="center" width = "60px">';
 print '<div align="left"><input class="liste_titre" type="image" src="' . DOL_URL_ROOT . '/theme/' . $conf->theme . '/img/search.png" value="' . dol_escape_htmltag($langs->trans("Search")) . '" title="' . dol_escape_htmltag($langs->trans("Search")) . '">';
 print '&nbsp;<input type="image" class="liste_titre" name="button_removefilter" src="' . DOL_URL_ROOT . '/theme/' . $conf->theme . '/img/searchclear.png" value="' . dol_escape_htmltag($langs->trans("RemoveFilter")) . '" title="' . dol_escape_htmltag($langs->trans("RemoveFilter")) . '"></div>';
