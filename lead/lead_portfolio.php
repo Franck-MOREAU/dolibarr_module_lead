@@ -433,13 +433,9 @@ print "</table>";
 
 
 print '<script>';
-print "document.getElementById('272').addEventListener('dragstart', drag(event),false);";
-
-
 print 'function allowDrop(ev) {';
 print 'ev.preventDefault();';
 print '}';
-
 
 print 'function drag(ev) {';
 print 'ev.dataTransfer.setData("text/plain", ev.target.id);';
