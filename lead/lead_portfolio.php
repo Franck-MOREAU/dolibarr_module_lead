@@ -144,7 +144,7 @@ print '<table class="noborder" width="100%">';
 print '<tr class="liste_titre" style="height:27px;">';
 print '<th class="liste_titre" align="center" width = "160px">';
 if($user->admin){
-	print '<div class="tabsAction" style="height:13px;">'."</div>\n";
+	print '<div class="inline-block divButAction" style="height:13px;">'."</div>\n";
 }
 print '</th>';
 print '<th class="liste_titre" align="center" width = "160px">Année: ';
@@ -460,7 +460,7 @@ print '<script type="text/javascript" language="javascript">';
 if($user->admin){
 	print '  	$(document).ready(function() {' . "\n";
 	print '		$a = $(\'<a href="javascript:popUpateCost()" class="butAction">Nouvelle Affaire .</a>\');' . "\n";
-	print '  		$(\'div.fiche div.tabsAction\').first().append($a);' . "\n";
+	print '  		$(\'div.fiche div.divButAction\').first().append($a);' . "\n";
 	print '  	});' . "\n";
 	print '  	function popUpateCost() {' . "\n";
 	print '  		$div = $(\'<div id="popUpateCost"><iframe width="100%" height="100%" frameborder="0" src="' . dol_buildpath('/volvo/updatecost/updatecost.php?orderid=' . $object->id, 1) . '"></iframe></div>\');' . "\n";
