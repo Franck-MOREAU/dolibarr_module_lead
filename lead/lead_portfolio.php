@@ -146,11 +146,11 @@ print 'method: "POST",';
 print 'url: "dragdrop.php",';
 print 'data: { id_lead: element, new_statut: dest }';
 print '})';
-if($debug=1){
-	print '.done(function(msg) {';
-	print 'alert( "Data Saved: " + msg );';
-	print '});';
-}
+// if($debug=1){
+// 	print '.done(function(msg) {';
+// 	print 'alert( "Data Saved: " + msg );';
+// 	print '});';
+// }
 print '}';
 print '</script>';
 
@@ -462,6 +462,7 @@ print '</div></td>';
 //fin de tableau
 print '</tr>';
 print "</table>";
+
 
 dol_fiche_end();
 llxFooter();
