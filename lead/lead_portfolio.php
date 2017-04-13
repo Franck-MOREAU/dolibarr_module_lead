@@ -127,13 +127,14 @@ print '}';
 
 //ev.setData("text/plain", ev.target.id);
 print 'function drag(ev) {';
-print 'ev.dataTransferItemList.add(ev.target.id,"text/plain"); ';
+print 'var datalist = ev.dataTransfer.items;';
+print 'datalist.add(ev.target.id,"text/plain"); ';
 print '}';
 
 print 'function drop(ev) {';
 print 'ev.preventDefault();';
 //print 'var element = ev.dataTransfer.getData("text/plain");';
-print 'var element = dataTransferItemList[0];';
+print 'var element = ev.datatTransfer.items;';
 print 'var dest = ev.target.className;';
 print "if (ev.target.className.indexOf('cal_event cal_event_busy')!=-1){";
 print 'dest = ev.target.parentNode.id;';
@@ -146,7 +147,7 @@ print '}';
 print '$.ajax({';
 print 'method: "POST",';
 print 'url: "dragdrop.php",';
-print 'data: { id_lead: element, new_statut: dest }';
+print 'data: { id_lead: element[0], new_statut: dest }';
 print '})';
 // if($debug=1){
 // 	print '.done(function(msg) {';
