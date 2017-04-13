@@ -443,7 +443,7 @@ print '}';
 
 print 'function drag(ev) {';
 print 'ev.dataTransfer.setData("text/plain", ev.target.id);';
-print 'ev.DataTransfer.items.add(ev.target.id,"text/plain");';
+//print 'ev.DataTransfer.items.add(ev.target.id,"text/plain");';
 //print 'var datalist = ev.DataTransferItemList;';
 //print 'datalist.add(ev.target.id,"text/plain"); ';
 print '}';
