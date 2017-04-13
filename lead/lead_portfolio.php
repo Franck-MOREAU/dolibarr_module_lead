@@ -443,15 +443,11 @@ print '}';
 
 print 'function drag(ev) {';
 print 'ev.dataTransfer.setData("text/plain", ev.target.id);';
-//print 'ev.DataTransfer.items.add(ev.target.id,"text/plain");';
-//print 'var datalist = ev.DataTransferItemList;';
-//print 'datalist.add(ev.target.id,"text/plain"); ';
 print '}';
 
 print 'function drop(ev) {';
 print 'ev.preventDefault();';
 print 'var element = ev.dataTransfer.getData("text/plain");';
-//print 'var element = ev.datatTransfer.items;';
 print 'var dest = ev.target.className;';
 print "if (ev.target.className.indexOf('cal_event cal_event_busy')!=-1){";
 print 'dest = ev.target.parentNode.id;';
@@ -466,11 +462,6 @@ print 'method: "POST",';
 print 'url: "dragdrop.php",';
 print 'data: { id_lead: element, new_statut: dest }';
 print '})';
-// if($debug=1){
-// 	print '.done(function(msg) {';
-// 	print 'alert( "Data Saved: " + msg );';
-// 	print '});';
-// }
 print '}';
 print '</script>';
 
