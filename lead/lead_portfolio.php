@@ -125,11 +125,11 @@ print 'function allowDrop(ev) {';
 print 'ev.preventDefault();';
 print '}';
 
-print 'function drag(ev,ui) {';
+print 'function drag(ev) {';
 print 'ev.dataTransfer.setData("text/plain", ev.target.id);';
 print '}';
 
-print 'function drop(ev, source) {';
+print 'function drop(ev) {';
 print 'ev.preventDefault();';
 print 'var element = ev.dataTransfer.getData("text/plain");';
 print 'var dest = ev.target.className;';
@@ -207,7 +207,7 @@ foreach ($object1->lines as $line){
 		$color = '#cccccc';
 		$color2= '#b2b2b2';
 	}
-	print'<div class="cal_event cal_event_busy"  draggable="true" ondragstart="drag(event,this)" id="'. $line->id . '" style="background:' . $color .'; background: -webkit-gradient(linear, left top, left bottom, from('.$color.'), to('.$color2.'));';
+	print'<div class="cal_event cal_event_busy"  draggable="true" ondragstart="drag(event)" id="'. $line->id . '" style="background:' . $color .'; background: -webkit-gradient(linear, left top, left bottom, from('.$color.'), to('.$color2.'));';
 	print 'border-radius:6px; margin-bottom: 3px; width:200px;">';
 	print $img . ' ';
 	print $line->ref . '</br>';
@@ -256,7 +256,7 @@ foreach ($lines2 as $line){
 		$color2= '#b2b2b2';
 	}
 
-	print'<div class="cal_event cal_event_busy"  draggable="true" ondragstart="drag(event,this)" id="'. $line->id . '" style="background:' . $color .'; background: -webkit-gradient(linear, left top, left bottom, from('.$color.'), to('.$color2.'));';
+	print'<div class="cal_event cal_event_busy"  draggable="true" ondragstart="drag(event)" id="'. $line->id . '" style="background:' . $color .'; background: -webkit-gradient(linear, left top, left bottom, from('.$color.'), to('.$color2.'));';
 	print 'border-radius:6px; margin-bottom: 3px; width:200px;">';
 	print $img . ' ';
 	print $line->ref . '</br>';
@@ -303,7 +303,7 @@ foreach ($object4->lines as $line){
 		$color = '#cccccc';
 		$color2= '#b2b2b2';
 	}
-	print'<div class="cal_event cal_event_busy"  draggable="true" ondragstart="drag(event,this)" id="'. $line->id . '" style="background:' . $color .'; background: -webkit-gradient(linear, left top, left bottom, from('.$color.'), to('.$color2.'));';
+	print'<div class="cal_event cal_event_busy"  draggable="true" ondragstart="drag(event)" id="'. $line->id . '" style="background:' . $color .'; background: -webkit-gradient(linear, left top, left bottom, from('.$color.'), to('.$color2.'));';
 	print 'border-radius:6px; margin-bottom: 3px; width:200px;">';
 	print $img . ' ';
 	print $line->ref . '</br>';
@@ -340,7 +340,7 @@ foreach ($object5->lines as $line){
 		$color = '#cccccc';
 		$color2= '#b2b2b2';
 	}
-	print'<div class="cal_event cal_event_busy"  draggable="true" ondragstart="drag(event,this)" id="'. $line->id . '" style="background:' . $color .'; background: -webkit-gradient(linear, left top, left bottom, from('.$color.'), to('.$color2.'));';
+	print'<div class="cal_event cal_event_busy"  draggable="true" ondragstart="drag(event)" id="'. $line->id . '" style="background:' . $color .'; background: -webkit-gradient(linear, left top, left bottom, from('.$color.'), to('.$color2.'));';
 	print 'border-radius:6px; margin-bottom: 3px; width:200px;">';
 	print $img . ' ';
 	print $line->ref . '</br>';
@@ -440,7 +440,7 @@ foreach ($object2->lines as $line){
 		$color = '#cccccc';
 		$color2= '#b2b2b2';
 	}
-	print'<div class="cal_event cal_event_busy"  draggable="true" ondragstart="drag(event,this)" id="'. $line->id . '" style="background:' . $color .'; background: -webkit-gradient(linear, left top, left bottom, from('.$color.'), to('.$color2.'));';
+	print'<div class="cal_event cal_event_busy"  draggable="true" ondragstart="drag(event)" id="'. $line->id . '" style="background:' . $color .'; background: -webkit-gradient(linear, left top, left bottom, from('.$color.'), to('.$color2.'));';
 	print 'border-radius:6px; margin-bottom: 3px; width:200px;">';
 	print $img . ' ';
 	print $line->ref . '</br>';
