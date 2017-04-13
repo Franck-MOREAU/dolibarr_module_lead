@@ -129,7 +129,7 @@ print '<td width = "70px"><span style="display: inline-block; width:15px; height
 print '<td width = "70px"><span style="display: inline-block; width:15px; height:15px; background-color:#ffaa56;"></span> = FMX</td>';
 print '<td width = "70px"><span style="display: inline-block; width:15px; height:15px; background-color:#aad4ff;"></span> = FL</td>';
 print '<td width = "70px"><span style="display: inline-block; width:15px; height:15px; background-color:#aa56ff;"></span> = FE</td>';
-print '<td width = "70px"><span style="display: inline-block; width:15px; height:15px; background-color:#cccccc;"></span> = Non défini</td>';
+print '<td width = "90px"><span style="display: inline-block; width:15px; height:15px; background-color:#cccccc;"></span> = Non défini</td>';
 print '<td></td>';
 print '</tr>';
 print '</table>';
