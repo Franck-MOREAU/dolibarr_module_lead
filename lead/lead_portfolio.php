@@ -144,7 +144,7 @@ print '<table class="noborder" width="100%">';
 print '<tr class="liste_titre" style="height:27px;">';
 print '<th class="liste_titre" align="center" width = "160px">';
 if($user->admin){
-	print '<div class="inline-block divButAction" style="height:13px;">'."</div>\n";
+	print '<div class="tabsAction" style="height:13px;">'."</div>\n";
 }
 print '</th>';
 print '<th class="liste_titre" align="center" width = "160px">Année: ';
