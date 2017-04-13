@@ -119,8 +119,18 @@ foreach ($object3->lines as $line){
 $mid4 = count($lines1)/2;
 $mid5 = count($lines2)/2;
 
-
-
+print '<table class="noborder" width="100%">';
+print '<tr>';
+print '<td>Légende:</td>';
+print '<td>' . img_picto('porteur', 'reception.png@volvo') . ' = Porteur </td>';
+print '<td>' . img_picto('porteur', 'tracteur.png@volvo') . ' = tracteur </td>';
+print '<td>Vert = FH </td>';
+print '<td>Rouge = FM </td>';
+print '<td>Orange = FMX </td>';
+print '<td>Bleu = FE </td>';
+print '<td>Violet = FL </td>';
+print '</tr>';
+print '</table>';
 
 print '<form method="post" action="' . $_SERVER['PHP_SELF'] . '" name="search_form">' . "\n";
 print '<table class="noborder" width="100%">';
@@ -178,7 +188,7 @@ foreach ($object1->lines as $line){
 	print'<div class="cal_event cal_event_busy"  draggable="true"; ondragstart="drag(event);" id="'. $line->id . '" style="background:' . $color .'; background: -webkit-gradient(linear, left top, left bottom, from('.$color.'), to('.$color2.'));';
 	print 'border-radius:6px; margin-bottom: 3px; width:200px;">';
 	print $img . ' ';
-	print $line->ref . '</br>';
+	print '<a href= "card.php?id='.$line->id .'">' .$line->ref . '</a></br>';
 	print $line->thirdparty->name;
 	print '</div>';
 	$i++;
