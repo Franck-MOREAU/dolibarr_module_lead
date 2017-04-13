@@ -35,7 +35,6 @@ if (! empty($conf->contrat->enabled))
 	require_once DOL_DOCUMENT_ROOT . '/contrat/class/contrat.class.php';
 if (! empty($conf->commande->enabled))
 	require_once DOL_DOCUMENT_ROOT . '/commande/class/commande.class.php';
-
 if (! empty($conf->agenda->enabled))
 	dol_include_once('/comm/action/class/actioncomm.class.php');
 
