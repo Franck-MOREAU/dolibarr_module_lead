@@ -433,7 +433,7 @@ print "</table>";
 
 
 print '<script>';
-//print "document.getElementById('272').addEventListener('dragstart', drag(evt),false);";
+print "document.getElementById('272').addEventListener('dragstart', drag(event),false);";
 
 
 print 'function allowDrop(ev) {';
