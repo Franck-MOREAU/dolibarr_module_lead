@@ -234,10 +234,10 @@ foreach ($lines2 as $line){
 		$color2= '#b2b2b2';
 	}
 
-	print'<div class="cal_event cal_event_busy"  draggable="true" ondragstart="drag(event);" id="'. $line->id . '" style="background:' . $color .'; background: -webkit-gradient(linear, left top, left bottom, from('.$color.'), to('.$color2.'));';
+	print'<div class="cal_event cal_event_busy" align="left" draggable="true" ondragstart="drag(event);" id="'. $line->id . '" style="background:' . $color .'; background: -webkit-gradient(linear, left top, left bottom, from('.$color.'), to('.$color2.'));';
 	print 'border-radius:6px; margin-bottom: 3px; width:200px;">';
 	print $img . ' ';
-	print $line->ref . '</br>';
+	print '<a href= "card.php?id='.$line->id .'">' .$line->ref . '</a></br>';
 	print $line->thirdparty->name;
 	print '</div>';
 	$i++;
@@ -281,10 +281,10 @@ foreach ($object4->lines as $line){
 		$color = '#cccccc';
 		$color2= '#b2b2b2';
 	}
-	print'<div class="cal_event cal_event_busy"  draggable="true" ondragstart="drag(event);" id="'. $line->id . '" style="background:' . $color .'; background: -webkit-gradient(linear, left top, left bottom, from('.$color.'), to('.$color2.'));';
+	print'<div class="cal_event cal_event_busy" align="left" draggable="true" ondragstart="drag(event);" id="'. $line->id . '" style="background:' . $color .'; background: -webkit-gradient(linear, left top, left bottom, from('.$color.'), to('.$color2.'));';
 	print 'border-radius:6px; margin-bottom: 3px; width:200px;">';
 	print $img . ' ';
-	print $line->ref . '</br>';
+	print '<a href= "card.php?id='.$line->id .'">' .$line->ref . '</a></br>';
 	print $line->thirdparty->name;
 	print '</div>';
 }
@@ -318,10 +318,10 @@ foreach ($object5->lines as $line){
 		$color = '#cccccc';
 		$color2= '#b2b2b2';
 	}
-	print'<div class="cal_event cal_event_busy"  draggable="true" ondragstart="drag(event);" id="'. $line->id . '" style="background:' . $color .'; background: -webkit-gradient(linear, left top, left bottom, from('.$color.'), to('.$color2.'));';
+	print'<div class="cal_event cal_event_busy" align="left" draggable="true" ondragstart="drag(event);" id="'. $line->id . '" style="background:' . $color .'; background: -webkit-gradient(linear, left top, left bottom, from('.$color.'), to('.$color2.'));';
 	print 'border-radius:6px; margin-bottom: 3px; width:200px;">';
 	print $img . ' ';
-	print $line->ref . '</br>';
+	print '<a href= "card.php?id='.$line->id .'">' .$line->ref . '</a></br>';
 	print $line->thirdparty->name;
 	print '</div>';
 }
@@ -364,10 +364,10 @@ foreach ($lines1 as $line){
 		$color2= '#b2b2b2';
 	}
 
-	print'<div class="cal_event cal_event_busy"  draggable="false" style="background:' . $color .'; background: -webkit-gradient(linear, left top, left bottom, from('.$color.'), to('.$color2.'));';
+	print'<div class="cal_event cal_event_busy" align="left" draggable="false" style="background:' . $color .'; background: -webkit-gradient(linear, left top, left bottom, from('.$color.'), to('.$color2.'));';
 	print 'border-radius:6px; margin-bottom: 3px; width:200px;">';
 	print $img . ' ';
-	print $line->ref . '</br>';
+	print '<a href= "card.php?id='.$line->id .'">' .$line->ref . '</a></br>';
 	print $line->thirdparty->name;
 	print '</div>';
 	$i++;
@@ -418,10 +418,10 @@ foreach ($object2->lines as $line){
 		$color = '#cccccc';
 		$color2= '#b2b2b2';
 	}
-	print'<div class="cal_event cal_event_busy"  draggable="true" ondragstart="drag(event);" id="'. $line->id . '" style="background:' . $color .'; background: -webkit-gradient(linear, left top, left bottom, from('.$color.'), to('.$color2.'));';
+	print'<div class="cal_event cal_event_busy" align="left" draggable="true" ondragstart="drag(event);" id="'. $line->id . '" style="background:' . $color .'; background: -webkit-gradient(linear, left top, left bottom, from('.$color.'), to('.$color2.'));';
 	print 'border-radius:6px; margin-bottom: 3px; width:200px;">';
 	print $img . ' ';
-	print $line->ref . '</br>';
+	print '<a href= "card.php?id='.$line->id .'">' .$line->ref . '</a></br>';
 	print $line->thirdparty->name;
 	print '</div>';
 	$i++;
