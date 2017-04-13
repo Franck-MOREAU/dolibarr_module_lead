@@ -124,11 +124,12 @@ print '<tr>';
 print '<td>Légende:</td>';
 print '<td>' . img_picto('porteur', 'reception.png@volvo') . ' = Porteur </td>';
 print '<td>' . img_picto('porteur', 'tracteur.png@volvo') . ' = tracteur </td>';
-print '<td><span style="display: inline-block; width:15px; height:15px; background-color:#56ff56;"></span> = FH </td>';
-print '<td><span style="display: inline-block; width:15px; height:15px; background-color:#ff5656;"></span> FM </td>';
-print '<td><span style="display: inline-block; width:15px; height:15px; background-color:#ffaa56;"> = FMX </td>';
-print '<td>Bleu = FL </td>';
-print '<td>Violet = FE </td>';
+print '<td><span style="display: inline-block; width:15px; height:15px; background-color:#56ff56;"></span> = FH</td>';
+print '<td><span style="display: inline-block; width:15px; height:15px; background-color:#ff5656;"></span> = FM</td>';
+print '<td><span style="display: inline-block; width:15px; height:15px; background-color:#ffaa56;"></span> = FMX</td>';
+print '<td><span style="display: inline-block; width:15px; height:15px; background-color:#aad4ff;"></span> = FL</td>';
+print '<td><span style="display: inline-block; width:15px; height:15px; background-color:#aa56ff;"></span> = FE</td>';
+print '<td><span style="display: inline-block; width:15px; height:15px; background-color:#cccccc;"></span> = Non défini</td>';
 print '</tr>';
 print '</table>';
 
