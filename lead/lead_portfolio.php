@@ -127,8 +127,8 @@ print '<td>' . img_picto('porteur', 'tracteur.png@volvo') . ' = tracteur </td>';
 print '<td>Vert = FH </td>';
 print '<td>Rouge = FM </td>';
 print '<td>Orange = FMX </td>';
-print '<td>Bleu = FE </td>';
-print '<td>Violet = FL </td>';
+print '<td>Bleu = FL </td>';
+print '<td>Violet = FE </td>';
 print '</tr>';
 print '</table>';
 
