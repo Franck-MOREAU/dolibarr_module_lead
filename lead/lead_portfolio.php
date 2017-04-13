@@ -63,6 +63,12 @@ if($resqlusers){
 	}
 }
 
+if(!isset($_POST['year'])) $year = dol_print_date(dol_now(),'%Y');
+
+if($search_commercial == -1) $search_commercial='';
+if($year == -1) $year='';
+
+
 $form = new Form($db);
 $formlead = new FormLead($db);
 $object1 = new Leadext($db);
@@ -75,8 +81,7 @@ $formother = new FormOther($db);
 $title = 'Portefeuille d\'affaire';
 
 llxHeader('', $title);
-if($search_commercial == -1) $search_commercial='';
-if($year == -1) $year='';
+
 if(!empty($search_commercial)){
 	$filter1['t.fk_user_resp'] =$search_commercial;
 	$filter2['t.fk_user_resp'] =$search_commercial;
