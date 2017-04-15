@@ -201,7 +201,7 @@ foreach ($object1->lines as $line){
 	print'<div class="cal_event cal_event_busy" align="left" draggable="true"; ondragstart="drag(event);" id="'. $line->id . '" style="background:' . $color .'; background: -webkit-gradient(linear, left top, left bottom, from('.$color.'), to('.$color2.'));';
 	print 'border-radius:6px; margin-bottom: 3px; width:200px;">';
 	print $img . ' ';
-	print '<a href= "card.php?id='.$line->id .'">' .$line->ref . '</a></br>';
+	print '<a href= "href="javascript:wievlead('.$line->id .')">' .$line->ref . '</a></br>';
 	print $line->thirdparty->name;
 	print '</div>';
 	$i++;
@@ -459,11 +459,22 @@ print '<script type="text/javascript" language="javascript">';
 
 if($user->admin){
 	print '  	$(document).ready(function() {' . "\n";
-	print '		$a = $(\'<a href="javascript:popUpateCost(2)" class="butAction">Nouvelle Affaire .</a>\');' . "\n";
+	print '		$a = $(\'<a href="javascript:createlead()" class="butAction">Nouvelle Affaire .</a>\');' . "\n";
 	print '  		$(\'div.fiche div.divButAction\').first().append($a);' . "\n";
 	print '  	});' . "\n";
-	print '  	function popUpateCost(idlead) {' . "\n";
-	print '  		$div = $(\'<div id="popUpateCost"><iframe width="100%" height="100%" frameborder="0" src="' . dol_buildpath('/volvo/lead/leadexpress.php?action=create&userid='.$search_commercial, 1) . '&id=\'+idlead +\'"></iframe></div>\');' . "\n";
+	print '  	function createlead() {' . "\n";
+	print '  		$div = $(\'<div id="createlead"><iframe width="100%" height="100%" frameborder="0" src="' . dol_buildpath('/volvo/lead/leadexpress.php?action=create&userid='.$search_commercial, 1) . '"></iframe></div>\');' . "\n";
+	print '' . "\n";
+	print '  		$div.dialog({' . "\n";
+	print '  			modal:true' . "\n";
+	print '  			,width:"90%"' . "\n";
+	print '  			,height:$(window).height() - 25' . "\n";
+	print '  			,close:function() {document.location.reload(true);}' . "\n";
+	print '  		});' . "\n";
+	print '' . "\n";
+	print '  	}' . "\n";
+	print '  	function wievlead(idlead) {' . "\n";
+	print '  		$div = $(\'<div id="wievlead"><iframe width="100%" height="100%" frameborder="0" src="' . dol_buildpath('/volvo/lead/leadexpress.php', 1) . '?id=\'+idlead +\'"></iframe></div>\');' . "\n";
 	print '' . "\n";
 	print '  		$div.dialog({' . "\n";
 	print '  			modal:true' . "\n";
