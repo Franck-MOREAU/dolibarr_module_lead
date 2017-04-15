@@ -459,11 +459,11 @@ print '<script type="text/javascript" language="javascript">';
 
 if($user->admin){
 	print '  	$(document).ready(function() {' . "\n";
-	print '		$a = $(\'<a href="javascript:popUpateCost()" class="butAction">Nouvelle Affaire .</a>\');' . "\n";
+	print '		$a = $(\'<a href="javascript:popUpateCost(2)" class="butAction">Nouvelle Affaire .</a>\');' . "\n";
 	print '  		$(\'div.fiche div.divButAction\').first().append($a);' . "\n";
 	print '  	});' . "\n";
-	print '  	function popUpateCost() {' . "\n";
-	print '  		$div = $(\'<div id="popUpateCost"><iframe width="100%" height="100%" frameborder="0" src="' . dol_buildpath('/volvo/lead/leadexpress.php?action=create&userid='.$search_commercial, 1) . '"></iframe></div>\');' . "\n";
+	print '  	function popUpateCost(idlead) {' . "\n";
+	print '  		$div = $(\'<div id="popUpateCost"><iframe width="100%" height="100%" frameborder="0" src="' . dol_buildpath('/volvo/lead/leadexpress.php?action=create&userid='.$search_commercial, 1) . '&id=\'+idlead +\'"></iframe></div>\');' . "\n";
 	print '' . "\n";
 	print '  		$div.dialog({' . "\n";
 	print '  			modal:true' . "\n";
