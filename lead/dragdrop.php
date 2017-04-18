@@ -97,7 +97,7 @@ if($res>0){
 								'value' => $extrafields->showInputField("marque", $lead->array_options["options_marque"])
 						);
 
-				$formconfirm = formconfirm('"javascript:drop2()"', 'test1', 'test2', 'confirm_move', $formquestion, 0, 1,'30%');
+				$formconfirm = formconfirm('"javascript:drop2()"', 'test1', 'test2', 'confirm_move', $formquestion, 0, 1,500);
 				echo $formconfirm;
 				break;
 
