@@ -69,12 +69,6 @@ if($res>0){
 								'value' => "confirm_move"
 						),
 						array(
-								'type' => 'text',
-								'name' => 'text_test',
-								'label' => 'test',
-								'value' => count($array_motif)
-						),
-						array(
 								'type' => 'hidden',
 								'name' => 'new_statut',
 								'value' =>  $new_statut
@@ -85,7 +79,7 @@ if($res>0){
 								'type' => 'checkbox',
 								'name' => 'options_motif' . $motif['id'],
 								'label' => $motif['motif'],
-								'value' => in_array($motif['id'],$checked)?1:0
+								'value' => 0
 						);
 				}
 				$formquestion[]=array(
