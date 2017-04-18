@@ -341,10 +341,7 @@ function drop(options) {
 	method: "POST",
 	url: "dragdrop.php",
 	data: options,
-	success: function(msg){
-		alert("resultat" + msg);},
-    error: function(msg){
-      	alert("erreur" + msg);}
+
 	});
 }
 </script>';
