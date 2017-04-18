@@ -25,8 +25,7 @@ $sql = "SELECT rowid, motif FROM " . MAIN_DB_PREFIX . 'c_volvo_motif_perte_lead 
 $resql = $db->query($sql);
 if($resql){
 	while($obj = $db->fetch_object($resql)){
-		$array_motif[]['id']=$obj->rowid;
-		$array_motif[]['motif']=$obj->motif;
+		$array_motif[]=array('id'=>$obj->rowid, 'motif'=>$obj->motif);
 	}
 }
 
@@ -72,7 +71,7 @@ if($res>0){
 								'type' => 'text',
 								'name' => 'test',
 								'label' => 'test',
-								'value' => count($array_motif)
+								'value' => $sql
 						),
 						array(
 								'type' => 'hidden',
