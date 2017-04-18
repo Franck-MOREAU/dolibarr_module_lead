@@ -344,7 +344,7 @@ function drop(options) {
 	success: function(msg){
 		alert("resultat" + msg);}
 	},
-    error: function(msg)){
+    error: function(msg){
       	alert("erreur" + msg);
      }
 }
