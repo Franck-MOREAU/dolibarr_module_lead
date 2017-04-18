@@ -254,7 +254,7 @@ function formconfirm($title, $formquestion='', $selectedchoice="", $height=200, 
 	$autoOpen=true;
 	$dialogconfirm='dialog-confirm';
 	$button='';
-	$button=$useajax;
+	$button=1;
 	$useajax=1;
 	$autoOpen=false;
 	$dialogconfirm.='-'.$button;
