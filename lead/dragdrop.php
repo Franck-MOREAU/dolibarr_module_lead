@@ -105,7 +105,7 @@ if($res>0){
 								'value' => $extrafields->showInputField("marque", $lead->array_options["options_marque"])
 						);
 
-				$formconfirm = formconfirm('"javascript:drop2()"', 'test1', 'Cloture de l\'affaire', 'confirm_move', $formquestion, 0, 1,500);
+				$formconfirm = formconfirm('Cloture de l\'affaire', $formquestion, 0,500);
 				echo $formconfirm;
 				break;
 
@@ -131,7 +131,7 @@ if($res>0){
 	echo $lead->error;
 }
 
-function formconfirm($page, $title, $formquestion='', $selectedchoice="", $height=200, $width=500)
+function formconfirm($title, $formquestion='', $selectedchoice="", $height=200, $width=500)
 {
 	global $langs,$conf;
 	global $useglobalvars;
@@ -251,8 +251,6 @@ function formconfirm($page, $title, $formquestion='', $selectedchoice="", $heigh
 		$autoOpen=false;
 		$dialogconfirm.='-'.$button;
 	}
-	$pageyes=$page;
-	$pageno=($useajax == 2 ? $page.(preg_match('/\?/',$page)?'&':'?').'confirm=no':'');
 	// Add input fields into list of fields to read during submit (inputok and inputko)
 	if (is_array($formquestion))
 	{
@@ -271,7 +269,7 @@ function formconfirm($page, $title, $formquestion='', $selectedchoice="", $heigh
 	}
 
 	$formconfirm.= '</div>'."\n";
-	$formconfirm.= "\n<!-- begin ajax form_confirm page=".$page." -->\n";
+	$formconfirm.= "\n<!-- begin ajax form_confirm  -->\n";
 	$formconfirm.= '<script type="text/javascript">'."\n";
 	$formconfirm.= 'jQuery(document).ready(function() {
             $(function() {
@@ -295,7 +293,6 @@ function formconfirm($page, $title, $formquestion='', $selectedchoice="", $heigh
                        "'.dol_escape_js($langs->transnoentities("Yes")).'": function() {
                        	var options="";
                        	var inputok = '.json_encode($inputok).';
-                       	var pageyes = "'.dol_escape_js(! empty($pageyes)?$pageyes:'').'";
                        	if (inputok.length>0) {
                        		$.each(inputok, function(i, inputname) {
                        			var more = "";
@@ -314,7 +311,6 @@ function formconfirm($page, $title, $formquestion='', $selectedchoice="", $heigh
                     "'.dol_escape_js($langs->transnoentities("No")).'": function() {
                        	var options = "";
                        	var inputko = '.json_encode($inputko).';
-                       	var pageno="'.dol_escape_js(! empty($pageno)?$pageno:'').'";
                        	if (inputko.length>0) {
                        		$.each(inputko, function(i, inputname) {
                     			var more = "";
