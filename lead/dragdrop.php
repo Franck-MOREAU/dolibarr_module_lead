@@ -114,7 +114,7 @@ if($res>0){
 						);
 
 				$formconfirm = formconfirm('Cloture de l\'affaire', $formquestion, 0,500);
-				echo $formconfirm;
+				print $formconfirm;
 				break;
 
 			case 'sanssuite':
