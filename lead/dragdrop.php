@@ -113,7 +113,7 @@ if($res>0){
 								'value' => $extrafields->showInputField("marque", $lead->array_options["options_marque"])
 						);
 
-				$formconfirm = formconfirm('Cloture de l\'affaire', $formquestion, 0,500);
+				$formconfirm = formconfirm('Cloture de l\'affaire', $formquestion, 0,500,400);
 				print $formconfirm;
 				break;
 
@@ -254,13 +254,11 @@ function formconfirm($title, $formquestion='', $selectedchoice="", $height=200, 
 	$autoOpen=true;
 	$dialogconfirm='dialog-confirm';
 	$button='';
-	if (! is_numeric($useajax))
-	{
-		$button=$useajax;
-		$useajax=1;
-		$autoOpen=false;
-		$dialogconfirm.='-'.$button;
-	}
+	$button=$useajax;
+	$useajax=1;
+	$autoOpen=false;
+	$dialogconfirm.='-'.$button;
+
 	// Add input fields into list of fields to read during submit (inputok and inputko)
 	if (is_array($formquestion))
 	{
