@@ -29,10 +29,6 @@ if($resql){
 	}
 }
 
-
-$checked = explode(',', $lead->array_options["options_motif"]);
-
-
 $res = $lead->fetch($lead_id);
 if($res>0){
 	if(empty($action)){
@@ -78,6 +74,15 @@ if($res>0){
 								'name' => 'new_statut',
 								'value' =>  $new_statut
 						));
+				$sql = "SELECT rowid, motif FROM " . MAIN_DB_PREFIX . 'c_volvo_motif_perte_lead WHERE active=1';
+				$resql = $db->query($sql);
+				if($resql){
+					while($obj = $db->fetch_object($resql)){
+						$array_motif[$obj->rowid]=$obj->motif;
+					}
+				}
+
+				$checked = explode(',', $lead->array_options['options_motif']);
 
 				foreach ($array_motif as $id => $motif){
 					if (in_array($id, $checked)){
