@@ -8,13 +8,20 @@ if (! $res)
 
 global $db, $user;
 require_once DOL_DOCUMENT_ROOT . '/volvo/class/lead.extend.class.php';
+dol_include_once('/core/class/extrafields.class.php');
 
 $lead_id = GETPOST('id_lead');
 $new_statut = GETPOST('new_statut');
 $action = GETPOST('action');
 $form = new Form($db);
+$extrafields = new ExtraFields($db);
+
+
 
 $lead = new Leadext($db);
+
+$extralabels = $extrafields->fetch_name_optionals_label($lead->table_element);
+
 $res = $lead->fetch($lead_id);
 if($res>0){
 	if(empty($action)){
@@ -53,6 +60,16 @@ if($res>0){
 								'type' => 'other',
 								'name' => 'new_statut',
 								'value' => '<input type="hidden" name="new_statut" id="new_statut" value="' . $new_statut . '">'
+						),
+						array(
+								'type' => 'other',
+								'name' => 'options_motif',
+								'value' => $extrafields->showInputField("motif", $lead->array_options["options_motif"])
+						),
+						array(
+								'type' => 'other',
+								'name' => 'options_marque',
+								'value' => $extrafields->showInputField("marque", $lead->array_options["options_marque"])
 						)
 				);
 				$formconfirm = formconfirm('"javascript:drop2()"', 'test1', 'test2', 'confirm_move', $formquestion, 0, 1);
