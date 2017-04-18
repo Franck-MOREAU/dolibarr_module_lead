@@ -22,6 +22,15 @@ $lead = new Leadext($db);
 
 $res = $lead->fetch($lead_id);
 
+$sql = "SELECT rowid, motif FROM " . MAIN_DB_PREFIX . 'c_volvo_motif_perte_lead WHERE active=1';
+$resql = $db->query($sql);
+if($resql){
+	while($obj = $db->fetch_object($resql)){
+		$array_motif[$obj->rowid]=$obj->motif;
+	}
+}
+
+
 if($res>0){
 	echo $action;
 	if(empty($action)){
@@ -87,13 +96,6 @@ if($res>0){
 								'name' => 'new_statut',
 								'value' =>  $new_statut
 						));
-				$sql = "SELECT rowid, motif FROM " . MAIN_DB_PREFIX . 'c_volvo_motif_perte_lead WHERE active=1';
-				$resql = $db->query($sql);
-				if($resql){
-					while($obj = $db->fetch_object($resql)){
-						$array_motif[$obj->rowid]=$obj->motif;
-					}
-				}
 
 				$extralabels = $extrafields->fetch_name_optionals_label($lead->table_element);
 
@@ -111,7 +113,7 @@ if($res>0){
 					}
 						$formquestion[]= array(
 								'type' => 'checkbox',
-								'name' => 'options_motif' . $id,
+								'name' => 'options_motif_' . $id,
 								'label' => $motif,
 								'value' => $val
 						);
@@ -131,13 +133,19 @@ if($res>0){
 				break;
 		}
 	}elseif($action=='confirm_move'){
+		$motif_list = '';
+		foreach ($array_motif as $id => $motif){
+			$val = GETPOST('options_motif_' . $id);
+			if($val=='on') $motif_list.=$id .',';
+		}
+		$motif_list = substr($motif_list, 0,-1);
 		$c_status=7;
 		$chaude=0;
 		$lead->fk_c_status = $c_status;
 		$lead->date_closure = dol_now();
 		$lead->array_options['options_chaude'] = $chaude;
 		$lead->array_options['options_marque'] = $options_marque;
-		$lead->array_options['options_motif'] = '';
+		$lead->array_options['options_motif'] = $motif_list;
 		$res = $lead->update($user);
 		echo 'ok';
 
