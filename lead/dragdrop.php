@@ -39,10 +39,12 @@ if($res>0){
 				$formconfirm = '';
 				$formquestion = array(
 						array(
-								'type' => 'text',
-								'name' => 'ref_interne',
-								'label' => $langs->trans("LeadRefInt"),
-								'value' => $langs->trans('CopyOf') . ' ' . $object->ref_int
+								'type' => 'other',
+								'value' => '<input type="hidden" name="id_lead" value="' . $lead_id . '">'
+						),
+						array(
+								'type' => 'other',
+								'value' => '<input type="hidden" name="new_statut" value="' . $new_statut . '">'
 						)
 				);
 				$formconfirm = formconfirm('"javascript:drop2()"', 'test1', 'test2', 'confirm_move', $formquestion, 0, 1);
