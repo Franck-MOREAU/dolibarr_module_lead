@@ -288,9 +288,6 @@ class Lead extends CommonObject
 			$error ++;
 			$this->errors[] = $langs->trans('ErrorFieldRequired', $langs->transnoentities('LeadAmountGuess'));
 		}
- 		if (dol_strlen($this->date_closure) == 0) {
- 			$this->date_closure = dol_time_plus_duree(dol_now(), $conf->global->LEAD_NB_DAY_COSURE_AUTO, 'd');
- 		}
 
 		if (! $error) {
 			// Insert request
@@ -655,10 +652,6 @@ class Lead extends CommonObject
 		if (! isset($this->amount_prosp)) {
 			$error ++;
 			$this->errors[] = $langs->trans('ErrorFieldRequired', $langs->transnoentities('LeadAmountGuess'));
-		}
-		if (dol_strlen($this->date_closure) == 0) {
-			$error ++;
-			$this->errors[] = $langs->trans('ErrorFieldRequired', $langs->transnoentities('LeadDeadLine'));
 		}
 
 		if (! $error) {
