@@ -56,7 +56,7 @@ if($res>0){
 				$chaude = 0;
 				break;
 		}
-//$_SERVER["PHP_SELF"] . '?id_lead=' . $lead_id . '&$new_statut=' . $new_statut
+
 		$lead->fk_c_status = $c_status;
 		$lead->array_options['options_chaude'] = $chaude;
 		$res = $lead->update($user);
