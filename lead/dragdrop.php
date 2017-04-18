@@ -185,7 +185,7 @@ function formconfirm($page, $title, $question, $action, $formquestion='', $selec
 			$autoOpen=false;
 			$dialogconfirm.='-'.$button;
 		}
-		$pageyes=$page.(preg_match('/\?/',$page)?'&':'?').'action='.$action.'&confirm=yes';
+		$pageyes=$page;
 		$pageno=($useajax == 2 ? $page.(preg_match('/\?/',$page)?'&':'?').'confirm=no':'');
 		// Add input fields into list of fields to read during submit (inputok and inputko)
 		if (is_array($formquestion))
