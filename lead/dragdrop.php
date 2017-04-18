@@ -13,8 +13,7 @@ dol_include_once('/core/class/extrafields.class.php');
 $lead_id = GETPOST('id_lead');
 $new_statut = GETPOST('new_statut');
 $action = GETPOST('action');
-
-
+$options_marque = GETPOST('options_marque');
 
 $form = new Form($db);
 $extrafields = new ExtraFields($db);
@@ -39,7 +38,10 @@ if($res>0){
 						break;
 				}
 				$lead->fk_c_status = $c_status;
+				$lead->date_closure = '';
 				$lead->array_options['options_chaude'] = $chaude;
+				$lead->array_options['options_marque'] = '';
+				$lead->array_options['options_motif'] = '';
 				$res = $lead->update($user);
 				echo '';
 				break;
@@ -47,8 +49,23 @@ if($res>0){
 				$c_status = 6;
 				$chaude=0;
 				$lead->fk_c_status = $c_status;
-				$lead->array_options['options_chaude'] = $chaude;
+				$lead->date_closure = dol_now();
+				$lead->array_options['options_chaude'] = 0;
+				$lead->array_options['options_marque'] = 1;
+				$lead->array_options['options_motif'] = '';
 				$res = $lead->update($user);
+				echo '';
+				break;
+
+			case 'sanssuite':
+				$c_status = 11;
+				$chaude = 0;
+				$lead->date_closure = dol_now();
+				$lead->fk_c_status = $c_status;
+				$lead->array_options['options_chaude'] = 0;
+				$res = $lead->update($user);
+				$lead->array_options['options_marque'] = '';
+				$lead->array_options['options_motif'] = '';
 				echo '';
 				break;
 
@@ -112,21 +129,15 @@ if($res>0){
 				$formconfirm = formconfirm('Cloture de l\'affaire', $formquestion, 0,500,400);
 				print $formconfirm;
 				break;
-
-			case 'sanssuite':
-				$c_status = 11;
-				$chaude = 0;
-				$lead->fk_c_status = $c_status;
-				$lead->array_options['options_chaude'] = $chaude;
-				$res = $lead->update($user);
-				echo '';
-				break;
 		}
 	}elseif($action=='confirm_move'){
 		$c_status=7;
 		$chaude=0;
 		$lead->fk_c_status = $c_status;
+		$lead->date_closure = dol_now();
 		$lead->array_options['options_chaude'] = $chaude;
+		$lead->array_options['options_marque'] = $options_marque;
+		$lead->array_options['options_motif'] = '';
 		$res = $lead->update($user);
 		echo 'ok';
 
