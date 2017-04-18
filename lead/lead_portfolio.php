@@ -512,8 +512,8 @@ print 'method: "POST",';
 print 'url: "dragdrop.php",';
 print 'data: { id_lead: element, new_statut: dest },';
 print 'success: function(msg){';
-print 'alert(msg);}';
-//print '$(\'div.fiche \').first().prepend(msg);}';
+//print 'alert(msg);}';
+print '$(\'div.fiche \').first().prepend(msg);}';
 print '})';
 print '}';
 
