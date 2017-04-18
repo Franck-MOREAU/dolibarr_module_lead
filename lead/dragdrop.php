@@ -22,8 +22,9 @@ $extrafields = new ExtraFields($db);
 $lead = new Leadext($db);
 
 $res = $lead->fetch($lead_id);
-echo $res;
+
 if($res>0){
+	echo $action;
 	if(empty($action)){
 		$statut = explode('_', $new_statut);
 		switch($statut[0]){
