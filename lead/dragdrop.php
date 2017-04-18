@@ -25,7 +25,7 @@ $sql = "SELECT rowid, motif FROM " . MAIN_DB_PREFIX . 'c_volvo_motif_perte_lead 
 $resql = $db->query($sql);
 if($resql){
 	while($obj = $db->fetch_object($resql)){
-		$array_motif[]=array('id'=>$obj->rowid, 'motif'=>$obj->motif);
+		$array_motif[$obj->rowid]=$obj->motif;
 	}
 }
 
@@ -79,12 +79,17 @@ if($res>0){
 								'value' =>  $new_statut
 						));
 
-				foreach ($array_motif as $motif){
+				foreach ($array_motif as $id => $motif){
+					if (in_array($id, $checked)){
+						$val = true;
+					}else{
+						$val = false;
+					}
 						$formquestion[]= array(
 								'type' => 'checkbox',
-								'name' => 'options_motif' . $motif['id'],
-								'label' => $motif['motif'],
-								'value' => false
+								'name' => 'options_motif' . $id,
+								'label' => $motif,
+								'value' => $val
 						);
 				}
 				$formquestion[]=array(
