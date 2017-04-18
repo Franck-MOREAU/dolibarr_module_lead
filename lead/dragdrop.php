@@ -8,9 +8,11 @@ if (! $res)
 
 global $db, $user;
 require_once DOL_DOCUMENT_ROOT . '/volvo/class/lead.extend.class.php';
+require_once DOL_DOCUMENT_ROOT . '/core/class/html.form.class.php';
 
 $lead_id = GETPOST('id_lead');
 $new_statut = GETPOST('new_statut');
+$form = new Form($db);
 
 $lead = new Leadext($db);
 $res = $lead->fetch($lead_id);
