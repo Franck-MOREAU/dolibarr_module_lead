@@ -513,10 +513,11 @@ print 'url: "dragdrop.php",';
 print 'data: { id_lead: element, new_statut: dest },';
 print 'success: function(msg){';
 print 'if (msg != ""){';
-print 'alert(msg);';
 print '$(\'div.fiche \').first().prepend(msg);}';
 print '}';
-print '})';
+print '},';
+print 'error: function(msg){';
+print 'alert( "erreur: " + msg );})';
 print '}';
 
 
