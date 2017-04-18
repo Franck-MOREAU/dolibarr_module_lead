@@ -515,6 +515,10 @@ print 'success: function(msg){';
 print '$(\'div.fiche \').first().append(msg);}';
 print '})';
 print '}';
+
+print 'function drop2() {';
+print 'alert( "Résultat: " + msg );';
+print '}';
 print '</script>';
 
 dol_fiche_end();
