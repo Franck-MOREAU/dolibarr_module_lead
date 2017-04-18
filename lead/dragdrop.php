@@ -13,6 +13,8 @@ dol_include_once('/core/class/extrafields.class.php');
 $lead_id = GETPOST('id_lead');
 $new_statut = GETPOST('new_statut');
 $action = GETPOST('action');
+
+
 $form = new Form($db);
 $extrafields = new ExtraFields($db);
 
@@ -47,7 +49,7 @@ if($res>0){
 				$lead->fk_c_status = $c_status;
 				$lead->array_options['options_chaude'] = $chaude;
 				$res = $lead->update($user);
-				echo $statut[0];
+				echo '';
 				break;
 			case 'traite':
 				$c_status = 6;
@@ -55,7 +57,7 @@ if($res>0){
 				$lead->fk_c_status = $c_status;
 				$lead->array_options['options_chaude'] = $chaude;
 				$res = $lead->update($user);
-				echo $statut[0];
+				echo '';
 				break;
 
 			case 'perdu':
@@ -123,7 +125,7 @@ if($res>0){
 				$lead->fk_c_status = $c_status;
 				$lead->array_options['options_chaude'] = $chaude;
 				$res = $lead->update($user);
-				echo $statut[0];
+				echo '';
 				break;
 		}
 
@@ -132,7 +134,7 @@ if($res>0){
 	}else{
 		echo $lead->error;
 	}
-}elseif($action=='confirm_move_x'){
+}elseif($action=='confirm_move'){
 	$c_status=7;
 	$chaude=0;
 	$lead->fk_c_status = $c_status;
