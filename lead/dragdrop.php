@@ -18,18 +18,7 @@ $action = GETPOST('action');
 $form = new Form($db);
 $extrafields = new ExtraFields($db);
 
-
-
 $lead = new Leadext($db);
-
-$extralabels = $extrafields->fetch_name_optionals_label($lead->table_element);
-$sql = "SELECT rowid, motif FROM " . MAIN_DB_PREFIX . 'c_volvo_motif_perte_lead WHERE active=1';
-$resql = $db->query($sql);
-if($resql){
-	while($obj = $db->fetch_object($resql)){
-		$array_motif[$obj->rowid]=$obj->motif;
-	}
-}
 
 $res = $lead->fetch($lead_id);
 if($res>0){
@@ -85,6 +74,8 @@ if($res>0){
 						$array_motif[$obj->rowid]=$obj->motif;
 					}
 				}
+
+				$extralabels = $extrafields->fetch_name_optionals_label($lead->table_element);
 
 				$checked = explode(',', $lead->array_options['options_motif']);
 				$formquestion[]=array(
@@ -343,7 +334,10 @@ function drop2(options) {
 	method: "POST",
 	url: "dragdrop.php",
 	data: options,
-
+	success: function(msg){
+    	alert( "Résultat: " + msg );},
+    error: function(msg){
+    	alert( "erreur: " + msg );}
 	});
 }
 </script>';
