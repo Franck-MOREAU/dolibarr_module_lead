@@ -40,10 +40,12 @@ if($res>0){
 				$formquestion = array(
 						array(
 								'type' => 'other',
+								'name' => 'id_lead',
 								'value' => '<input type="hidden" name="id_lead" value="' . $lead_id . '">'
 						),
 						array(
 								'type' => 'other',
+								'name' => 'new_statut',
 								'value' => '<input type="hidden" name="new_statut" value="' . $new_statut . '">'
 						)
 				);
