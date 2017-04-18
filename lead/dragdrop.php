@@ -77,6 +77,10 @@ if($res>0){
 				}
 
 				$checked = explode(',', $lead->array_options['options_motif']);
+				$formquestion[]=array(
+						'type' => 'other',
+						'value' => 'Motif de perte:');
+
 
 				foreach ($array_motif as $id => $motif){
 					if (in_array($id, $checked)){
@@ -92,12 +96,16 @@ if($res>0){
 						);
 				}
 				$formquestion[]=array(
+						'type' => 'other',
+						'value' => '</br>');
+				$formquestion[]=array(
 								'type' => 'other',
 								'name' => 'options_marque',
+								'label' => 'Marque traitée',
 								'value' => $extrafields->showInputField("marque", $lead->array_options["options_marque"])
 						);
 
-				$formconfirm = formconfirm('"javascript:drop2()"', 'test1', 'test2', 'confirm_move', $formquestion, 0, 1,500);
+				$formconfirm = formconfirm('"javascript:drop2()"', 'test1', 'Cloture de l\'affaire', 'confirm_move', $formquestion, 0, 1,500);
 				echo $formconfirm;
 				break;
 
@@ -257,12 +265,15 @@ function formconfirm($page, $title, $question, $action, $formquestion='', $selec
 				if (isset($input['inputko']) && $input['inputko'] == 1) array_push($inputko,$input['name']);
 			}
 		}
+
+		$formconfirm.= ($question ? '<div class="confirmmessage">'.img_help('','').' '.$question . '</div>': '');
+
 		// Show JQuery confirm box. Note that global var $useglobalvars is used inside this template
 		$formconfirm.= '<div id="'.$dialogconfirm.'" title="'.dol_escape_htmltag($title).'" style="display: none;">';
 		if (! empty($more)) {
 			$formconfirm.= '<div class="confirmquestions">'.$more.'</div>';
 		}
-		$formconfirm.= ($question ? '<div class="confirmmessage">'.img_help('','').' '.$question . '</div>': '');
+
 		$formconfirm.= '</div>'."\n";
 
 		$formconfirm.= "\n<!-- begin ajax form_confirm page=".$page." -->\n";
