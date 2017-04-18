@@ -44,10 +44,16 @@ if($res>0){
 						$chaude =0;
 						break;
 				}
+				$lead->fk_c_status = $c_status;
+				$lead->array_options['options_chaude'] = $chaude;
+				$res = $lead->update($user);
 				break;
 			case 'traite':
 				$c_status = 6;
 				$chaude=0;
+				$lead->fk_c_status = $c_status;
+				$lead->array_options['options_chaude'] = $chaude;
+				$res = $lead->update($user);
 				break;
 
 			case 'perdu':
@@ -112,12 +118,13 @@ if($res>0){
 			case 'sanssuite':
 				$c_status = 11;
 				$chaude = 0;
+				$lead->fk_c_status = $c_status;
+				$lead->array_options['options_chaude'] = $chaude;
+				$res = $lead->update($user);
 				break;
 		}
 
-		$lead->fk_c_status = $c_status;
-		$lead->array_options['options_chaude'] = $chaude;
-		$res = $lead->update($user);
+
 		echo $lead->error;
 	}else{
 		echo $lead->error;
