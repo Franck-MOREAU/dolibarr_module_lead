@@ -21,6 +21,16 @@ $extrafields = new ExtraFields($db);
 $lead = new Leadext($db);
 
 $extralabels = $extrafields->fetch_name_optionals_label($lead->table_element);
+$sql = "SELECT rowid, motif FROM " . MAIN_DB_PREFIX . '_c_c_volvo_motif_perte_lead WHERE active=1';
+$resql = $db->query($sql);
+if($resql){
+	while($obj = $db->fetch_object($resql)){
+		$array_motif[]['id']=$obj->rowid;
+		$array_motif[]['motif']=$obj->motif;
+	}
+}
+$checked = explode(',', $lead->array_options["options_motif"]);
+
 
 $res = $lead->fetch($lead_id);
 if($res>0){
@@ -60,18 +70,21 @@ if($res>0){
 								'type' => 'other',
 								'name' => 'new_statut',
 								'value' => '<input type="hidden" name="new_statut" id="new_statut" value="' . $new_statut . '">'
-						),
-						array(
-								'type' => 'other',
-								'name' => 'options_motif',
-								'value' => $extrafields->showInputField("motif", $lead->array_options["options_motif"])
-						),
-						array(
+						));
+				foreach ($array_motif as $motif){
+						$formquestion[]= array(
+								'type' => 'checkbox',
+								'name' => 'options_motif' . $motif['id'],
+								'label' => $motif['motif'],
+								'value' => in_array($motif['id'],$checked)?1:0
+						);
+				}
+				$formquestion[]=array(
 								'type' => 'other',
 								'name' => 'options_marque',
 								'value' => $extrafields->showInputField("marque", $lead->array_options["options_marque"])
-						)
-				);
+						);
+
 				$formconfirm = formconfirm('"javascript:drop2()"', 'test1', 'test2', 'confirm_move', $formquestion, 0, 1);
 				echo $formconfirm;
 				break;
