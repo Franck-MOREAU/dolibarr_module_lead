@@ -37,7 +37,15 @@ if($res>0){
 
 			case 'perdu':
 				$formconfirm = '';
-				$formconfirm = formconfirm('"javascript:drop2()"', 'test1', 'test2', 'confirm_move', '', 0, 1);
+				$formquestion = array(
+						array(
+								'type' => 'text',
+								'name' => 'ref_interne',
+								'label' => $langs->trans("LeadRefInt"),
+								'value' => $langs->trans('CopyOf') . ' ' . $object->ref_int
+						)
+				);
+				$formconfirm = formconfirm('"javascript:drop2()"', 'test1', 'test2', 'confirm_move', $formquestion, 0, 1);
 				echo $formconfirm;
 				break;
 
@@ -242,7 +250,7 @@ function formconfirm($page, $title, $question, $action, $formquestion='', $selec
                          	}
                          	var urljump = pageyes + (pageyes.indexOf("?") < 0 ? "?" : "") + options;
                          	//alert(urljump);
-            				if (pageyes.length > 0) { location.href = urljump; }
+            				drop2(options)
                             $(this).dialog("close");
                         },
                         "'.dol_escape_js($langs->transnoentities("No")).'": function() {
@@ -260,7 +268,6 @@ function formconfirm($page, $title, $question, $action, $formquestion='', $selec
                          	}
                          	var urljump=pageno + (pageno.indexOf("?") < 0 ? "?" : "") + options;
                          	//alert(urljump);
-            				drop2();
                             $(this).dialog("close");
                         }
                     }
@@ -275,8 +282,8 @@ function formconfirm($page, $title, $question, $action, $formquestion='', $selec
                 }
             });
             });
-			function drop2() {
-				alert( "Résultat: ");
+			function drop2(options) {
+				alert( "Résultat: " + options);
 			}
             </script>';
 		$formconfirm.= "<!-- end ajax form_confirm -->\n";
