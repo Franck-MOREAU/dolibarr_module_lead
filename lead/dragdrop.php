@@ -64,12 +64,6 @@ if($res>0){
 								'value' => "confirm_move"
 						),
 						array(
-								'type' => 'text',
-								'name' => 'test',
-								'label' => 'test',
-								'value' => $sql
-						),
-						array(
 								'type' => 'hidden',
 								'name' => 'new_statut',
 								'value' =>  $new_statut
@@ -103,7 +97,7 @@ if($res>0){
 								'value' => $extrafields->showInputField("marque", $lead->array_options["options_marque"])
 						);
 
-				$formconfirm = formconfirm('"javascript:drop2()"', 'test1', 'test2', 'confirm_move', $formquestion, 0, 1);
+				$formconfirm = formconfirm('"javascript:drop2()"', 'test1', 'test2', 'confirm_move', $formquestion, 0, 1,'30%');
 				echo $formconfirm;
 				break;
 
