@@ -131,7 +131,7 @@ if($res>0){
 	$lead->fk_c_status = $c_status;
 	$lead->array_options['options_chaude'] = $chaude;
 	$res = $lead->update($user);
-	echo $lead->error;
+	echo 'ok';
 }
 
 function formconfirm($title, $formquestion='', $selectedchoice="", $height=200, $width=500)
