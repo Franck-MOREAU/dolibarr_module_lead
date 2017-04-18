@@ -14,6 +14,7 @@ $lead_id = GETPOST('id_lead');
 $new_statut = GETPOST('new_statut');
 $action = GETPOST('action');
 
+echo 'ok';
 
 $form = new Form($db);
 $extrafields = new ExtraFields($db);
