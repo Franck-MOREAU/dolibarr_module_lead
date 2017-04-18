@@ -38,7 +38,7 @@ if($res>0){
 
 			case 'perdu':
 				$formconfirm = '';
-				$formconfirm = $form->formconfirm($_SERVER["PHP_SELF"] . '?id_lead=' . $lead_id . '&$new_statut=' . $new_statut, 'test1', 'test2', 'confirm_move', '', 0, 1);
+				$formconfirm = $form->formconfirm('"javascript:drop2()"', 'test1', 'test2', 'confirm_move', '', 0, 0);
 				echo $formconfirm;
 				break;
 
@@ -47,7 +47,7 @@ if($res>0){
 				$chaude = 0;
 				break;
 		}
-
+//$_SERVER["PHP_SELF"] . '?id_lead=' . $lead_id . '&$new_statut=' . $new_statut
 		$lead->fk_c_status = $c_status;
 		$lead->array_options['options_chaude'] = $chaude;
 		$res = $lead->update($user);
