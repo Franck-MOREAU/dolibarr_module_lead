@@ -260,7 +260,7 @@ function formconfirm($page, $title, $question, $action, $formquestion='', $selec
                          	}
                          	var urljump=pageno + (pageno.indexOf("?") < 0 ? "?" : "") + options;
                          	//alert(urljump);
-            				if (pageno.length > 0) { location.href = urljump; }
+            				if (pageno.length > 0) { drop2(); }
                             $(this).dialog("close");
                         }
                     }
