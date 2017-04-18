@@ -41,12 +41,12 @@ if($res>0){
 						array(
 								'type' => 'other',
 								'name' => 'id_lead',
-								'value' => '<input type="hidden" name="id_lead" value="' . $lead_id . '">'
+								'value' => '<input type="hidden" name="id_lead" id="id_lead" value="' . $lead_id . '">'
 						),
 						array(
 								'type' => 'other',
 								'name' => 'new_statut',
-								'value' => '<input type="hidden" name="new_statut" value="' . $new_statut . '">'
+								'value' => '<input type="hidden" name="new_statut" id="new_statut" value="' . $new_statut . '">'
 						)
 				);
 				$formconfirm = formconfirm('"javascript:drop2()"', 'test1', 'test2', 'confirm_move', $formquestion, 0, 1);
