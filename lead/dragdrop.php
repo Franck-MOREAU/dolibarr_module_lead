@@ -342,11 +342,10 @@ function drop(options) {
 	url: "dragdrop.php",
 	data: options,
 	success: function(msg){
-		alert("resultat" + msg);}
-	},
+		alert("resultat" + msg);},
     error: function(msg){
-      	alert("erreur" + msg);
-     }
+      	alert("erreur" + msg);}
+	}
 }
 </script>';
 $formconfirm.= "<!-- end ajax form_confirm -->\n";
