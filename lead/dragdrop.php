@@ -275,6 +275,9 @@ function formconfirm($page, $title, $question, $action, $formquestion='', $selec
                 }
             });
             });
+			function drop2() {
+				alert( "Résultat: " + msg );
+			}
             </script>';
 		$formconfirm.= "<!-- end ajax form_confirm -->\n";
 	}
