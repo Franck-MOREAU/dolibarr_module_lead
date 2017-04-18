@@ -38,7 +38,7 @@ if($res>0){
 
 			case 'perdu':
 				$formconfirm = '';
-				$formconfirm = $form->formconfirm('"javascript:drop2()"', 'test1', 'test2', 'confirm_move', '', 0, 0);
+				$formconfirm = $form->formconfirm('"javascript:drop2()"', 'test1', 'test2', 'confirm_move', '', 0, 1);
 				echo $formconfirm;
 				break;
 
