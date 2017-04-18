@@ -72,7 +72,7 @@ if($res>0){
 								'type' => 'text',
 								'name' => 'text_test',
 								'label' => 'test',
-								'value' => var_dump($array_motif)
+								'value' => 'res: ' . count($array_motif)
 						),
 						array(
 								'type' => 'hidden',
