@@ -11,6 +11,7 @@ require_once DOL_DOCUMENT_ROOT . '/volvo/class/lead.extend.class.php';
 
 $lead_id = GETPOST('id_lead');
 $new_statut = GETPOST('new_statut');
+$action = GETPOST('action');
 $form = new Form($db);
 
 $lead = new Leadext($db);
@@ -42,6 +43,11 @@ if($res>0){
 								'type' => 'other',
 								'name' => 'id_lead',
 								'value' => '<input type="hidden" name="id_lead" id="id_lead" value="' . $lead_id . '">'
+						),
+						array(
+								'type' => 'other',
+								'name' => 'action',
+								'value' => '<input type="hidden" name="action" id="action" value="confirm_move">'
 						),
 						array(
 								'type' => 'other',
