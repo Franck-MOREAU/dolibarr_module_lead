@@ -21,7 +21,7 @@ $extrafields = new ExtraFields($db);
 $lead = new Leadext($db);
 
 $extralabels = $extrafields->fetch_name_optionals_label($lead->table_element);
-$sql = "SELECT rowid, motif FROM " . MAIN_DB_PREFIX . '_c_c_volvo_motif_perte_lead WHERE active=1';
+$sql = "SELECT rowid, motif FROM " . MAIN_DB_PREFIX . '_c_volvo_motif_perte_lead WHERE active=1';
 $resql = $db->query($sql);
 if($resql){
 	while($obj = $db->fetch_object($resql)){
