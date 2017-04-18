@@ -14,7 +14,7 @@ $lead_id = GETPOST('id_lead');
 $new_statut = GETPOST('new_statut');
 $action = GETPOST('action');
 
-echo 'ok';
+
 
 $form = new Form($db);
 $extrafields = new ExtraFields($db);
@@ -22,6 +22,7 @@ $extrafields = new ExtraFields($db);
 $lead = new Leadext($db);
 
 $res = $lead->fetch($lead_id);
+echo $res;
 if($res>0){
 	if(empty($action)){
 		$statut = explode('_', $new_statut);
