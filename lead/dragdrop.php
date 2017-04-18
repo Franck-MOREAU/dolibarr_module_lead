@@ -125,7 +125,7 @@ if($res>0){
 		}
 
 
-		echo $lead->error;
+		echo $statut[0];
 	}else{
 		echo $lead->error;
 	}
