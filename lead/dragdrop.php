@@ -72,7 +72,7 @@ if($res>0){
 								'type' => 'text',
 								'name' => 'text_test',
 								'label' => 'test',
-								'value' => printr($array_motif)
+								'value' => var_dump($array_motif);
 						),
 						array(
 								'type' => 'other',
