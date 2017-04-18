@@ -297,7 +297,7 @@ foreach ($object4->lines as $line){
 	print'<div class="cal_event cal_event_busy" align="left" draggable="true" ondragstart="drag(event);" id="'. $line->id . '" style="background:' . $color .'; background: -webkit-gradient(linear, left top, left bottom, from('.$color.'), to('.$color2.'));';
 	print 'border-radius:6px; margin-bottom: 3px; width:200px;">';
 	print $img . ' ';
-	print '<a href= "card.php?id='.$line->id .'">' .$line->ref . '</a></br>';
+	print '<a href="javascript:wievlead('.$line->id .')">' .$line->ref . '</a></br>';
 	print $line->thirdparty->name;
 	print '</div>';
 }
