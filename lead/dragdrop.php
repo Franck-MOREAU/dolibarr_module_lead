@@ -63,7 +63,7 @@ if($res>0){
 						),
 						array(
 								'type' => 'other',
-								'name' => 'options_motif[]',
+								'name' => 'options_motif',
 								'value' => $extrafields->showInputField("motif", $lead->array_options["options_motif"])
 						),
 						array(
