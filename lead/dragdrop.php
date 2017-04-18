@@ -307,9 +307,7 @@ function formconfirm($title, $formquestion='', $selectedchoice="", $height=200, 
                         			options += "&" + inputname + "=" + inputvalue;
                        		});
                        	}
-                       	var urljump = pageyes + (pageyes.indexOf("?") < 0 ? "?" : "") + options;
-                       	//alert(urljump);
-          				drop(options)
+                       	drop(options)
                         $(this).dialog("close");
                      },
                     "'.dol_escape_js($langs->transnoentities("No")).'": function() {
@@ -324,9 +322,7 @@ function formconfirm($title, $formquestion='', $selectedchoice="", $height=200, 
                        			options += "&" + inputname + "=" + inputvalue;
                        		});
                        	}
-                       	var urljump=pageno + (pageno.indexOf("?") < 0 ? "?" : "") + options;
-                       	//alert(urljump);
-                        $(this).dialog("close");
+                       	$(this).dialog("close");
                     }
                 }
             }
