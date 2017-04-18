@@ -35,9 +35,7 @@ if($res>0){
 
 		case 'perdu':
 			$formconfirm = '';
-			if ($action == 'delete') {
-				$formconfirm = $form->formconfirm($_SERVER["PHP_SELF"] . '?id=' . $object->id, $langs->trans('LeadDelete'), $langs->trans('LeadConfirmDelete'), 'confirm_delete', '', 0, 1);
-			}
+			$formconfirm = $form->formconfirm($_SERVER["PHP_SELF"] . '?id=' . $object->id, $langs->trans('LeadDelete'), $langs->trans('LeadConfirmDelete'), 'confirm_delete', '', 0, 1);
 			print $formconfirm;
 			$c_status=7;
 			$chaude=0;
