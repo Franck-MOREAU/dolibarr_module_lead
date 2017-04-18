@@ -29,6 +29,8 @@ if($resql){
 		$array_motif[]['motif']=$obj->motif;
 	}
 }
+
+
 $checked = explode(',', $lead->array_options["options_motif"]);
 
 
@@ -67,10 +69,17 @@ if($res>0){
 								'value' => '<input type="hidden" name="action" id="action" value="confirm_move">'
 						),
 						array(
+								'type' => 'text',
+								'name' => 'text_test',
+								'label' => 'test',
+								'value' => printr($array_motif)
+						),
+						array(
 								'type' => 'other',
 								'name' => 'new_statut',
 								'value' => '<input type="hidden" name="new_statut" id="new_statut" value="' . $new_statut . '">'
 						));
+
 				foreach ($array_motif as $motif){
 						$formquestion[]= array(
 								'type' => 'checkbox',
