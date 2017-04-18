@@ -254,10 +254,6 @@ function formconfirm($title, $formquestion='', $selectedchoice="", $height=200, 
 	$autoOpen=true;
 	$dialogconfirm='dialog-confirm';
 	$button='';
-	$button=1;
-	$useajax=1;
-	$autoOpen=false;
-	$dialogconfirm.='-'.$button;
 
 	// Add input fields into list of fields to read during submit (inputok and inputko)
 	if (is_array($formquestion))
