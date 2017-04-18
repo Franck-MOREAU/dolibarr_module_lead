@@ -69,6 +69,12 @@ if($res>0){
 								'value' => "confirm_move"
 						),
 						array(
+								'type' => 'text',
+								'name' => 'test',
+								'label' => 'test',
+								'value' => count($array_motif)
+						),
+						array(
 								'type' => 'hidden',
 								'name' => 'new_statut',
 								'value' =>  $new_statut
