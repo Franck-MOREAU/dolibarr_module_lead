@@ -59,25 +59,25 @@ if($res>0){
 				$formconfirm = '';
 				$formquestion = array(
 						array(
-								'type' => 'other',
+								'type' => 'hidden',
 								'name' => 'id_lead',
-								'value' => '<input type="hidden" name="id_lead" id="id_lead" value="' . $lead_id . '">'
+								'value' => $lead_id
 						),
 						array(
-								'type' => 'other',
+								'type' => 'hidden',
 								'name' => 'action',
-								'value' => '<input type="hidden" name="action" id="action" value="confirm_move">'
+								'value' => "confirm_move"
 						),
 						array(
 								'type' => 'text',
 								'name' => 'text_test',
 								'label' => 'test',
-								'value' => var_dump($array_motif);
+								'value' => var_dump($array_motif)
 						),
 						array(
-								'type' => 'other',
+								'type' => 'hidden',
 								'name' => 'new_statut',
-								'value' => '<input type="hidden" name="new_statut" id="new_statut" value="' . $new_statut . '">'
+								'value' =>  $new_statut
 						));
 
 				foreach ($array_motif as $motif){
