@@ -345,7 +345,7 @@ function drop(options) {
 		alert("resultat" + msg);},
     error: function(msg){
       	alert("erreur" + msg);}
-	}
+	});
 }
 </script>';
 $formconfirm.= "<!-- end ajax form_confirm -->\n";
