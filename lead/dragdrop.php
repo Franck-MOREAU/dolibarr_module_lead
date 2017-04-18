@@ -72,7 +72,7 @@ if($res>0){
 								'type' => 'text',
 								'name' => 'text_test',
 								'label' => 'test',
-								'value' => 'res: ' . count($array_motif)
+								'value' => $sql
 						),
 						array(
 								'type' => 'hidden',
