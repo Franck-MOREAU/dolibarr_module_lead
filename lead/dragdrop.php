@@ -131,7 +131,7 @@ if($res>0){
 	echo $lead->error;
 }
 
-function formconfirm($page, $title, $question, $action, $formquestion='', $selectedchoice="", $useajax=0, $height=200, $width=500)
+function formconfirm($page, $title, $formquestion='', $selectedchoice="", $height=200, $width=500)
 {
 	global $langs,$conf;
 	global $useglobalvars;
@@ -241,154 +241,116 @@ function formconfirm($page, $title, $question, $action, $formquestion='', $selec
 	if (! empty($conf->dol_use_jmobile)) $useajax=0;
 	if (empty($conf->use_javascript_ajax)) $useajax=0;
 
-	if ($useajax)
+	$autoOpen=true;
+	$dialogconfirm='dialog-confirm';
+	$button='';
+	if (! is_numeric($useajax))
 	{
-		$autoOpen=true;
-		$dialogconfirm='dialog-confirm';
-		$button='';
-		if (! is_numeric($useajax))
+		$button=$useajax;
+		$useajax=1;
+		$autoOpen=false;
+		$dialogconfirm.='-'.$button;
+	}
+	$pageyes=$page;
+	$pageno=($useajax == 2 ? $page.(preg_match('/\?/',$page)?'&':'?').'confirm=no':'');
+	// Add input fields into list of fields to read during submit (inputok and inputko)
+	if (is_array($formquestion))
+	{
+		foreach ($formquestion as $key => $input)
 		{
-			$button=$useajax;
-			$useajax=1;
-			$autoOpen=false;
-			$dialogconfirm.='-'.$button;
+			//print "xx ".$key." rr ".is_array($input)."<br>\n";
+			if (is_array($input) && isset($input['name'])) array_push($inputok,$input['name']);
+			if (isset($input['inputko']) && $input['inputko'] == 1) array_push($inputko,$input['name']);
 		}
-		$pageyes=$page;
-		$pageno=($useajax == 2 ? $page.(preg_match('/\?/',$page)?'&':'?').'confirm=no':'');
-		// Add input fields into list of fields to read during submit (inputok and inputko)
-		if (is_array($formquestion))
-		{
-			foreach ($formquestion as $key => $input)
-			{
-				//print "xx ".$key." rr ".is_array($input)."<br>\n";
-				if (is_array($input) && isset($input['name'])) array_push($inputok,$input['name']);
-				if (isset($input['inputko']) && $input['inputko'] == 1) array_push($inputko,$input['name']);
-			}
-		}
+	}
 
-		$formconfirm.= ($question ? '<div class="confirmmessage">'.img_help('','').' '.$question . '</div>': '');
+	// Show JQuery confirm box. Note that global var $useglobalvars is used inside this template
+	$formconfirm.= '<div id="'.$dialogconfirm.'" title="'.dol_escape_htmltag($title).'" style="display: none;">';
+	if (! empty($more)) {
+		$formconfirm.= '<div class="confirmquestions">'.$more.'</div>';
+	}
 
-		// Show JQuery confirm box. Note that global var $useglobalvars is used inside this template
-		$formconfirm.= '<div id="'.$dialogconfirm.'" title="'.dol_escape_htmltag($title).'" style="display: none;">';
-		if (! empty($more)) {
-			$formconfirm.= '<div class="confirmquestions">'.$more.'</div>';
-		}
-
-		$formconfirm.= '</div>'."\n";
-
-		$formconfirm.= "\n<!-- begin ajax form_confirm page=".$page." -->\n";
-		$formconfirm.= '<script type="text/javascript">'."\n";
-		$formconfirm.= 'jQuery(document).ready(function() {
+	$formconfirm.= '</div>'."\n";
+	$formconfirm.= "\n<!-- begin ajax form_confirm page=".$page." -->\n";
+	$formconfirm.= '<script type="text/javascript">'."\n";
+	$formconfirm.= 'jQuery(document).ready(function() {
             $(function() {
             	$( "#'.$dialogconfirm.'" ).dialog(
             	{
                     autoOpen: '.($autoOpen ? "true" : "false").',';
-		if ($newselectedchoice == 'no')
-		{
-			$formconfirm.='
-						open: function() {
-            				$(this).parent().find("button.ui-button:eq(2)").focus();
-						},';
-		}
+	if ($newselectedchoice == 'no')
+	{
 		$formconfirm.='
-                    resizable: false,
-                    height: "'.$height.'",
-                    width: "'.$width.'",
-                    modal: true,
-                    closeOnEscape: false,
-                    buttons: {
-                        "'.dol_escape_js($langs->transnoentities("Yes")).'": function() {
-                        	var options="";
-                        	var inputok = '.json_encode($inputok).';
-                         	var pageyes = "'.dol_escape_js(! empty($pageyes)?$pageyes:'').'";
-                         	if (inputok.length>0) {
-                         		$.each(inputok, function(i, inputname) {
-                         			var more = "";
-                         			if ($("#" + inputname).attr("type") == "checkbox") { more = ":checked"; }
-                         		    if ($("#" + inputname).attr("type") == "radio") { more = ":checked"; }
-                         			var inputvalue = $("#" + inputname + more).val();
-                         			if (typeof inputvalue == "undefined") { inputvalue=""; }
-                         			options += "&" + inputname + "=" + inputvalue;
-                         		});
-                         	}
-                         	var urljump = pageyes + (pageyes.indexOf("?") < 0 ? "?" : "") + options;
-                         	//alert(urljump);
-            				drop2(options)
-                            $(this).dialog("close");
-                        },
-                        "'.dol_escape_js($langs->transnoentities("No")).'": function() {
-                        	var options = "";
-                         	var inputko = '.json_encode($inputko).';
-                         	var pageno="'.dol_escape_js(! empty($pageno)?$pageno:'').'";
-                         	if (inputko.length>0) {
-                         		$.each(inputko, function(i, inputname) {
-                         			var more = "";
-                         			if ($("#" + inputname).attr("type") == "checkbox") { more = ":checked"; }
-                         			var inputvalue = $("#" + inputname + more).val();
-                         			if (typeof inputvalue == "undefined") { inputvalue=""; }
-                         			options += "&" + inputname + "=" + inputvalue;
-                         		});
-                         	}
-                         	var urljump=pageno + (pageno.indexOf("?") < 0 ? "?" : "") + options;
-                         	//alert(urljump);
-                            $(this).dialog("close");
-                        }
+					open: function() {
+           				$(this).parent().find("button.ui-button:eq(2)").focus();
+					},';
+	}
+	$formconfirm.='
+                   resizable: false,
+                   height: "'.$height.'",
+                   width: "'.$width.'",
+                   modal: true,
+                   closeOnEscape: false,
+                   buttons: {
+                       "'.dol_escape_js($langs->transnoentities("Yes")).'": function() {
+                       	var options="";
+                       	var inputok = '.json_encode($inputok).';
+                       	var pageyes = "'.dol_escape_js(! empty($pageyes)?$pageyes:'').'";
+                       	if (inputok.length>0) {
+                       		$.each(inputok, function(i, inputname) {
+                       			var more = "";
+                       			if ($("#" + inputname).attr("type") == "checkbox") { more = ":checked"; }
+                       		    if ($("#" + inputname).attr("type") == "radio") { more = ":checked"; }
+                       			var inputvalue = $("#" + inputname + more).val();
+                       			if (typeof inputvalue == "undefined") { inputvalue=""; }
+                        			options += "&" + inputname + "=" + inputvalue;
+                       		});
+                       	}
+                       	var urljump = pageyes + (pageyes.indexOf("?") < 0 ? "?" : "") + options;
+                       	//alert(urljump);
+          				drop(options)
+                        $(this).dialog("close");
+                     },
+                    "'.dol_escape_js($langs->transnoentities("No")).'": function() {
+                       	var options = "";
+                       	var inputko = '.json_encode($inputko).';
+                       	var pageno="'.dol_escape_js(! empty($pageno)?$pageno:'').'";
+                       	if (inputko.length>0) {
+                       		$.each(inputko, function(i, inputname) {
+                    			var more = "";
+                       			if ($("#" + inputname).attr("type") == "checkbox") { more = ":checked"; }
+                       			var inputvalue = $("#" + inputname + more).val();
+                       			if (typeof inputvalue == "undefined") { inputvalue=""; }
+                       			options += "&" + inputname + "=" + inputvalue;
+                       		});
+                       	}
+                       	var urljump=pageno + (pageno.indexOf("?") < 0 ? "?" : "") + options;
+                       	//alert(urljump);
+                        $(this).dialog("close");
                     }
                 }
-                );
+            }
+       );
 
-            	var button = "'.$button.'";
-            	if (button.length > 0) {
-                	$( "#" + button ).click(function() {
-                		$("#'.$dialogconfirm.'").dialog("open");
-        			});
-                }
-            });
-            });
-			function drop2(options) {
-				alert( "Résultat: " + options);
-			}
-            </script>';
-		$formconfirm.= "<!-- end ajax form_confirm -->\n";
-	}
-	else
-	{
-		$formconfirm.= "\n<!-- begin form_confirm page=".$page." -->\n";
-
-		$formconfirm.= '<form method="POST" action="'.$page.'" class="notoptoleftroright">'."\n";
-		$formconfirm.= '<input type="hidden" name="action" value="'.$action.'">'."\n";
-		$formconfirm.= '<input type="hidden" name="token" value="'.$_SESSION['newtoken'].'">'."\n";
-
-		$formconfirm.= '<table width="100%" class="valid">'."\n";
-
-		// Line title
-		$formconfirm.= '<tr class="validtitre"><td class="validtitre" colspan="3">'.img_picto('','recent').' '.$title.'</td></tr>'."\n";
-
-		// Line form fields
-		if ($more)
-		{
-			$formconfirm.='<tr class="valid"><td class="valid" colspan="3">'."\n";
-			$formconfirm.=$more;
-			$formconfirm.='</td></tr>'."\n";
-		}
-
-		// Line with question
-		$formconfirm.= '<tr class="valid">';
-		$formconfirm.= '<td class="valid">'.$question.'</td>';
-		$formconfirm.= '<td class="valid">';
-		$formconfirm.= $this->selectyesno("confirm",$newselectedchoice);
-		$formconfirm.= '</td>';
-		$formconfirm.= '<td class="valid" align="center"><input class="button" type="submit" value="'.$langs->trans("Validate").'"></td>';
-		$formconfirm.= '</tr>'."\n";
-
-		$formconfirm.= '</table>'."\n";
-
-		$formconfirm.= "</form>\n";
-		$formconfirm.= '<br>';
-
-		$formconfirm.= "<!-- end form_confirm -->\n";
-	}
-
-	return $formconfirm;
+	   	var button = "'.$button.'";
+       	if (button.length > 0) {
+           	$( "#" + button ).click(function() {
+      		$("#'.$dialogconfirm.'").dialog("open");
+    	});
+   }
+});
+});
+function drop(options) {
+	$.ajax({
+	method: "POST",
+	url: "dragdrop.php",
+	data: { options: options},
+	success: function(msg){
+		alert("resultat" + msg);}
+	})
+}
+</script>';
+$formconfirm.= "<!-- end ajax form_confirm -->\n";
+return $formconfirm;
 }
 ?>
