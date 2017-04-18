@@ -132,7 +132,7 @@ if($res>0){
 	}else{
 		echo $lead->error;
 	}
-}elseif($action=='confirm_move'){
+}elseif($action=='confirm_move_x'){
 	$c_status=7;
 	$chaude=0;
 	$lead->fk_c_status = $c_status;
@@ -340,10 +340,13 @@ function drop(options) {
 	$.ajax({
 	method: "POST",
 	url: "dragdrop.php",
-	data: { options: options},
+	data: options,
 	success: function(msg){
 		alert("resultat" + msg);}
-	})
+	},
+    error: function(msg)){
+      	alert("erreur" + msg);
+     }
 }
 </script>';
 $formconfirm.= "<!-- end ajax form_confirm -->\n";
