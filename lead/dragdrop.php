@@ -74,12 +74,12 @@ if($res>0){
 								'value' =>  $new_statut
 						));
 
-				foreach ($array_motif as $id => $motif){
+				foreach ($array_motif as $motif){
 						$formquestion[]= array(
 								'type' => 'checkbox',
-								'name' => 'options_motif' . $id,
-								'label' => $motif,
-								'value' => 0
+								'name' => 'options_motif' . $motif['id'],
+								'label' => $motif['motif'],
+								'value' => false
 						);
 				}
 				$formquestion[]=array(
