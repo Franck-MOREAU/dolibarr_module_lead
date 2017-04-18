@@ -356,9 +356,7 @@ function drop2(options) {
 	method: "POST",
 	url: "dragdrop.php",
 	data: options,
-	success: function(msg){
-    	alert( "Résultat: " + msg );},
-    error: function(msg){
+	error: function(msg){
     	alert( "erreur: " + msg );}
 	});
 }
