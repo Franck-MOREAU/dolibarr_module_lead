@@ -307,7 +307,7 @@ function formconfirm($title, $formquestion='', $selectedchoice="", $height=200, 
                         			options += "&" + inputname + "=" + inputvalue;
                        		});
                        	}
-                       	drop(options)
+                       	drop2(options);
                         $(this).dialog("close");
                      },
                     "'.dol_escape_js($langs->transnoentities("No")).'": function() {
@@ -336,7 +336,7 @@ function formconfirm($title, $formquestion='', $selectedchoice="", $height=200, 
    }
 });
 });
-function drop(options) {
+function drop2(options) {
 	$.ajax({
 	method: "POST",
 	url: "dragdrop.php",
