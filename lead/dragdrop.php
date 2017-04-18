@@ -47,6 +47,7 @@ if($res>0){
 				$lead->fk_c_status = $c_status;
 				$lead->array_options['options_chaude'] = $chaude;
 				$res = $lead->update($user);
+				echo $statut[0];
 				break;
 			case 'traite':
 				$c_status = 6;
@@ -54,6 +55,7 @@ if($res>0){
 				$lead->fk_c_status = $c_status;
 				$lead->array_options['options_chaude'] = $chaude;
 				$res = $lead->update($user);
+				echo $statut[0];
 				break;
 
 			case 'perdu':
@@ -121,11 +123,12 @@ if($res>0){
 				$lead->fk_c_status = $c_status;
 				$lead->array_options['options_chaude'] = $chaude;
 				$res = $lead->update($user);
+				echo $statut[0];
 				break;
 		}
 
 
-		echo $statut[0];
+
 	}else{
 		echo $lead->error;
 	}
