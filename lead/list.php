@@ -275,7 +275,7 @@ $title = $langs->trans('LeadList');
 if(GETPOST("button_export_x")){
 	$handler = fopen("php://output", "w");
 	header('Content-Type: text/csv');
-	header('Content-Disposition: attachment;filename=' . $this->export_name . '.csv');
+	header('Content-Disposition: attachment;filename=affaires.csv');
 	fputs($handler, $bom =( chr(0xEF) . chr(0xBB) . chr(0xBF) ));
 
 	$line_head=array(
