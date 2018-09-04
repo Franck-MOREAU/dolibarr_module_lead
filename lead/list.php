@@ -365,8 +365,6 @@ if ($resql != - 1) {
 	print $formlead->select_lead_status($search_status, 'search_status', 1);
 	print '</td>';
 
-	print '<td id="totalcmd" align="right"></td>';
-
 	// Nb commandé
 	print '<td id="totalcmd" align="right"></td>';
 
@@ -381,6 +379,10 @@ if ($resql != - 1) {
 
 	print '<td class="liste_titre">';
 	print $form->selectarray('search_carrosserie',$reprise->carrosserie_dict,$search_carrosserie,1);
+	print '</td>';
+
+	print '<td class="liste_titre">';
+	print $form->selectarray('search_efgamme',$reprise->type,$search_efgamme,1);
 	print '</td>';
 
 	// Nb commandé
