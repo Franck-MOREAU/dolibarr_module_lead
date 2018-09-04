@@ -76,7 +76,9 @@ if ($search_carrosserie == - 1)
 $search_commercial = GETPOST('search_commercial');
 if ($search_commercial == - 1)
 	$search_commercial = '';
-
+$search_gamme = GETPOST('search_gamme');
+if ($search_gamme == - 1)
+	$search_gamme = 0;
 $search_month = GETPOST('search_month', 'aplha');
 $search_year = GETPOST('search_year', 'int');
 
@@ -200,6 +202,10 @@ if (! empty($search_month)) {
 if (! empty($search_year)) {
 	$filter['YEAR(t.datec)'] = $search_year;
 	$option .= '&search_year=' . $search_year;
+}
+if (! empty($search_gamme)) {
+	$filter['leadextra.genre'] = $search_gamme;
+	$option .= '&search_gamme=' . $search_gamme;
 }
 
 if (!empty($viewtype)) {
