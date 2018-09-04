@@ -298,6 +298,10 @@ if(GETPOST("button_export_x")){
 	$resql = $object->fetch_all($sortorder, $sortfield, 0, 0, $filter);
 	if ($resql != - 1) {
 		foreach ($object->lines as $line) {
+
+			$lead = New Leadext($db);
+			$lead->fetch($line->id);
+
 			if (! empty($line->fk_user_resp)) {
 				$userstatic = new User($db);
 				$userstatic->fetch($line->fk_user_resp);
