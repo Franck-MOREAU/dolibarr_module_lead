@@ -493,7 +493,7 @@ if ($resql != - 1) {
 		print '<td>' . $reprise->carrosserie_dict[$lead->array_options['options_carroserie']] . '</td>';
 
 		// gamme
-		print '<td>' . $reprise->type[$lead->array_options['options_type']] . '</td>';
+		print '<td>' . $reprise->genre[$lead->array_options['options_genre']] . '</td>';
 
 		//nb chassis reel
 		print '<td>' . $lead->getnbchassisreal() . '</td>';
