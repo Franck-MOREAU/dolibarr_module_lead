@@ -365,6 +365,8 @@ if (empty($conf->global->MAIN_DISABLE_FULL_SCANLIST)) {
 }
 $resql = $object->fetch_all($sortorder, $sortfield, $conf->liste_limit, $offset, $filter);
 
+var_dump($resql);
+
 if ($resql != - 1) {
 	$num = $resql;
 
