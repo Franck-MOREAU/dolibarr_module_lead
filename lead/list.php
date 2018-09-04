@@ -382,7 +382,7 @@ if ($resql != - 1) {
 	print '</td>';
 
 	print '<td class="liste_titre">';
-	print $form->selectarray('search_efgamme',$reprise->type,$search_efgamme,1);
+	print $form->selectarray('search_efgamme',$reprise->genre,$search_efgamme,1);
 	print '</td>';
 
 	// Nb commandé
