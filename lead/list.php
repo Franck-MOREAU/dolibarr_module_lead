@@ -332,8 +332,9 @@ if ($resql != - 1) {
 	print_liste_field_titre($langs->trans("LeadStatus"), $_SERVEUR['PHP_SELF'], "leadsta.label", "", $option, '', $sortfield, $sortorder);
 	print '<th>Nb Annoncé</th>';
 	print_liste_field_titre('Canal de vente', $_SERVEUR['PHP_SELF'], "leadtype.label", "", $option, '', $sortfield, $sortorder);
-	print_liste_field_titre('Type', $_SERVEUR['PHP_SELF'], "leadextra.gamme", "", $option, '', $sortfield, $sortorder);
+	print_liste_field_titre('Gamme', $_SERVEUR['PHP_SELF'], "leadextra.gamme", "", $option, '', $sortfield, $sortorder);
 	print_liste_field_titre('Carrosserie', $_SERVEUR['PHP_SELF'], "leadextra.carroserie", "", $option, '', $sortfield, $sortorder);
+	print_liste_field_titre('type', $_SERVEUR['PHP_SELF'], "leadextra.carroserie", "", $option, '', $sortfield, $sortorder);
 	print '<th>Nb commandé</th>';
 	print '<th>Montant annoncé</th>';
 	print '<th>Montant des commandes</th>';
@@ -486,6 +487,9 @@ if ($resql != - 1) {
 
 		// carrosserie
 		print '<td>' . $reprise->carrosserie_dict[$lead->array_options['options_carroserie']] . '</td>';
+
+		// gamme
+		print '<td>' . $reprise->type[$lead->array_options['options_type']] . '</td>';
 
 		//nb chassis reel
 		print '<td>' . $lead->getnbchassisreal() . '</td>';
