@@ -76,9 +76,9 @@ if ($search_carrosserie == - 1)
 $search_commercial = GETPOST('search_commercial');
 if ($search_commercial == - 1)
 	$search_commercial = '';
-$search_gamme = GETPOST('search_gamme');
-if ($search_gamme == - 1)
-	$search_gamme = 0;
+$search_genre = GETPOST('search_genre');
+if ($search_genre == - 1)
+	$search_genre = 0;
 $search_month = GETPOST('search_month', 'aplha');
 $search_year = GETPOST('search_year', 'int');
 
@@ -203,9 +203,9 @@ if (! empty($search_year)) {
 	$filter['YEAR(t.datec)'] = $search_year;
 	$option .= '&search_year=' . $search_year;
 }
-if (! empty($search_gamme)) {
+if (! empty($search_genre)) {
 	$filter['leadextra.genre'] = $search_gamme;
-	$option .= '&search_gamme=' . $search_gamme;
+	$option .= '&search_genre=' . $search_gamme;
 }
 
 if (!empty($viewtype)) {
@@ -456,7 +456,7 @@ if ($resql != - 1) {
 	print '</td>';
 
 	print '<td class="liste_titre">';
-	print $form->selectarray('search_efgamme',$reprise->genre,$search_efgamme,1);
+	print $form->selectarray('search_genre',$reprise->genre,$search_genre,1);
 	print '</td>';
 
 	// Nb commandé
