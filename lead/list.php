@@ -204,8 +204,8 @@ if (! empty($search_year)) {
 	$option .= '&search_year=' . $search_year;
 }
 if (! empty($search_genre)) {
-	$filter['leadextra.genre'] = $search_gamme;
-	$option .= '&search_genre=' . $search_gamme;
+	$filter['leadextra.genre'] = $search_genre;
+	$option .= '&search_genre=' . $search_genre;
 }
 
 if (!empty($viewtype)) {
