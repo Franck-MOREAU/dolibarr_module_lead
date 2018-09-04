@@ -580,7 +580,7 @@ class Lead extends CommonObject
 		} else {
 			$this->error = "Error " . $this->db->lasterror();
 			dol_syslog(get_class($this) . "::fetch_all " . $this->error, LOG_ERR);
-			return $sql;
+			return -1;
 		}
 	}
 
