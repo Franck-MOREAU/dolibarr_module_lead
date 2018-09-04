@@ -283,7 +283,68 @@ if (!empty($socid)) {
 
 	dol_fiche_head($head, 'tabLead', $langs->trans("Module103111Name"),0,dol_buildpath('/lead/img/object_lead.png', 1),1);
 }
+if(GETPOST("button_export_x")){
+	$handler = fopen("php://output", "w");
+	header('Content-Type: text/csv');
+	header('Content-Disposition: attachment;filename=' . $this->export_name . '.csv');
+	fputs($handler, $bom =( chr(0xEF) . chr(0xBB) . chr(0xBF) ));
 
+	$line_head=array(
+			'Ref',
+			'Responsable',
+			'Client',
+			'Etape de vente',
+			'Nb Annoncé',
+			'Canal de vente',
+			'Gamme',
+			'Carrosserie',
+			'type',
+			'Nb commandé',
+			'Montant des commandes',
+			'Marge a date',
+			'Marge a date réelle'
+	);
+
+	fputcsv($handler, $line_head, ';', '"');
+	$resql = $object->fetch_all($sortorder, $sortfield, 0, 0, $filter);
+	if ($resql != - 1) {
+		foreach ($object->lines as $line) {
+			if (! empty($line->fk_user_resp)) {
+				$userstatic = new User($db);
+				$userstatic->fetch($line->fk_user_resp);
+				if (! empty($userstatic->id)) {
+					$commerc=strip_tags($userstatic->getFullName($langs));
+				}
+			}
+
+			if (! empty($line->fk_soc) && $line->fk_soc != - 1) {
+				$soc = new Societe($db);
+				$soc->fetch($line->fk_soc);
+				$client= strip_tags($soc->getNomURL(0));
+			}
+
+			$amount = $lead->getRealAmount2();
+
+			$line_exp=array(
+					$line->ref,
+					$commerc,
+					$client,
+					$line->status_label,
+					$line->array_options['options_nbchassis'],
+					$line->type_label,
+					$reprise->gamme[$lead->array_options['options_gamme']],
+					$reprise->carrosserie_dict[$lead->array_options['options_carroserie']],
+					$reprise->genre[$lead->array_options['options_type']],
+					$lead->getnbchassisreal(),
+					$amount,
+					$lead->getmargin('theo'),
+					$lead->getmargin('real')
+			);
+			fputcsv($handler, $line_exp, ';', '"');
+		}
+	}
+	exit;
+}
 // Count total nb of records
 $nbtotalofrecords = 0;
 
