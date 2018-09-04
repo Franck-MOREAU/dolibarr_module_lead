@@ -272,17 +272,6 @@ if (empty($sortfield))
 
 $title = $langs->trans('LeadList');
 
-llxHeader('', $title);
-
-if (!empty($socid)) {
-	require_once DOL_DOCUMENT_ROOT . '/societe/class/societe.class.php';
-	require_once DOL_DOCUMENT_ROOT.'/core/lib/company.lib.php';
-	$soc = new Societe($db);
-	$soc->fetch($socid);
-	$head = societe_prepare_head($soc);
-
-	dol_fiche_head($head, 'tabLead', $langs->trans("Module103111Name"),0,dol_buildpath('/lead/img/object_lead.png', 1),1);
-}
 if(GETPOST("button_export_x")){
 	$handler = fopen("php://output", "w");
 	header('Content-Type: text/csv');
@@ -345,6 +334,19 @@ if(GETPOST("button_export_x")){
 	}
 	exit;
 }
+
+llxHeader('', $title);
+
+if (!empty($socid)) {
+	require_once DOL_DOCUMENT_ROOT . '/societe/class/societe.class.php';
+	require_once DOL_DOCUMENT_ROOT.'/core/lib/company.lib.php';
+	$soc = new Societe($db);
+	$soc->fetch($socid);
+	$head = societe_prepare_head($soc);
+
+	dol_fiche_head($head, 'tabLead', $langs->trans("Module103111Name"),0,dol_buildpath('/lead/img/object_lead.png', 1),1);
+}
+
 // Count total nb of records
 $nbtotalofrecords = 0;
 
